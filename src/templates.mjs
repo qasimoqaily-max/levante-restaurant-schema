@@ -229,6 +229,8 @@ export function renderPage(site, page, menu) {
   const c = t(page.lang);
   const alternates = languageAlternates(site, page);
   const ogImage = absolute(site, site.assets.og);
+  const ogLocale = page.lang === 'de' ? 'de_DE' : page.lang === 'en' ? 'en_GB' : 'ar_AR';
+  const ogAlternates = ['de_DE', 'en_GB', 'ar_AR'].filter(locale => locale !== ogLocale);
   const graph = graphFor(site, page, menu);
   return `<!doctype html>
 <html lang="${page.lang}" dir="${page.lang === 'ar' ? 'rtl' : 'ltr'}">
@@ -245,8 +247,16 @@ ${alternates}
   <meta property="og:title" content="${escapeHtml(page.title)}">
   <meta property="og:description" content="${escapeHtml(page.description)}">
   <meta property="og:url" content="${canonical}">
+  <meta property="og:locale" content="${ogLocale}">
+  ${ogAlternates.map(locale => `<meta property="og:locale:alternate" content="${locale}">`).join('\n  ')}
   <meta property="og:image" content="${ogImage}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Levante Restaurant Radolfzell">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${escapeHtml(page.title)}">
+  <meta name="twitter:description" content="${escapeHtml(page.description)}">
+  <meta name="twitter:image" content="${ogImage}">
   <meta name="theme-color" content="#0c7773">
   <link rel="icon" href="/assets/img/favicon.png" sizes="32x32">
   <link rel="manifest" href="/site.webmanifest">
