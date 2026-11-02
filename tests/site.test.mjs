@@ -157,6 +157,22 @@ test('real Levante imagery is responsive, descriptive, and performance-safe', ()
     alts.add(alt);
   }
 });
+test('external links are HTTPS and limited to approved services', () => {
+  const approved = new Set([
+    'tablego.uk',
+    'www.levanterestaurant-radolfzellambodensee.de',
+    'www.google.com',
+    'www.tripadvisor.com',
+  ]);
+  for (const [file] of pages) {
+    const html = read(file);
+    for (const match of html.matchAll(/<a\b[^>]*\bhref=["'](https?:\/\/[^"']+)["']/gi)) {
+      const url = new URL(match[1]);
+      assert.equal(url.protocol, 'https:', `${file}: insecure external URL ${url.href}`);
+      assert.ok(approved.has(url.hostname), `${file}: unapproved external host ${url.hostname}`);
+    }
+  }
+});
 test('legacy routes redirect without becoming duplicate index pages', () => {
   for (const [file, target] of redirects) {
     const html = read(file);

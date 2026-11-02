@@ -27,4 +27,3 @@ test('deployment and rollback documentation is present', () => {
     assert.ok(fs.existsSync(path.join(root, 'docs', file)), `missing docs/${file}`);
   }
 });
-
