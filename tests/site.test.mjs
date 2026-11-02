@@ -130,6 +130,33 @@ test('internal links and local images resolve', () => {
   }
 });
 
+test('real Levante imagery is responsive, descriptive, and performance-safe', () => {
+  const required = [
+    'assets/img/levante-logo.webp',
+    'assets/img/favicon.png',
+    'assets/img/levante-og.jpg',
+    'assets/img/hero-table.webp',
+    'assets/img/garden-wide.webp',
+  ];
+  for (const file of required) assert.ok(exists(file), `missing required image ${file}`);
+
+  const homeImages = imageTags(read('index.html'));
+  assert.ok(homeImages.length >= 4, 'homepage needs at least four real images');
+  const priority = homeImages.find(tag => /fetchpriority=["']high["']/i.test(tag));
+  assert.ok(priority, 'homepage hero image must be high priority');
+  assert.match(priority, /loading=["']eager["']/i);
+
+  const galleryImages = imageTags(read('galerie/index.html'));
+  assert.ok(galleryImages.length >= 12, 'gallery needs at least twelve real images');
+  const alts = new Set();
+  for (const tag of galleryImages) {
+    assert.match(tag, /loading=["']lazy["']/i, 'gallery images must lazy-load');
+    const alt = tag.match(/\balt=["']([^"']+)["']/i)?.[1] ?? '';
+    assert.ok(alt.length >= 12, `weak gallery alt: ${alt}`);
+    assert.ok(!alts.has(alt), `duplicate gallery alt: ${alt}`);
+    alts.add(alt);
+  }
+});
 test('legacy routes redirect without becoming duplicate index pages', () => {
   for (const [file, target] of redirects) {
     const html = read(file);
@@ -162,3 +189,4 @@ test('asset budgets prevent slow regressions', () => {
   assert.ok(css <= 80_000, 'CSS budget');
   assert.ok(js <= 20_000, 'JS budget');
 });
+

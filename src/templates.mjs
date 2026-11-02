@@ -29,6 +29,9 @@ function nav(site, page) {
   const home = routeByLang[page.lang].home;
   const menu = routeByLang[page.lang].menu;
   const contact = page.kind === 'home' ? '#contact' : `${home}#contact`;
+  const deRoute = page.kind === 'menu' ? '/speisekarte/' : '/';
+  const enRoute = page.kind === 'menu' ? '/en/menu/' : '/en/';
+  const arRoute = page.kind === 'menu' ? '/ar/menu/' : '/ar/';
   return `<header class="site-header">
   <div class="shell header-inner">
     <a class="brand" href="${home}" aria-label="${escapeHtml(c.siteName)}">
@@ -41,11 +44,16 @@ function nav(site, page) {
       <a href="/galerie/">${escapeHtml(c.nav.gallery)}</a>
       <a href="/bewertungen/">${escapeHtml(c.nav.reviews)}</a>
       <a href="${contact}">${escapeHtml(c.nav.contact)}</a>
+      <div class="mobile-languages" aria-label="Language">
+        <a lang="de" href="${deRoute}"${page.lang === 'de' ? ' aria-current="page"' : ''}>Deutsch</a>
+        <a lang="en" href="${enRoute}"${page.lang === 'en' ? ' aria-current="page"' : ''}>English</a>
+        <a lang="ar" dir="rtl" href="${arRoute}"${page.lang === 'ar' ? ' aria-current="page"' : ''}>العربية</a>
+      </div>
     </nav>
     <div class="lang-switch" aria-label="Language">
-      <a lang="de" href="${page.kind === 'menu' ? '/speisekarte/' : '/'}"${page.lang === 'de' ? ' aria-current="page"' : ''}>DE</a>
-      <a lang="en" href="${page.kind === 'menu' ? '/en/menu/' : '/en/'}"${page.lang === 'en' ? ' aria-current="page"' : ''}>EN</a>
-      <a lang="ar" dir="rtl" href="${page.kind === 'menu' ? '/ar/menu/' : '/ar/'}"${page.lang === 'ar' ? ' aria-current="page"' : ''}>AR</a>
+      <a lang="de" href="${deRoute}"${page.lang === 'de' ? ' aria-current="page"' : ''}>DE</a>
+      <a lang="en" href="${enRoute}"${page.lang === 'en' ? ' aria-current="page"' : ''}>EN</a>
+      <a lang="ar" dir="rtl" href="${arRoute}"${page.lang === 'ar' ? ' aria-current="page"' : ''}>AR</a>
     </div>
   </div>
 </header>`;
@@ -83,6 +91,26 @@ function actionButtons(site, lang) {
 
 function renderHome(site, page) {
   const c = t(page.lang);
+  const alt = page.lang === 'ar'
+    ? {
+        hero: 'مائدة شامية متنوعة في مطعم ليفانتي رادولفتسل',
+        logo: 'شعار مطعم ليفانتي رادولفتسل',
+        garden: 'حديقة مطعم ليفانتي الخارجية في رادولفتسل',
+        falafel: 'طبق فلافل مع الخضار وصلصة الطحينة',
+      }
+    : page.lang === 'en'
+      ? {
+          hero: 'A colourful Levantine table at Levante Restaurant Radolfzell',
+          logo: 'Levante Restaurant Radolfzell logo',
+          garden: 'The outdoor garden at Levante Restaurant Radolfzell',
+          falafel: 'Falafel plate with vegetables and tahini sauce',
+        }
+      : {
+          hero: 'Levantinische Tafel im Levante Restaurant Radolfzell',
+          logo: 'Logo des Levante Restaurants in Radolfzell',
+          garden: 'Garten des Levante Restaurants in Radolfzell',
+          falafel: 'Falafelteller mit Gemüse und Tahinasauce',
+        };
   return `<main id="main">
   <section class="hero">
     <div class="shell hero-grid">
@@ -92,12 +120,20 @@ function renderHome(site, page) {
         <p class="lead">${escapeHtml(c.hero.text)}</p>
         ${actionButtons(site, page.lang)}
       </div>
-      <div class="hero-art" aria-hidden="true"><span>LEVANTE</span><small>نكهات الشام على بحيرة بودينزي</small></div>
+      <figure class="hero-media">
+        <img src="/assets/img/hero-table.webp" width="1500" height="810" loading="eager" fetchpriority="high" decoding="async" alt="${escapeHtml(alt.hero)}">
+        <figcaption>Levante Restaurant · Radolfzell am Bodensee</figcaption>
+      </figure>
     </div>
   </section>
   <section class="section">
     <div class="shell"><div class="section-heading"><p class="eyebrow">Radolfzell am Bodensee</p><h2>${escapeHtml(c.highlights.title)}</h2></div>
       <div class="feature-grid">${c.highlights.items.map(([title, text]) => `<article class="card"><h3>${escapeHtml(title)}</h3><p>${escapeHtml(text)}</p></article>`).join('')}</div>
+      <div class="home-photo-grid" aria-label="Levante Restaurant">
+        <figure class="home-photo home-photo-logo"><img src="/assets/img/levante-logo.webp" width="800" height="800" loading="lazy" decoding="async" alt="${escapeHtml(alt.logo)}"></figure>
+        <figure class="home-photo home-photo-wide"><img src="/assets/img/garden-wide.webp" width="1600" height="1068" loading="lazy" decoding="async" alt="${escapeHtml(alt.garden)}"></figure>
+        <figure class="home-photo"><img src="/assets/img/falafel-plate.webp" width="1200" height="800" loading="lazy" decoding="async" alt="${escapeHtml(alt.falafel)}"></figure>
+      </div>
     </div>
   </section>
   <section class="section section-tint">
@@ -135,7 +171,27 @@ function renderMenu(site, page, menu) {
 
 function renderGallery(site, page) {
   const c = t(page.lang);
-  return `<main id="main" class="page-main"><section class="page-hero"><div class="shell"><p class="eyebrow">Levante Restaurant · Radolfzell</p><h1>${escapeHtml(c.galleryTitle)}</h1><p class="lead">${escapeHtml(c.galleryLead)}</p></div></section><section class="section"><div class="shell"><div class="gallery-placeholder"><p>${escapeHtml(c.galleryText)}</p></div></div></section></main>`;
+  const images = [
+    ['facade.webp', 1200, 800, 'Fassade des Levante Restaurants in der Löwengasse in Radolfzell'],
+    ['camel-entrance.webp', 800, 1200, 'Dekorativer Kamelaufsteller vor dem Levante Restaurant'],
+    ['restaurant-interior.webp', 1200, 800, 'Orientalisch eingerichteter Innenraum des Levante Restaurants'],
+    ['interior-counter.webp', 1200, 800, 'Theke und orientalische Dekoration im Levante Restaurant'],
+    ['mezze-spread.webp', 1200, 800, 'Levantinische Mezze und Hauptgerichte auf einer gedeckten Tafel'],
+    ['falafel-plate.webp', 1200, 800, 'Falafel mit frischem Gemüse und Tahinasauce'],
+    ['food-and-drinks.webp', 1200, 800, 'Levantinische Gerichte mit hausgemachten Getränken'],
+    ['arabic-coffee.webp', 1200, 800, 'Arabischer Kaffee wird in eine verzierte Tasse eingeschenkt'],
+    ['mint-tea.webp', 1200, 800, 'Glaskanne mit frischem Minztee und Teegläsern'],
+    ['garden-table.webp', 1200, 800, 'Gedeckter Tisch im grünen Garten des Levante Restaurants'],
+    ['garden-tea.webp', 800, 1200, 'Teeservice auf einem Gartentisch im Levante Restaurant'],
+    ['oriental-decor.webp', 1200, 800, 'Orientalisches Räuchergefäß als Detail der Restauranteinrichtung'],
+    ['fresh-ingredients.webp', 1200, 800, 'Frische Zutaten und Gewürze für levantinische Gerichte'],
+    ['mezze-table.webp', 1200, 800, 'Hummus, Salate und warme Mezze auf dem Restauranttisch'],
+    ['oriental-lamps.webp', 800, 1200, 'Bunte orientalische Lampen im Innenraum des Restaurants'],
+  ];
+  return `<main id="main" class="page-main">
+    <section class="page-hero"><div class="shell"><p class="eyebrow">Levante Restaurant · Radolfzell</p><h1>${escapeHtml(c.galleryTitle)}</h1><p class="lead">${escapeHtml(c.galleryLead)}</p></div></section>
+    <section class="section"><div class="shell"><p class="gallery-intro">${escapeHtml(c.galleryText)}</p><div class="gallery-grid">${images.map(([file, width, height, alt], index) => `<figure class="gallery-item${height > width ? ' gallery-item-portrait' : ''}${index === 4 ? ' gallery-item-featured' : ''}"><img class="gallery-image" src="/assets/img/${file}" width="${width}" height="${height}" loading="lazy" decoding="async" alt="${escapeHtml(alt)}"><figcaption>${escapeHtml(alt)}</figcaption></figure>`).join('')}</div></div></section>
+  </main>`;
 }
 
 function renderReviews(site, page) {
