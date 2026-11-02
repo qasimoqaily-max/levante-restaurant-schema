@@ -1,0 +1,74 @@
+{
+  "baseUrl": "https://www.levante-radolfzell.de",
+  "previewUrl": "https://restaurant.levante-radolfzell.de",
+  "business": {
+    "name": "Levante Restaurant",
+    "owner": "Qasim Aloqaily",
+    "street": "Löwengasse 30",
+    "postalCode": "78315",
+    "locality": "Radolfzell am Bodensee",
+    "region": "Baden-Württemberg",
+    "country": "DE",
+    "phoneDisplay": "07732 9589075",
+    "phoneE164": "+4977329589075",
+    "email": "info@levante-radolfzell.de",
+    "geo": {
+      "latitude": 47.7381456,
+      "longitude": 8.9676054
+    },
+    "openingDate": "2019-06-20",
+    "priceRange": "€€",
+    "cuisines": [
+      "Levantine",
+      "Middle Eastern",
+      "Arabic",
+      "Mediterranean"
+    ]
+  },
+  "hours": {
+    "main": {
+      "monThu": [
+        "16:00",
+        "22:00"
+      ],
+      "friSat": [
+        "11:00",
+        "00:00"
+      ],
+      "sun": [
+        "11:00",
+        "22:00"
+      ]
+    },
+    "delivery": {
+      "monThu": [
+        "16:00",
+        "21:00"
+      ],
+      "friSat": [
+        "11:00",
+        "22:00"
+      ],
+      "sun": [
+        "11:00",
+        "21:00"
+      ]
+    }
+  },
+  "actions": {
+    "reserve": "https://tablego.uk/levante-restaurant--0xmr3q",
+    "order": "https://www.levanterestaurant-radolfzellambodensee.de/",
+    "maps": "https://www.google.com/maps/search/?api=1&query=47.7381456%2C8.9676054",
+    "reviews": "https://www.google.com/maps/search/?api=1&query=Levante%20Restaurant%20Radolfzell"
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/levante.restaurant/",
+    "facebook": "https://www.facebook.com/LevanteRadolfzell",
+    "tripadvisor": "https://www.tripadvisor.com/Restaurant_Review-g983814-d17780373-Reviews-Levante_Restaurant-Radolfzell_am_Bodensee_Baden_Wurttemberg.html"
+  },
+  "assets": {
+    "logo": "/assets/img/levante-logo.webp",
+    "hero": "/assets/img/hero-table.webp",
+    "og": "/assets/img/levante-og.jpg"
+  }
+}

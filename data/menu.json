@@ -1,0 +1,625 @@
+{
+  "currency": "EUR",
+  "note": {
+    "de": "Maßgeblich für Verfügbarkeit, Allergene und kurzfristige Preisänderungen ist die aktuelle Speisekarte im Restaurant beziehungsweise die Online-Bestellseite.",
+    "en": "Availability, allergens and short-notice price changes are governed by the current menu in the restaurant or the online ordering page.",
+    "ar": "تعتمد المعلومات النهائية حول التوفر ومسببات الحساسية والتغييرات القصيرة الأجل في الأسعار على القائمة الحالية في المطعم أو صفحة الطلب الإلكتروني."
+  },
+  "sections": [
+    {
+      "id": "cold-starters",
+      "name": {
+        "de": "Kalte Vorspeisen",
+        "en": "Cold starters",
+        "ar": "المقبلات الباردة"
+      },
+      "note": {
+        "de": "Alle Gerichte werden mit Fladenbrot serviert.",
+        "en": "All dishes are served with flatbread.",
+        "ar": "تقدم جميع الأطباق مع الخبز العربي."
+      },
+      "items": [
+        {
+          "id": "hummus",
+          "name": {
+            "de": "Hummus",
+            "en": "Hummus",
+            "ar": "حمص"
+          },
+          "description": {
+            "de": "Kichererbsen mit Sesammus, Olivenöl und Zitronensaft",
+            "en": "Chickpeas with tahini, olive oil and lemon juice",
+            "ar": "حمص مع الطحينة وزيت الزيتون وعصير الليمون"
+          },
+          "price": "9.00",
+          "diet": "vegan"
+        },
+        {
+          "id": "baba-ghannouj",
+          "name": {
+            "de": "Baba Ghannouj",
+            "en": "Baba Ghannouj",
+            "ar": "بابا غنوج"
+          },
+          "description": {
+            "de": "Rauchig gegrillte Auberginenpaste mit Knoblauch, Tahini und Zitronensaft",
+            "en": "Smoky grilled aubergine purée with garlic, tahini and lemon juice",
+            "ar": "باذنجان مشوي بنكهة مدخنة مع الثوم والطحينة وعصير الليمون"
+          },
+          "price": "10.00",
+          "diet": "vegan"
+        },
+        {
+          "id": "muhammara",
+          "name": {
+            "de": "Muhammara",
+            "en": "Muhammara",
+            "ar": "محمرة"
+          },
+          "description": {
+            "de": "Bulgur-Granatapfelpaste mit Walnüssen, Zwiebeln, Olivenöl und Granatapfelsauce",
+            "en": "Bulgur and pomegranate spread with walnuts, onions, olive oil and pomegranate sauce",
+            "ar": "معجون البرغل ودبس الرمان مع الجوز والبصل وزيت الزيتون وصلصة الرمان"
+          },
+          "price": "9.00",
+          "diet": "vegan"
+        },
+        {
+          "id": "zaitun",
+          "name": {
+            "de": "Zaitun",
+            "en": "Zaitun",
+            "ar": "زيتون"
+          },
+          "description": {
+            "de": "Olivenschale",
+            "en": "A bowl of olives",
+            "ar": "طبق زيتون"
+          },
+          "price": "3.50",
+          "diet": "vegan"
+        },
+        {
+          "id": "levante-mix",
+          "name": {
+            "de": "Levante Mix Teller",
+            "en": "Levante mixed plate",
+            "ar": "طبق ليفانتي المشكل"
+          },
+          "description": {
+            "de": "Hummus, Baba Ghannouj, Muhammara, Falafel und Levante Salat",
+            "en": "Hummus, baba ghannouj, muhammara, falafel and Levante salad",
+            "ar": "حمص وبابا غنوج ومحمرة وفلافل وسلطة ليفانتي"
+          },
+          "price": "21.00",
+          "diet": "vegan"
+        },
+        {
+          "id": "magdous",
+          "name": {
+            "de": "Magdous",
+            "en": "Magdous",
+            "ar": "مكدوس"
+          },
+          "description": {
+            "de": "Baby-Aubergine gefüllt mit Walnüssen, Knoblauch und Olivenöl",
+            "en": "Baby aubergine stuffed with walnuts, garlic and olive oil",
+            "ar": "باذنجان صغير محشو بالجوز والثوم وزيت الزيتون"
+          },
+          "price": "9.00",
+          "diet": "vegan"
+        }
+      ]
+    },
+    {
+      "id": "warm-starters",
+      "name": {
+        "de": "Warme Vorspeisen",
+        "en": "Warm starters",
+        "ar": "المقبلات الساخنة"
+      },
+      "note": {
+        "de": "",
+        "en": "",
+        "ar": ""
+      },
+      "items": [
+        {
+          "id": "sambusa",
+          "name": {
+            "de": "Sambusa (3 Stück)",
+            "en": "Sambusa (3 pieces)",
+            "ar": "سمبوسك (3 قطع)"
+          },
+          "description": {
+            "de": "Hausgemachte Teigtaschen gefüllt mit Kohl, Pilzen, Tahinasauce und Röstzwiebeln",
+            "en": "Homemade pastries filled with cabbage, mushrooms, tahini sauce and fried onions",
+            "ar": "فطائر منزلية محشوة بالملفوف والفطر وصلصة الطحينة والبصل المحمص"
+          },
+          "price": "12.00",
+          "diet": "vegan"
+        },
+        {
+          "id": "ayays-zaatar",
+          "name": {
+            "de": "Ayays Zaatar",
+            "en": "Ayays Zaatar",
+            "ar": "عرايس زعتر"
+          },
+          "description": {
+            "de": "Geröstetes Fladenbrot mit Sesam, Zaatar und Käse",
+            "en": "Toasted flatbread with sesame, zaatar and cheese",
+            "ar": "خبز عربي محمص مع السمسم والزعتر والجبن"
+          },
+          "price": "10.00",
+          "diet": "vegetarian"
+        },
+        {
+          "id": "falafel",
+          "name": {
+            "de": "Falafel (5 Stück)",
+            "en": "Falafel (5 pieces)",
+            "ar": "فلافل (5 قطع)"
+          },
+          "description": {
+            "de": "Hausgemachte Kichererbsen-Bällchen mit Knoblauch, Petersilie, Koriander und Tahinasauce",
+            "en": "Homemade chickpea fritters with garlic, parsley, coriander and tahini sauce",
+            "ar": "أقراص حمص منزلية مع الثوم والبقدونس والكزبرة وصلصة الطحينة"
+          },
+          "price": "9.00",
+          "diet": "vegan"
+        },
+        {
+          "id": "fried-halloumi",
+          "name": {
+            "de": "Frittierter Halloumi",
+            "en": "Fried halloumi",
+            "ar": "حلوم مقلي"
+          },
+          "description": {
+            "de": "Mit Granatapfelsauce, dazu Fladenbrot",
+            "en": "With pomegranate sauce and flatbread",
+            "ar": "مع صلصة الرمان والخبز العربي"
+          },
+          "price": "10.00",
+          "diet": "vegetarian"
+        },
+        {
+          "id": "foul-akhdar",
+          "name": {
+            "de": "Foul Akhdar",
+            "en": "Foul Akhdar",
+            "ar": "فول أخضر"
+          },
+          "description": {
+            "de": "Grüne Saubohnen mit Zwiebeln, Knoblauch und Olivenöl, dazu Fladenbrot",
+            "en": "Green broad beans with onions, garlic and olive oil, served with flatbread",
+            "ar": "فول أخضر مع البصل والثوم وزيت الزيتون ويقدم مع الخبز العربي"
+          },
+          "price": "9.00",
+          "diet": "vegan"
+        },
+        {
+          "id": "kebbeh",
+          "name": {
+            "de": "Kebbeh (3 Stück)",
+            "en": "Kebbeh (3 pieces)",
+            "ar": "كبة (3 قطع)"
+          },
+          "description": {
+            "de": "Hausgemachter Bulgurteig gefüllt mit Zwiebeln, Kalb- und Lammhackfleisch, dazu Fladenbrot",
+            "en": "Homemade bulgur shells filled with onions, minced veal and lamb, served with flatbread",
+            "ar": "عجينة برغل منزلية محشوة بالبصل ولحم العجل والضأن المفروم وتقدم مع الخبز العربي"
+          },
+          "price": "15.00",
+          "diet": "none"
+        },
+        {
+          "id": "arays-lahmeh",
+          "name": {
+            "de": "Arays Lahmeh",
+            "en": "Arays Lahmeh",
+            "ar": "عرايس لحمة"
+          },
+          "description": {
+            "de": "Geröstetes Fladenbrot gefüllt mit Kalb- und Lammhackfleisch",
+            "en": "Toasted flatbread filled with minced veal and lamb",
+            "ar": "خبز عربي محمص محشو بلحم العجل والضأن المفروم"
+          },
+          "price": "15.00",
+          "diet": "none"
+        },
+        {
+          "id": "foul-medammes",
+          "name": {
+            "de": "Foul Medammes",
+            "en": "Foul Medammes",
+            "ar": "فول مدمس"
+          },
+          "description": {
+            "de": "Gewürzte Saubohnen mit Knoblauch, Zitronensaft und Tahinasauce, dazu Fladenbrot",
+            "en": "Seasoned broad beans with garlic, lemon juice and tahini sauce, served with flatbread",
+            "ar": "فول متبل مع الثوم وعصير الليمون وصلصة الطحينة ويقدم مع الخبز العربي"
+          },
+          "price": "9.00",
+          "diet": "vegan"
+        },
+        {
+          "id": "zahra-maglijeh",
+          "name": {
+            "de": "Zahra Maglijeh",
+            "en": "Zahra Maglijeh",
+            "ar": "زهرة مقلية"
+          },
+          "description": {
+            "de": "Frittierter Blumenkohl mit Knoblauch und Zitronensaft, dazu Fladenbrot",
+            "en": "Fried cauliflower with garlic and lemon juice, served with flatbread",
+            "ar": "قرنبيط مقلي مع الثوم وعصير الليمون ويقدم مع الخبز العربي"
+          },
+          "price": "10.00",
+          "diet": "vegan"
+        }
+      ]
+    },
+    {
+      "id": "soups",
+      "name": {
+        "de": "Suppen",
+        "en": "Soups",
+        "ar": "الشوربات"
+      },
+      "note": {
+        "de": "Alle Suppen werden mit geröstetem Fladenbrot serviert.",
+        "en": "All soups are served with toasted flatbread.",
+        "ar": "تقدم جميع الشوربات مع الخبز العربي المحمص."
+      },
+      "items": [
+        {
+          "id": "lamb-soup",
+          "name": {
+            "de": "Lammsuppe",
+            "en": "Lamb soup",
+            "ar": "شوربة لحم الضأن"
+          },
+          "description": {
+            "de": "Mit Gemüse",
+            "en": "With vegetables",
+            "ar": "مع الخضار"
+          },
+          "price": "9.00",
+          "diet": "none"
+        },
+        {
+          "id": "lentil-soup",
+          "name": {
+            "de": "Shorabat Adas – Linsensuppe",
+            "en": "Shorabat Adas – lentil soup",
+            "ar": "شوربة عدس"
+          },
+          "description": {
+            "de": "Gelbe Linsensuppe mit Zwiebeln, Knoblauch, Kurkuma und Zitronensaft",
+            "en": "Yellow lentil soup with onions, garlic, turmeric and lemon juice",
+            "ar": "شوربة عدس أصفر مع البصل والثوم والكركم وعصير الليمون"
+          },
+          "price": "7.50",
+          "diet": "vegan"
+        }
+      ]
+    },
+    {
+      "id": "salads",
+      "name": {
+        "de": "Vorspeisen-Salate",
+        "en": "Starter salads",
+        "ar": "سلطات المقبلات"
+      },
+      "note": {
+        "de": "Alle Salate werden mit Fladenbrot serviert.",
+        "en": "All salads are served with flatbread.",
+        "ar": "تقدم جميع السلطات مع الخبز العربي."
+      },
+      "items": [
+        {
+          "id": "levante-salad",
+          "name": {
+            "de": "Levante Salat",
+            "en": "Levante salad",
+            "ar": "سلطة ليفانتي"
+          },
+          "description": {
+            "de": "Mit Römersalat, Gurken, Tomaten, Lauchzwiebeln, Zwiebeln, Knoblauch, Petersilie, Paprika, Minze, Zitronensaft und Tahinasauce",
+            "en": "Romaine lettuce, cucumber, tomatoes, spring onions, onions, garlic, parsley, peppers, mint, lemon juice and tahini sauce",
+            "ar": "خس روماني وخيار وطماطم وبصل أخضر وبصل وثوم وبقدونس وفلفل ونعناع وعصير ليمون وصلصة طحينة"
+          },
+          "price": "9.00",
+          "diet": "vegan"
+        },
+        {
+          "id": "fatoush-cheese-salad",
+          "name": {
+            "de": "Fatoush Käse Salat",
+            "en": "Fattoush cheese salad",
+            "ar": "سلطة فتوش بالجبن"
+          },
+          "description": {
+            "de": "Blattsalat, Gurken, Tomaten, Minze, Radieschen, Lauchzwiebeln, Käse, Walnüsse, Olivenöl, Zitronensaft und Granatapfelsauce",
+            "en": "Leaf salad, cucumber, tomatoes, mint, radishes, spring onions, cheese, walnuts, olive oil, lemon juice and pomegranate sauce",
+            "ar": "خس وخيار وطماطم ونعناع وفجل وبصل أخضر وجبن وجوز وزيت زيتون وعصير ليمون وصلصة رمان"
+          },
+          "price": "21.00",
+          "diet": "vegetarian"
+        },
+        {
+          "id": "yogurt-salad",
+          "name": {
+            "de": "Joghurt Salat",
+            "en": "Yoghurt salad",
+            "ar": "سلطة لبن بالخيار"
+          },
+          "description": {
+            "de": "Mit Gurken, Knoblauch, Minze und Joghurt",
+            "en": "Cucumber, garlic, mint and yoghurt",
+            "ar": "خيار وثوم ونعناع ولبن"
+          },
+          "price": "9.00",
+          "diet": "vegetarian"
+        },
+        {
+          "id": "falafel-salad",
+          "name": {
+            "de": "Falafel Salat",
+            "en": "Falafel salad",
+            "ar": "سلطة فلافل"
+          },
+          "description": {
+            "de": "Gemischter Salat, Gurken, Tomaten, Radieschen, Lauchzwiebeln, Falafel und Tahinasauce",
+            "en": "Mixed salad, cucumber, tomatoes, radishes, spring onions, falafel and tahini sauce",
+            "ar": "سلطة مشكلة وخيار وطماطم وفجل وبصل أخضر وفلافل وصلصة طحينة"
+          },
+          "price": "21.00",
+          "diet": "vegan"
+        },
+        {
+          "id": "chicken-salad",
+          "name": {
+            "de": "Hähnchen Salat",
+            "en": "Chicken salad",
+            "ar": "سلطة دجاج"
+          },
+          "description": {
+            "de": "Gemischter Salat, Gurken, Tomaten, Zwiebeln, Lauchzwiebeln, Radieschen, Hähnchenbrustfilet und Salatsauce",
+            "en": "Mixed salad, cucumber, tomatoes, onions, spring onions, radishes, chicken breast and salad dressing",
+            "ar": "سلطة مشكلة وخيار وطماطم وبصل وبصل أخضر وفجل وصدر دجاج وصلصة سلطة"
+          },
+          "price": "25.00",
+          "diet": "none"
+        },
+        {
+          "id": "fatoush-salad",
+          "name": {
+            "de": "Fatoush Salat",
+            "en": "Fattoush salad",
+            "ar": "سلطة فتوش"
+          },
+          "description": {
+            "de": "Blattsalat, Gurken, Tomaten, Minze, Radieschen, Lauchzwiebeln, Olivenöl, Zitronensaft, Walnüsse und Granatapfelsauce",
+            "en": "Leaf salad, cucumber, tomatoes, mint, radishes, spring onions, olive oil, lemon juice, walnuts and pomegranate sauce",
+            "ar": "خس وخيار وطماطم ونعناع وفجل وبصل أخضر وزيت زيتون وعصير ليمون وجوز وصلصة رمان"
+          },
+          "price": "17.00",
+          "diet": "vegan"
+        },
+        {
+          "id": "tabbouleh",
+          "name": {
+            "de": "Tabbouleh Salat",
+            "en": "Tabbouleh salad",
+            "ar": "سلطة تبولة"
+          },
+          "description": {
+            "de": "Petersilie, Tomaten, Gurken, Zwiebeln, Bulgur, Minze, Olivenöl und Zitronensaft",
+            "en": "Parsley, tomatoes, cucumber, onions, bulgur, mint, olive oil and lemon juice",
+            "ar": "بقدونس وطماطم وخيار وبصل وبرغل ونعناع وزيت زيتون وعصير ليمون"
+          },
+          "price": "10.00",
+          "diet": "vegan"
+        }
+      ]
+    },
+    {
+      "id": "mains",
+      "name": {
+        "de": "Grill und Hauptgerichte",
+        "en": "Grill and main dishes",
+        "ar": "المشاوي والأطباق الرئيسية"
+      },
+      "note": {
+        "de": "Alle Gerichte werden mit Reis serviert.",
+        "en": "All dishes are served with rice.",
+        "ar": "تقدم جميع الأطباق مع الأرز."
+      },
+      "items": [
+        {
+          "id": "vegetable-tajine",
+          "name": {
+            "de": "Tajine",
+            "en": "Vegetable tajine",
+            "ar": "طاجن خضار"
+          },
+          "description": {
+            "de": "Mariniertes gemischtes Gemüse mit Sauce",
+            "en": "Marinated mixed vegetables with sauce",
+            "ar": "خضار مشكلة متبلة مع صلصة"
+          },
+          "price": "25.00",
+          "diet": "vegan"
+        },
+        {
+          "id": "chicken-tajine",
+          "name": {
+            "de": "Hähnchen Tajine",
+            "en": "Chicken tajine",
+            "ar": "طاجن دجاج"
+          },
+          "description": {
+            "de": "Mariniertes Hähnchen, gemischtes Gemüse und Sauce",
+            "en": "Marinated chicken, mixed vegetables and sauce",
+            "ar": "دجاج متبل مع خضار مشكلة وصلصة"
+          },
+          "price": "29.00",
+          "diet": "none"
+        },
+        {
+          "id": "lamb-tajine",
+          "name": {
+            "de": "Lamm Tajine",
+            "en": "Lamb tajine",
+            "ar": "طاجن لحم ضأن"
+          },
+          "description": {
+            "de": "Mariniertes Lamm, gemischtes Gemüse und Sauce",
+            "en": "Marinated lamb, mixed vegetables and sauce",
+            "ar": "لحم ضأن متبل مع خضار مشكلة وصلصة"
+          },
+          "price": "39.00",
+          "diet": "none"
+        },
+        {
+          "id": "koshairy",
+          "name": {
+            "de": "Koshairy",
+            "en": "Koshairy",
+            "ar": "كشري"
+          },
+          "description": {
+            "de": "Linsen mit Kichererbsen, Nudeln, Zwiebeln, Knoblauch und Tomatensauce",
+            "en": "Lentils with chickpeas, pasta, onions, garlic and tomato sauce",
+            "ar": "عدس مع حمص ومعكرونة وبصل وثوم وصلصة طماطم"
+          },
+          "price": "25.00",
+          "diet": "vegan"
+        },
+        {
+          "id": "kafta-mishwiyeh",
+          "name": {
+            "de": "Kafta Mishwiyeh",
+            "en": "Kafta Mishwiyeh",
+            "ar": "كفتة مشوية"
+          },
+          "description": {
+            "de": "Hausgemachter Hackfleischspieß aus Rind und Lamm mit Zwiebeln und Petersilie",
+            "en": "Homemade minced beef and lamb skewer with onions and parsley",
+            "ar": "سيخ لحم مفروم منزلي من لحم البقر والضأن مع البصل والبقدونس"
+          },
+          "price": "29.00",
+          "diet": "none"
+        },
+        {
+          "id": "shish-taouk",
+          "name": {
+            "de": "Schisch Taouk",
+            "en": "Shish taouk",
+            "ar": "شيش طاووق"
+          },
+          "description": {
+            "de": "Gegrillter marinierter Hähnchenbrustspieß",
+            "en": "Grilled marinated chicken breast skewer",
+            "ar": "سيخ صدر دجاج متبل ومشوي"
+          },
+          "price": "25.00",
+          "diet": "none"
+        },
+        {
+          "id": "mix-grill",
+          "name": {
+            "de": "Mix Grill",
+            "en": "Mixed grill",
+            "ar": "مشاوي مشكلة"
+          },
+          "description": {
+            "de": "Hähnchenbrustspieß, Kaftaspieß und Kalbsteakspieß",
+            "en": "Chicken breast skewer, kafta skewer and veal steak skewer",
+            "ar": "سيخ صدر دجاج وسيخ كفتة وسيخ ستيك عجل"
+          },
+          "price": "35.00",
+          "diet": "none"
+        },
+        {
+          "id": "lahmeh-mishwiyeh",
+          "name": {
+            "de": "Lahmeh Mishwiyeh",
+            "en": "Lahmeh Mishwiyeh",
+            "ar": "لحمة مشوية"
+          },
+          "description": {
+            "de": "Ein Spieß nach Wahl",
+            "en": "One skewer of your choice",
+            "ar": "سيخ واحد حسب الاختيار"
+          },
+          "price": "35.00",
+          "diet": "none"
+        }
+      ]
+    },
+    {
+      "id": "sides",
+      "name": {
+        "de": "Beilagen und Saucen",
+        "en": "Sides and sauces",
+        "ar": "الأطباق الجانبية والصلصات"
+      },
+      "note": {
+        "de": "",
+        "en": "",
+        "ar": ""
+      },
+      "items": [
+        {
+          "id": "fries",
+          "name": {
+            "de": "Pommes frites",
+            "en": "French fries",
+            "ar": "بطاطا مقلية"
+          },
+          "description": {
+            "de": "",
+            "en": "",
+            "ar": ""
+          },
+          "price": "4.50",
+          "diet": "none"
+        },
+        {
+          "id": "bread",
+          "name": {
+            "de": "Brot",
+            "en": "Bread",
+            "ar": "خبز"
+          },
+          "description": {
+            "de": "",
+            "en": "",
+            "ar": ""
+          },
+          "price": "3.50",
+          "diet": "none"
+        },
+        {
+          "id": "rice",
+          "name": {
+            "de": "Reis",
+            "en": "Rice",
+            "ar": "أرز"
+          },
+          "description": {
+            "de": "",
+            "en": "",
+            "ar": ""
+          },
+          "price": "4.50",
+          "diet": "none"
+        }
+      ]
+    }
+  ]
+}

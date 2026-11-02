@@ -1,0 +1,74 @@
+{
+  "pages": [
+    {
+      "route": "/",
+      "lang": "de",
+      "kind": "home",
+      "title": "Levante Restaurant Radolfzell | Arabisch & Halal",
+      "description": "Levante Restaurant in Radolfzell am Bodensee: authentische arabische und levantinische Küche, Halal-Fleischgerichte, vegane Optionen, Lieferung und Catering."
+    },
+    {
+      "route": "/speisekarte/",
+      "lang": "de",
+      "kind": "menu",
+      "title": "Speisekarte | Levante Restaurant Radolfzell",
+      "description": "Entdecken Sie die aktuelle Speisekarte des Levante Restaurants in Radolfzell mit Mezze, Falafel, Kebbeh, Tajine, Grillgerichten sowie veganen und vegetarischen Optionen."
+    },
+    {
+      "route": "/galerie/",
+      "lang": "de",
+      "kind": "gallery",
+      "title": "Galerie | Levante Restaurant Radolfzell am Bodensee",
+      "description": "Einblicke in das Levante Restaurant in Radolfzell: orientalische Speisen, Mezze, Garten, Gastraum und liebevolle Details aus unserem Restaurant am Bodensee."
+    },
+    {
+      "route": "/bewertungen/",
+      "lang": "de",
+      "kind": "reviews",
+      "title": "Bewertungen | Levante Restaurant Radolfzell",
+      "description": "Lesen Sie aktuelle Gästebewertungen zum Levante Restaurant in Radolfzell auf Google und TripAdvisor oder teilen Sie Ihre eigene Erfahrung mit unserem Team."
+    },
+    {
+      "route": "/impressum/",
+      "lang": "de",
+      "kind": "imprint",
+      "title": "Impressum | Levante Restaurant Radolfzell",
+      "description": "Impressum und Anbieterkennzeichnung des Levante Restaurants, Löwengasse 30 in 78315 Radolfzell am Bodensee, mit Kontaktangaben des Inhabers."
+    },
+    {
+      "route": "/datenschutz/",
+      "lang": "de",
+      "kind": "privacy",
+      "title": "Datenschutz | Levante Restaurant Radolfzell",
+      "description": "Datenschutzhinweise des Levante Restaurants in Radolfzell zu Hosting, Serverprotokollen, Kontaktaufnahme und externen Links auf dieser Website."
+    },
+    {
+      "route": "/en/",
+      "lang": "en",
+      "kind": "home",
+      "title": "Levante Restaurant Radolfzell | Halal & Levantine",
+      "description": "Levante Restaurant in Radolfzell am Bodensee serves authentic Levantine and Middle Eastern food, halal meat dishes, vegan choices, delivery and catering."
+    },
+    {
+      "route": "/en/menu/",
+      "lang": "en",
+      "kind": "menu",
+      "title": "Menu | Levante Restaurant Radolfzell am Bodensee",
+      "description": "Explore the Levante Restaurant menu in English with mezze, hummus, falafel, kebbeh, tajine, grilled dishes, vegan and vegetarian choices in Radolfzell."
+    },
+    {
+      "route": "/ar/",
+      "lang": "ar",
+      "kind": "home",
+      "title": "مطعم ليفانتي رادولفتسل | مأكولات شامية حلال",
+      "description": "مطعم ليفانتي في رادولفتسل على بحيرة بودينزي يقدم مأكولات شامية وشرقية أصيلة، أطباق لحوم حلال، خيارات نباتية، توصيل وخدمة ضيافة للمناسبات."
+    },
+    {
+      "route": "/ar/menu/",
+      "lang": "ar",
+      "kind": "menu",
+      "title": "قائمة الطعام | مطعم ليفانتي رادولفتسل",
+      "description": "تصفح قائمة مطعم ليفانتي بالعربية: مقبلات شامية، حمص، فلافل، كبة، طواجن، مشاوي، وأطباق نباتية في رادولفتسل على بحيرة بودينزي."
+    }
+  ]
+}

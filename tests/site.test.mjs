@@ -141,12 +141,15 @@ test('legacy routes redirect without becoming duplicate index pages', () => {
 
 test('sitemap and robots cover canonical indexable routes', () => {
   const sitemap = read('sitemap.xml');
-  for (const [, , route] of pages) assert.match(sitemap, new RegExp(`<loc>${base}${route.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}</loc>`));
-  for (const [, target] of redirects) assert.doesNotMatch(sitemap, new RegExp(`<loc>${base}${target === '/' ? '/home/' : target}</loc>`));
+  const reEscape = value => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  for (const [, , route] of pages) assert.match(sitemap, new RegExp('<loc>' + reEscape(base + route) + '</loc>'));
+  for (const [file] of redirects) {
+    const legacyRoute = '/' + file.replace(/\\/g, '/').replace(/index\.html$/, '');
+    assert.doesNotMatch(sitemap, new RegExp('<loc>' + reEscape(base + legacyRoute) + '</loc>'));
+  }
   assert.equal((sitemap.match(/<loc>/g) ?? []).length, pages.length);
-  assert.match(read('robots.txt'), new RegExp(`Sitemap: ${base.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/sitemap.xml`));
+  assert.match(read('robots.txt'), new RegExp('Sitemap: ' + reEscape(base) + '/sitemap.xml'));
 });
-
 test('asset budgets prevent slow regressions', () => {
   const imageDir = path.join(distRoot, 'assets', 'img');
   for (const entry of fs.readdirSync(imageDir, { withFileTypes: true })) {
