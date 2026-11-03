@@ -1,0 +1,50 @@
+﻿{
+    "task":  "LEVANTE_WWW_ROOT_CUTOVER_DNS",
+    "after":  {
+                  "captured_at":  "2026-11-03T01:50:40.3938473+01:00",
+                  "authoritative_server":  "ns1020.ui-dns.biz",
+                  "apex_A":  [
+                                 "185.199.108.153",
+                                 "185.199.109.153",
+                                 "185.199.110.153",
+                                 "185.199.111.153"
+                             ],
+                  "apex_AAAA":  [
+                                    "2606:50c0:8000::153",
+                                    "2606:50c0:8001::153",
+                                    "2606:50c0:8002::153",
+                                    "2606:50c0:8003::153"
+                                ],
+                  "www_CNAME":  "qasimoqaily-max.github.io",
+                  "restaurant_CNAME":  "qasimoqaily-max.github.io",
+                  "MX":  [
+                             "10 mx00.ionos.de",
+                             "10 mx01.ionos.de"
+                         ],
+                  "SPF":  [
+                              "v=spf1 include:_spf-eu.ionos.com ~all"
+                          ],
+                  "DMARC":  [
+
+                            ],
+                  "DKIM_s1":  {
+
+                              },
+                  "DKIM_s2":  {
+
+                              },
+                  "github_verification":  "416b5a5243721b2518d389d1866132"
+              },
+    "checks":  {
+                   "apex_A_complete":  true,
+                   "apex_AAAA_complete":  true,
+                   "www_points_to_github":  true,
+                   "mx_preserved":  true,
+                   "spf_preserved":  true,
+                   "dmarc_preserved":  false,
+                   "dkim_s1_present":  false,
+                   "dkim_s2_present":  false,
+                   "github_verification_present":  true
+               },
+    "all_critical_checks_pass":  false
+}

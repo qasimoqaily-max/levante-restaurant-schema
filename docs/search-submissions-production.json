@@ -1,0 +1,26 @@
+﻿{
+    "checked_at":  "2026-11-03T02:09:13.3520380+01:00",
+    "google":  {
+                   "sitemap":  "submitted successfully",
+                   "priority_urls":  [
+                                         "https://www.levante-radolfzell.de/",
+                                         "https://www.levante-radolfzell.de/speisekarte/",
+                                         "https://www.levante-radolfzell.de/en/",
+                                         "https://www.levante-radolfzell.de/en/menu/",
+                                         "https://www.levante-radolfzell.de/ar/",
+                                         "https://www.levante-radolfzell.de/ar/menu/"
+                                     ],
+                   "noindex_validation":  "started"
+               },
+    "bing":  {
+                 "sitemap":  "submitted",
+                 "priority_urls":  [
+                                       "https://www.levante-radolfzell.de/",
+                                       "https://www.levante-radolfzell.de/speisekarte/",
+                                       "https://www.levante-radolfzell.de/en/",
+                                       "https://www.levante-radolfzell.de/en/menu/",
+                                       "https://www.levante-radolfzell.de/ar/",
+                                       "https://www.levante-radolfzell.de/ar/menu/"
+                                   ]
+             }
+}

@@ -1,0 +1,106 @@
+﻿{
+    "captured_at":  "2026-11-03T01:24:28.0126852+01:00",
+    "domain":  "levante-radolfzell.de",
+    "records":  {
+                    "apex_A":  {
+                                   "name":  "levante-radolfzell.de.",
+                                   "type":  1,
+                                   "ttl":  3600,
+                                   "data":  "217.160.0.186"
+                               },
+                    "apex_AAAA":  {
+                                      "name":  "levante-radolfzell.de.",
+                                      "type":  28,
+                                      "ttl":  3600,
+                                      "data":  "2001:8d8:100f:f000::200"
+                                  },
+                    "www_CNAME":  {
+                                      "name":  "www.levante-radolfzell.de.",
+                                      "type":  5,
+                                      "ttl":  3600,
+                                      "data":  "ghs.googlehosted.com."
+                                  },
+                    "restaurant_CNAME":  {
+                                             "name":  "restaurant.levante-radolfzell.de.",
+                                             "type":  5,
+                                             "ttl":  3600,
+                                             "data":  "qasimoqaily-max.github.io."
+                                         },
+                    "MX":  [
+                               {
+                                   "name":  "levante-radolfzell.de.",
+                                   "type":  15,
+                                   "ttl":  3600,
+                                   "data":  "10 mx01.ionos.de."
+                               },
+                               {
+                                   "name":  "levante-radolfzell.de.",
+                                   "type":  15,
+                                   "ttl":  3600,
+                                   "data":  "10 mx00.ionos.de."
+                               }
+                           ],
+                    "SPF":  [
+                                {
+                                    "name":  "levante-radolfzell.de.",
+                                    "type":  16,
+                                    "ttl":  3600,
+                                    "data":  "google-site-verification=VXe-DjXOpoBDx32_UlgIWpQFsAIUt79HvqgqXlUH4SY"
+                                },
+                                {
+                                    "name":  "levante-radolfzell.de.",
+                                    "type":  16,
+                                    "ttl":  3600,
+                                    "data":  "v=spf1 include:_spf-eu.ionos.com ~all"
+                                }
+                            ],
+                    "DMARC":  [
+                                  {
+                                      "name":  "_dmarc.levante-radolfzell.de.",
+                                      "type":  5,
+                                      "ttl":  3600,
+                                      "data":  "dmarc.ionos.de."
+                                  },
+                                  {
+                                      "name":  "dmarc.ionos.de.",
+                                      "type":  16,
+                                      "ttl":  2750,
+                                      "data":  "v=DMARC1; p=none;"
+                                  }
+                              ],
+                    "DKIM_s1":  [
+                                    {
+                                        "name":  "s1-ionos._domainkey.levante-radolfzell.de.",
+                                        "type":  5,
+                                        "ttl":  3600,
+                                        "data":  "s1.dkim.ionos.com."
+                                    },
+                                    {
+                                        "name":  "s1.dkim.ionos.com.",
+                                        "type":  16,
+                                        "ttl":  423,
+                                        "data":  "v=DKIM1; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3PgemRMZHYwtxmmJV7gL8+O706Dvpd6z1b9dhvV9EcxoqgDIJfvXje6C+SZqTbLpYt3ZNbUuF1a3RZmueN4gfoSSx42FeW/5raMlHnxSGWSTh1srK7kcfphAJVpjNIilbdmXZEeTIPb7SwhaS+IQ2I7gY06ZNxYFrMoZGh1rH70W8+vMFqpMfSRouM2LjyKaH6r0+ptJ4rl6LOAi+aXyO0IA4qYt6s7GELWiIG6/cRmGab3y6vUDYk38t5trjYeh1DZSsR5MpsPg3uojXHVfshondy39yKD5LvI/bZm3eghyaC2ZKwkpt8hDJlolKpUlbMBYAAaUMQDRB+VH2j8/2QIDAQAB"
+                                    }
+                                ],
+                    "DKIM_s2":  [
+                                    {
+                                        "name":  "s2-ionos._domainkey.levante-radolfzell.de.",
+                                        "type":  5,
+                                        "ttl":  3600,
+                                        "data":  "s2.dkim.ionos.com."
+                                    },
+                                    {
+                                        "name":  "s2.dkim.ionos.com.",
+                                        "type":  16,
+                                        "ttl":  3600,
+                                        "data":  "v=DKIM1; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4MV/Jotj2xnMlWG45P/tilxRuOyxo2qgBaaAk1hbvqkhE9U9q4OYLy0OKScZkr8XkN+tFwmW93frbnZoy+3Hn3t8eaQru5LPyU8vHIAzVcDvri7fCVE6Id3ZEP1V5vMgobaiBpCpUd9EOBvHhG03QN6g634+cNLl80Xjmp72ntfxr79j1vVYLlcOTdG4t3v+yerC2BJlE3Tk+sHcTehmNXpFBThTopJ8ilhtTrjSI/XTnhWiEJNnk1xjDmiLo+VxZR42clih25ejZ55uDpLNBFCEAJ+l8DDHVVsXONzQifpPsSWPDalzgxSl4N1uRMIeH3FUlVZaULIXgFrSeWXTyQIDAQAB"
+                                    }
+                                ],
+                    "github_verification":  {
+                                                "name":  "_github-pages-challenge-qasimoqaily-max.levante-radolfzell.de.",
+                                                "type":  16,
+                                                "ttl":  3600,
+                                                "data":  "416b5a5243721b2518d389d1866132"
+                                            }
+                }
+}
