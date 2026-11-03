@@ -31,3 +31,6 @@ Checked: 2026-11-03T23:48:01+01:00 (Europe/Berlin). TLS is valid. Search engine 
 ## Limitations and safety
 - Google daily quota prevents confirming a fresh request for every URL today. Google indexing is not instantaneous.
 - No Lighthouse test score is claimed. No email DNS (MX, SPF, DKIM, DMARC), public email, Norton, purchases, or unrelated sessions were changed.
+
+## Verified workflow evidence
+- GitHub Actions run 41734396660 was verified completed/success for commit 7a1746f6b4e3dd621178eeb677df91f080954946 (2026-11-03 22:51:36 UTC), before this subsequent documentary update: https://github.com/qasimoqaily-max/levante-restaurant-schema/actions/runs/41734396660
