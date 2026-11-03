@@ -1,54 +1,33 @@
-# Levante root SEO/GEO rebuild verification report
+# Levante production HTTPS and SEO/GEO verification
+Checked: 2026-11-03T23:48:01+01:00 (Europe/Berlin). TLS is valid. Search engine indexing follow-up is partially pending.
 
-## Current status
-`PRODUCTION_TLS_AND_INDEXING_REPAIR_IN_PROGRESS`
+## GitHub Pages and TLS
+- GitHub Pages REST GET: source GitHub Actions (build_type=workflow), custom domain www.levante-radolfzell.de, https_enforced=true, build status built.
+- Pages certificate: approved, both www.levante-radolfzell.de and levante-radolfzell.de covered, expires 2027-02-01.
+- Independent Qualys SSL Labs assessment: Let's Encrypt YR1 certificate, trusted chain with SNI, SSL Labs grade B, certificate SHA256 2024b1b7f71fbda06a023d933eb84ee34a686e0568c9ce4128d629569a376de3.
+- HTTPS root and Speisekarte returned 200. HTTP apex returned 301 to HTTP www then 301 to HTTPS www; HTTP www directly returned 301 to HTTPS www. HTTPS restaurant subdomain returned 302 to canonical HTTPS www, not 404.
 
-The rebuilt multilingual website files are deployed, but production must not be called complete yet. Public TLS for `www.levante-radolfzell.de` is still awaiting issuance by GitHub Pages, so Google cannot currently fetch the HTTPS URL.
+## Structured data
+- Live Google Rich Results Test: successful crawl; 3 valid items (Breadcrumbs, Local businesses, Organisation), no reported errors/warnings. https://agent.tinyfish.ai/runs/e3baf55d-7a2b-472d-a658-73885c3f8abe
+- Live Schema.org Validator: homepage 3 objects (ImageObject, WebSite, Menu), zero errors/warnings; menu page 1 Menu object, zero errors/warnings. https://agent.tinyfish.ai/runs/3dc6fe68-a620-4821-b827-7a74647b5b76
+- These tools apply different detection rules and are reported separately.
 
-## Verified working
-- GitHub Pages source: **GitHub Actions**.
-- Custom domain: **www.levante-radolfzell.de**.
-- Latest successful workflow after the CI repair: run **41726087801** for commit `380b994a3932ec53e3b94553e217818539eccccb`.
-- Local acceptance gate: **27 passed, 0 failed**.
-- Ten indexable pages are built in German, English and Arabic.
-- Arabic pages use `lang=ar` and `dir=rtl`.
-- Canonical, hreflang, metadata, sitemap, robots and JSON-LD are present in the generated site.
-- Live content was checked for 32 internal references with no broken references.
-- MX, SPF, DKIM and DMARC remain present at IONOS.
-- The obsolete Search Console sitemap for `restaurant.` has been removed.
-- `restaurant.levante-radolfzell.de` now redirects over HTTP to the canonical www site; HTTPS for the forwarding hostname is still pending.
+## Search Console: sc-domain:levante-radolfzell.de
+- Canonical www sitemap already submitted, Success, 10 URLs discovered; obsolete restaurant sitemap absent.
+- Root is indexed; a repeat indexing request was blocked by Google daily quota.
+- Local owner indexing-requests.log shows successes for /speisekarte/, /en/, /en/menu/, /ar/. /ar/menu/ is still pending because daily quota was exceeded.
+- Historical noindex exclusion affects 1 page; validation started on 2026-11-03. Its exact association to old HTTP root and final validation outcome are not confirmed.
+- GSC source: https://agent.tinyfish.ai/runs/d109bbe6-f46c-4c60-bcd3-cb75a04a68aa
 
-## Blocking production issue
-GitHub Pages reports:
+## Bing Webmaster
+- The www sitemap was submitted; screenshot status Processing, 0 discovered at that moment.
+- The six final canonical URLs were submitted on 2026-11-03 at 23:39 (owner screenshot).
+- New Site Scan LEVANTE_WWW_POST_HTTPS_20261103 was started and queued; no final scan results yet.
 
-- DNS check successful.
-- Certificate not yet issued for `www.levante-radolfzell.de`.
-- Enforce HTTPS unavailable until certificate issuance.
+## External business profiles, from previous report only
+- Google Business: removal of Reservations required pending Google's review; not newly reverified.
+- Bing Places: verified/synced but publication still pending; not newly reverified.
 
-External SSL testing and Google Rich Results Test previously reported a certificate name mismatch (`*.github.io`) and Google page fetch failed with `Invalid server SSL certificate`.
-
-## Search engine state
-### Google
-- Old `restaurant.` sitemap: removed.
-- `www` sitemap: intentionally not submitted until public TLS is valid.
-- Old HTTP noindex validation: not started yet; it will be started after HTTPS works.
-
-### Bing
-- No sitemap is currently registered.
-- Seven legacy URLs are visible in URL Submission.
-- Final canonical multilingual URLs and a new Site Scan are pending valid TLS.
-
-## External platform state
-- Google Business: opening and delivery hours are correct; removal of `Reservations required` remains under review.
-- Bing Places: verified and synced with Google; publication remains pending with the displayed 7?12 day estimate.
-
-## Next acceptance gate
-Completion requires all of the following:
-1. GitHub issues a certificate valid for `www.levante-radolfzell.de`.
-2. Enforce HTTPS is enabled.
-3. HTTP redirects to HTTPS for apex and www.
-4. Google Rich Results Test can fetch the page.
-5. The www sitemap and canonical URLs are submitted to Google and Bing.
-6. Search Console Validate Fix starts for the old HTTP exclusion.
-7. A fresh Bing Site Scan is started.
-8. Production proof is updated only with observed results.
+## Limitations and safety
+- Google daily quota prevents confirming a fresh request for every URL today. Google indexing is not instantaneous.
+- No Lighthouse test score is claimed. No email DNS (MX, SPF, DKIM, DMARC), public email, Norton, purchases, or unrelated sessions were changed.
