@@ -30,8 +30,8 @@ test('production proof records build identity and safety invariants', () => {
 
 test('post-deployment observations are explicit rather than used as a circular deploy gate', () => {
   assert.equal(typeof proof.website.certificate.authorized, 'boolean');
-  assert.ok(proof.search_submissions.google_sitemap);
-  assert.ok(proof.search_submissions.bing_sitemap);
+  assert.equal(proof.search_submissions.google.www_sitemap.status, 'SUBMITTED_SUCCESSFULLY');
+  assert.match(proof.search_submissions.bing.sitemap.status, /^SUBMITTED_/);
   assert.ok(proof.platform_pending.google_business);
   assert.ok(proof.platform_pending.bing_places);
 });

@@ -1,0 +1,38 @@
+{
+  "tool": "Lighthouse latest via npx",
+  "checked_at": "2026-11-04T00:01:30+01:00",
+  "production_url": "https://www.levante-radolfzell.de/?v=05fc405",
+  "commit": "05fc40529e8f06f0e9d4012301ee509dfc19e27a",
+  "mobile": {
+    "performance": 98,
+    "accessibility": 100,
+    "best_practices": 100,
+    "seo": 100,
+    "fcp_seconds": 1.0,
+    "lcp_seconds": 1.7,
+    "speed_index_seconds": 4.0,
+    "tbt_ms": 20,
+    "cls": 0,
+    "hero_transfer_bytes": 66386,
+    "raw_sha256": "8C8754F6711CCFBF47E5CFDC6D55DA744543214CF3632CB7CF8F54EB65A431C8"
+  },
+  "desktop": {
+    "performance": 100,
+    "accessibility": 100,
+    "best_practices": 100,
+    "seo": 100,
+    "fcp_seconds": 0.3,
+    "lcp_seconds": 0.3,
+    "speed_index_seconds": 0.4,
+    "tbt_ms": 0,
+    "cls": 0,
+    "raw_sha256": "C56C3492F13A35D662665122767730B1ED450EEFC301AF23EF15E4FFF1A45D2B"
+  },
+  "change": {
+    "mobile_performance_before": 92,
+    "mobile_performance_after": 98,
+    "mobile_lcp_before_seconds": 3.3,
+    "mobile_lcp_after_seconds": 1.7,
+    "implementation": "Responsive AVIF/WebP hero srcset; mobile AVIF 66,386 bytes instead of 379,618-byte original."
+  }
+}

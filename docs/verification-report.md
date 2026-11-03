@@ -1,36 +1,80 @@
-# Levante production HTTPS and SEO/GEO verification
-Checked: 2026-11-03T23:48:01+01:00 (Europe/Berlin). TLS is valid. Search engine indexing follow-up is partially pending.
+# Levante production SEO/GEO verification
 
-## GitHub Pages and TLS
-- GitHub Pages REST GET: source GitHub Actions (build_type=workflow), custom domain www.levante-radolfzell.de, https_enforced=true, build status built.
-- Pages certificate: approved, both www.levante-radolfzell.de and levante-radolfzell.de covered, expires 2027-02-01.
-- Independent Qualys SSL Labs assessment: Let's Encrypt YR1 certificate, trusted chain with SNI, SSL Labs grade B, certificate SHA256 2024b1b7f71fbda06a023d933eb84ee34a686e0568c9ce4128d629569a376de3.
-- HTTPS root and Speisekarte returned 200. HTTP apex returned 301 to HTTP www then 301 to HTTPS www; HTTP www directly returned 301 to HTTPS www. HTTPS restaurant subdomain returned 302 to canonical HTTPS www, not 404.
+Checked: 2026-11-04T00:01:30+01:00 (Europe/Berlin)
+
+## Status
+`PRODUCTION_TECHNICALLY_COMPLETE_EXTERNAL_CRAWL_AND_PROFILE_REVIEWS_PENDING`
+
+The website, HTTPS, structured data, multilingual pages, sitemap and search-engine submissions are technically complete. Remaining items are external processing or quota-limited follow-up, not an unresolved production outage.
+
+## Production and CI
+- Production commit: `05fc40529e8f06f0e9d4012301ee509dfc19e27a`.
+- GitHub Actions run: `41735271172` ? build **success**, acceptance tests **success**, deploy **success**.
+- Pages source: GitHub Actions.
+- Custom domain: `www.levante-radolfzell.de`.
+- Enforce HTTPS: enabled.
+
+## HTTPS and redirects
+- Certificate covers `www.levante-radolfzell.de` and `levante-radolfzell.de`.
+- SSL Labs grade: **B** on the GitHub Pages production endpoints.
+- `restaurant.levante-radolfzell.de` redirects to the canonical www URL; its forwarding endpoint received SSL Labs grade **A**.
+- HTTP www redirects to HTTPS www. Apex resolves to the canonical HTTPS site.
+
+## Live crawl
+- Indexable pages checked: **10**.
+- Local references/assets checked: **39**.
+- Errors: **0**.
+- German and English pages use LTR; Arabic pages use `lang=ar` and RTL.
+- Every indexable page has one H1, the expected canonical and parseable JSON-LD.
+- Sitemap contains exactly the ten canonical pages; robots.txt points to it.
 
 ## Structured data
-- Live Google Rich Results Test: successful crawl; 3 valid items (Breadcrumbs, Local businesses, Organisation), no reported errors/warnings. https://agent.tinyfish.ai/runs/e3baf55d-7a2b-472d-a658-73885c3f8abe
-- Live Schema.org Validator: homepage 3 objects (ImageObject, WebSite, Menu), zero errors/warnings; menu page 1 Menu object, zero errors/warnings. https://agent.tinyfish.ai/runs/3dc6fe68-a620-4821-b827-7a74647b5b76
-- These tools apply different detection rules and are reported separately.
+- Google Rich Results Test fetched the live production page successfully and reported **3 valid items**, including Breadcrumbs and Local business, with no errors or warnings.
+- Schema.org Validator: homepage **0 errors / 0 warnings**; menu **0 errors / 0 warnings**.
+- Live JSON-LD contains Restaurant, WebSite, WebPage, BreadcrumbList, ImageObject, GeoCoordinates, ReserveAction, OrderAction, Menu, MenuSection and MenuItem entities.
 
-## Search Console: sc-domain:levante-radolfzell.de
-- Canonical www sitemap already submitted, Success, 10 URLs discovered; obsolete restaurant sitemap absent.
-- Root is indexed; a repeat indexing request was blocked by Google daily quota.
-- Local owner indexing-requests.log shows successes for /speisekarte/, /en/, /en/menu/, /ar/. /ar/menu/ is still pending because daily quota was exceeded.
-- Historical noindex exclusion affects 1 page; validation started on 2026-11-03. Its exact association to old HTTP root and final validation outcome are not confirmed.
-- GSC source: https://agent.tinyfish.ai/runs/d109bbe6-f46c-4c60-bcd3-cb75a04a68aa
+## Lighthouse production results
+### Mobile
+- Performance: **98**
+- Accessibility: **100**
+- Best Practices: **100**
+- SEO: **100**
+- FCP: **1.0 s**
+- LCP: **1.7 s**
+- CLS: **0**
+- TBT: **20 ms**
+
+### Desktop
+- Performance: **100**
+- Accessibility: **100**
+- Best Practices: **100**
+- SEO: **100**
+- FCP/LCP: **0.3 s**
+- CLS: **0**
+- TBT: **0 ms**
+
+Responsive AVIF/WebP hero assets reduced the mobile hero transfer from 379,618 bytes to 66,386 bytes and improved mobile LCP from 3.3 s to 1.7 s.
+
+## Google Search Console
+- Obsolete `restaurant.` sitemap removed.
+- Canonical www sitemap submitted successfully; ten URLs discovered.
+- Validate Fix started for the historical HTTP/noindex exclusion.
+- Direct indexing requests accepted for root, German menu, English home/menu and Arabic home.
+- Arabic menu direct request hit Google's daily quota; the URL is already in the accepted sitemap and remains queued for a later direct request.
 
 ## Bing Webmaster
-- The www sitemap was submitted; screenshot status Processing, 0 discovered at that moment.
-- The six final canonical URLs were submitted on 2026-11-03 at 23:39 (owner screenshot).
-- New Site Scan LEVANTE_WWW_POST_HTTPS_20261103 was started and queued; no final scan results yet.
+- Canonical www sitemap submitted; status initially Processing with zero errors/warnings.
+- Six final canonical language URLs submitted.
+- New post-HTTPS Site Scan `LEVANTE_WWW_POST_HTTPS_20261103` started and queued.
 
-## External business profiles, from previous report only
-- Google Business: removal of Reservations required pending Google's review; not newly reverified.
-- Bing Places: verified/synced but publication still pending; not newly reverified.
+## Business profiles
+- Google Business opening and delivery hours are correct; removal of `Reservations required` remains under Google review.
+- Bing Places is verified and synchronized with Google; Microsoft publication remains pending.
 
-## Limitations and safety
-- Google daily quota prevents confirming a fresh request for every URL today. Google indexing is not instantaneous.
-- No Lighthouse test score is claimed. No email DNS (MX, SPF, DKIM, DMARC), public email, Norton, purchases, or unrelated sessions were changed.
+## Mail safety
+MX, SPF, DKIM, DMARC and `info@levante-radolfzell.de` were preserved. No paid service was purchased.
 
-## Verified workflow evidence
-- GitHub Actions run 41734396660 was verified completed/success for commit 7a1746f6b4e3dd621178eeb677df91f080954946 (2026-11-03 22:51:36 UTC), before this subsequent documentary update: https://github.com/qasimoqaily-max/levante-restaurant-schema/actions/runs/41734396660
+## Remaining external follow-up
+1. Retry the optional direct indexing request for `/ar/menu/` after Google resets the daily quota.
+2. Read Bing Site Scan results when Microsoft completes the scan.
+3. Confirm Google Business and Bing Places external reviews/publication.

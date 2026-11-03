@@ -1,53 +1,43 @@
 {
   "validator": "https://validator.schema.org/",
-  "checked_at": "2026-11-03T01:02:28.541740+00:00",
+  "checked_at": "2026-11-04T00:01:30+01:00",
+  "passed": true,
   "results": [
     {
       "label": "homepage",
       "url": "https://www.levante-radolfzell.de/",
-      "rendered": true,
       "objects": 3,
       "errors": 0,
       "warnings": 0,
-      "types": [
-        {
-          "type": "ImageObject",
-          "objects": 1,
-          "errors": 0,
-          "warnings": 0
-        },
-        {
-          "type": "WebSite",
-          "objects": 1,
-          "errors": 0,
-          "warnings": 0
-        },
-        {
-          "type": "Menu",
-          "objects": 1,
-          "errors": 0,
-          "warnings": 0
-        }
-      ],
-      "raw_sha256": "F9CCE98C74BFC4FE5AE0D8B70CEEE26821B8CE7E1B2BB483D0F2E252A3B065C6"
+      "groups": [
+        "ImageObject",
+        "WebSite",
+        "Menu"
+      ]
     },
     {
       "label": "menu",
       "url": "https://www.levante-radolfzell.de/speisekarte/",
-      "rendered": true,
       "objects": 1,
       "errors": 0,
       "warnings": 0,
-      "types": [
-        {
-          "type": "Menu",
-          "objects": 1,
-          "errors": 0,
-          "warnings": 0
-        }
-      ],
-      "raw_sha256": "A9987EDC38BF7BD7F64F765EEA6EB7DF891AFB254B004FACF7BA95EE38A28986"
+      "groups": [
+        "Menu"
+      ]
     }
   ],
-  "passed": true
+  "rich_results": {
+    "tool": "Google Rich Results Test",
+    "url": "https://www.levante-radolfzell.de/",
+    "fetch": "SUCCESS",
+    "valid_items": 3,
+    "types": [
+      "Breadcrumbs",
+      "Local businesses",
+      "Organisation"
+    ],
+    "errors": 0,
+    "warnings": 0
+  },
+  "note": "Schema.org Validator and Google Rich Results Test group the same JSON-LD graph differently; the live HTML parser confirms Restaurant is present."
 }

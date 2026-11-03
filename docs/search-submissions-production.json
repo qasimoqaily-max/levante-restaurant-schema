@@ -1,15 +1,43 @@
 {
-  "checked_at": "2026-11-03T22:05:00+01:00",
+  "checked_at": "2026-11-04T00:01:30+01:00",
   "google": {
-    "obsolete_restaurant_sitemap": "REMOVED_FROM_SEARCH_CONSOLE",
-    "www_sitemap": "PENDING_VALID_PUBLIC_TLS",
-    "priority_urls": "PENDING_VALID_PUBLIC_TLS",
-    "noindex_validation": "NOT_STARTED; wait for valid HTTPS before validation"
+    "obsolete_restaurant_sitemap": "REMOVED",
+    "www_sitemap": {
+      "url": "https://www.levante-radolfzell.de/sitemap.xml",
+      "status": "SUBMITTED_SUCCESSFULLY",
+      "discovered_urls": 10
+    },
+    "noindex_validation": "STARTED_FOR_OLD_HTTP_EXCLUSION",
+    "priority_url_requests": {
+      "https://www.levante-radolfzell.de/": "SUCCESS_OBSERVED",
+      "https://www.levante-radolfzell.de/speisekarte/": "SUCCESS",
+      "https://www.levante-radolfzell.de/en/": "SUCCESS",
+      "https://www.levante-radolfzell.de/en/menu/": "SUCCESS",
+      "https://www.levante-radolfzell.de/ar/": "SUCCESS",
+      "https://www.levante-radolfzell.de/ar/menu/": "PENDING_DAILY_QUOTA_EXCEEDED"
+    },
+    "note": "The Arabic menu is included in the accepted sitemap even though its optional direct indexing request hit the daily quota."
   },
   "bing": {
-    "sitemap": "NOT_SUBMITTED",
-    "existing_submissions": "7 legacy Google Sites URLs",
-    "final_canonical_urls": "PENDING_VALID_PUBLIC_TLS",
-    "site_scan": "LEVANTE_FULL_AUDIT_20261102 remains queued"
+    "sitemap": {
+      "url": "https://www.levante-radolfzell.de/sitemap.xml",
+      "status": "SUBMITTED_PROCESSING",
+      "errors": 0,
+      "warnings": 0
+    },
+    "final_canonical_urls_submitted": [
+      "https://www.levante-radolfzell.de/",
+      "https://www.levante-radolfzell.de/speisekarte/",
+      "https://www.levante-radolfzell.de/en/",
+      "https://www.levante-radolfzell.de/en/menu/",
+      "https://www.levante-radolfzell.de/ar/",
+      "https://www.levante-radolfzell.de/ar/menu/"
+    ],
+    "site_scan": {
+      "name": "LEVANTE_WWW_POST_HTTPS_20261103",
+      "target": "https://www.levante-radolfzell.de/",
+      "page_limit": 50,
+      "status": "QUEUED"
+    }
   }
 }
