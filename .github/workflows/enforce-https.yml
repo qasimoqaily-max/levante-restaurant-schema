@@ -1,0 +1,33 @@
+name: Enforce GitHub Pages HTTPS after certificate issuance
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/enforce-https.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+
+jobs:
+  enforce-https:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify current Pages target and enforce HTTPS
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Do not alter the configured domain or publication source.
+          current=$(gh api "repos/${GH_REPO}/pages")
+          printf '%s\n' "$current" | jq -e '.cname == "www.levante-radolfzell.de" and .build_type == "workflow"'
+          printf '%s\n' "$current" | jq -e '.https_certificate.state == "approved"'
+          if [[ $(printf '%s\n' "$current" | jq -r '.https_enforced') != "true" ]]; then
+            gh api -X PUT "repos/${GH_REPO}/pages" -F https_enforced=true >/dev/null
+          fi
+          gh api "repos/${GH_REPO}/pages" --jq '{cname,build_type,https_enforced,https_certificate}'
+          gh api "repos/${GH_REPO}/pages" --jq '.https_enforced' | grep -qx true
