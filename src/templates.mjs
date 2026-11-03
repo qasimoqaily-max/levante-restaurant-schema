@@ -1,4 +1,4 @@
-﻿import { t, routeByLang } from './i18n.mjs';
+import { t, routeByLang } from './i18n.mjs';
 import { restaurantGraph, menuGraph, pageGraph } from './schema.mjs';
 
 export function escapeHtml(value = '') {
@@ -121,7 +121,10 @@ function renderHome(site, page) {
         ${actionButtons(site, page.lang)}
       </div>
       <figure class="hero-media">
-        <img src="/assets/img/hero-table.webp" width="1500" height="810" loading="eager" fetchpriority="high" decoding="async" alt="${escapeHtml(alt.hero)}">
+        <picture>
+          <source type="image/avif" srcset="/assets/img/hero-table-768.avif 768w, /assets/img/hero-table-1200.avif 1200w" sizes="(max-width: 820px) calc(100vw - 1.25rem), (max-width: 1200px) 36vw, 420px">
+          <img src="/assets/img/hero-table-1200.webp" srcset="/assets/img/hero-table-768.webp 768w, /assets/img/hero-table-1200.webp 1200w, /assets/img/hero-table.webp 1500w" sizes="(max-width: 820px) calc(100vw - 1.25rem), (max-width: 1200px) 36vw, 420px" width="1500" height="810" loading="eager" fetchpriority="high" decoding="sync" alt="${escapeHtml(alt.hero)}">
+        </picture>
         <figcaption>Levante Restaurant · Radolfzell am Bodensee</figcaption>
       </figure>
     </div>

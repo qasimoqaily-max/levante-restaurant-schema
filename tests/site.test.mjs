@@ -1,4 +1,4 @@
-﻿import test from 'node:test';
+import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -145,6 +145,13 @@ test('real Levante imagery is responsive, descriptive, and performance-safe', ()
   const priority = homeImages.find(tag => /fetchpriority=["']high["']/i.test(tag));
   assert.ok(priority, 'homepage hero image must be high priority');
   assert.match(priority, /loading=["']eager["']/i);
+  assert.match(priority, /srcset=["'][^"']*hero-table-768\.webp 768w[^"']*hero-table-1200\.webp 1200w/i, 'hero WebP srcset missing');
+  assert.match(priority, /sizes=["'][^"']+["']/i, 'hero sizes missing');
+  const homeHtml = read('index.html');
+  assert.match(homeHtml, /<source\b[^>]*type=["']image\/avif["'][^>]*srcset=["'][^"']*hero-table-768\.avif 768w[^"']*hero-table-1200\.avif 1200w/i, 'hero AVIF source missing');
+  for (const asset of ['assets/img/hero-table-768.avif', 'assets/img/hero-table-1200.avif', 'assets/img/hero-table-768.webp', 'assets/img/hero-table-1200.webp']) {
+    assert.ok(exists(asset), `missing responsive hero asset ${asset}`);
+  }
 
   const galleryImages = imageTags(read('galerie/index.html'));
   assert.ok(galleryImages.length >= 12, 'gallery needs at least twelve real images');
