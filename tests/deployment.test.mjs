@@ -27,3 +27,9 @@ test('deployment and rollback documentation is present', () => {
     assert.ok(fs.existsSync(path.join(root, 'docs', file)), `missing docs/${file}`);
   }
 });
+test('production build declares the canonical www custom domain', () => {
+  const cname = path.join(root, 'dist', 'CNAME');
+  assert.ok(fs.existsSync(cname), 'dist/CNAME missing; run build before deployment tests');
+  assert.equal(fs.readFileSync(cname, 'utf8').trim(), 'www.levante-radolfzell.de');
+});
+

@@ -1,0 +1,53 @@
+{
+  "validator": "https://validator.schema.org/",
+  "checked_at": "2026-11-03T00:08:40.133920+00:00",
+  "results": [
+    {
+      "label": "homepage",
+      "url": "https://restaurant.levante-radolfzell.de/",
+      "rendered": true,
+      "objects": 3,
+      "errors": 0,
+      "warnings": 0,
+      "types": [
+        {
+          "type": "ImageObject",
+          "objects": 1,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "type": "WebSite",
+          "objects": 1,
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "type": "Menu",
+          "objects": 1,
+          "errors": 0,
+          "warnings": 0
+        }
+      ],
+      "raw_sha256": "DD9D1BA3603D0C36B0C4A6B3D5F97073869DADB9F455D0D3ACE33F81E704E18E"
+    },
+    {
+      "label": "menu",
+      "url": "https://restaurant.levante-radolfzell.de/speisekarte/",
+      "rendered": true,
+      "objects": 1,
+      "errors": 0,
+      "warnings": 0,
+      "types": [
+        {
+          "type": "Menu",
+          "objects": 1,
+          "errors": 0,
+          "warnings": 0
+        }
+      ],
+      "raw_sha256": "C397352D26E90CFC8AFD69DDFD2D002F275190BA233AEECBC4DE2A7405C7C0ED"
+    }
+  ],
+  "passed": true
+}

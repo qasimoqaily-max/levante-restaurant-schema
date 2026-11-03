@@ -1,0 +1,554 @@
+{
+  "base": "https://restaurant.levante-radolfzell.de",
+  "checkedAt": "2026-11-03T00:03:18.995Z",
+  "pages": [
+    {
+      "route": "/",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/",
+      "bytes": 13531,
+      "title": "Levante Restaurant Radolfzell | Arabisch &amp; Halal",
+      "lang": "de",
+      "dir": "ltr",
+      "canonical": "https://www.levante-radolfzell.de/",
+      "h1Count": 1,
+      "jsonLdBlocks": 1,
+      "noindex": false,
+      "refs": [
+        "/assets/img/favicon.png",
+        "/site.webmanifest",
+        "/assets/css/site.css",
+        "/assets/js/site.js",
+        "/",
+        "/speisekarte/",
+        "/galerie/",
+        "/bewertungen/",
+        "/en/",
+        "/ar/",
+        "/assets/img/hero-table.webp",
+        "/assets/img/levante-logo.webp",
+        "/assets/img/garden-wide.webp",
+        "/assets/img/falafel-plate.webp",
+        "/impressum/",
+        "/datenschutz/"
+      ]
+    },
+    {
+      "route": "/speisekarte/",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/speisekarte/",
+      "bytes": 29176,
+      "title": "Speisekarte | Levante Restaurant Radolfzell",
+      "lang": "de",
+      "dir": "ltr",
+      "canonical": "https://www.levante-radolfzell.de/speisekarte/",
+      "h1Count": 1,
+      "jsonLdBlocks": 1,
+      "noindex": false,
+      "refs": [
+        "/assets/img/favicon.png",
+        "/site.webmanifest",
+        "/assets/css/site.css",
+        "/assets/js/site.js",
+        "/",
+        "/speisekarte/",
+        "/galerie/",
+        "/bewertungen/",
+        "/en/menu/",
+        "/ar/menu/",
+        "/impressum/",
+        "/datenschutz/"
+      ]
+    },
+    {
+      "route": "/galerie/",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/galerie/",
+      "bytes": 10308,
+      "title": "Galerie | Levante Restaurant Radolfzell am Bodensee",
+      "lang": "de",
+      "dir": "ltr",
+      "canonical": "https://www.levante-radolfzell.de/galerie/",
+      "h1Count": 1,
+      "jsonLdBlocks": 1,
+      "noindex": false,
+      "refs": [
+        "/assets/img/favicon.png",
+        "/site.webmanifest",
+        "/assets/css/site.css",
+        "/assets/js/site.js",
+        "/",
+        "/speisekarte/",
+        "/galerie/",
+        "/bewertungen/",
+        "/en/",
+        "/ar/",
+        "/assets/img/facade.webp",
+        "/assets/img/camel-entrance.webp",
+        "/assets/img/restaurant-interior.webp",
+        "/assets/img/interior-counter.webp",
+        "/assets/img/mezze-spread.webp",
+        "/assets/img/falafel-plate.webp",
+        "/assets/img/food-and-drinks.webp",
+        "/assets/img/arabic-coffee.webp",
+        "/assets/img/mint-tea.webp",
+        "/assets/img/garden-table.webp",
+        "/assets/img/garden-tea.webp",
+        "/assets/img/oriental-decor.webp",
+        "/assets/img/fresh-ingredients.webp",
+        "/assets/img/mezze-table.webp",
+        "/assets/img/oriental-lamps.webp",
+        "/impressum/",
+        "/datenschutz/"
+      ]
+    },
+    {
+      "route": "/bewertungen/",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/bewertungen/",
+      "bytes": 6279,
+      "title": "Bewertungen | Levante Restaurant Radolfzell",
+      "lang": "de",
+      "dir": "ltr",
+      "canonical": "https://www.levante-radolfzell.de/bewertungen/",
+      "h1Count": 1,
+      "jsonLdBlocks": 1,
+      "noindex": false,
+      "refs": [
+        "/assets/img/favicon.png",
+        "/site.webmanifest",
+        "/assets/css/site.css",
+        "/assets/js/site.js",
+        "/",
+        "/speisekarte/",
+        "/galerie/",
+        "/bewertungen/",
+        "/en/",
+        "/ar/",
+        "/impressum/",
+        "/datenschutz/"
+      ]
+    },
+    {
+      "route": "/impressum/",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/impressum/",
+      "bytes": 5752,
+      "title": "Impressum | Levante Restaurant Radolfzell",
+      "lang": "de",
+      "dir": "ltr",
+      "canonical": "https://www.levante-radolfzell.de/impressum/",
+      "h1Count": 1,
+      "jsonLdBlocks": 1,
+      "noindex": false,
+      "refs": [
+        "/assets/img/favicon.png",
+        "/site.webmanifest",
+        "/assets/css/site.css",
+        "/assets/js/site.js",
+        "/",
+        "/speisekarte/",
+        "/galerie/",
+        "/bewertungen/",
+        "/en/",
+        "/ar/",
+        "/impressum/",
+        "/datenschutz/"
+      ]
+    },
+    {
+      "route": "/datenschutz/",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/datenschutz/",
+      "bytes": 6863,
+      "title": "Datenschutz | Levante Restaurant Radolfzell",
+      "lang": "de",
+      "dir": "ltr",
+      "canonical": "https://www.levante-radolfzell.de/datenschutz/",
+      "h1Count": 1,
+      "jsonLdBlocks": 1,
+      "noindex": false,
+      "refs": [
+        "/assets/img/favicon.png",
+        "/site.webmanifest",
+        "/assets/css/site.css",
+        "/assets/js/site.js",
+        "/",
+        "/speisekarte/",
+        "/galerie/",
+        "/bewertungen/",
+        "/en/",
+        "/ar/",
+        "/impressum/",
+        "/datenschutz/"
+      ]
+    },
+    {
+      "route": "/en/",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/en/",
+      "bytes": 13422,
+      "title": "Levante Restaurant Radolfzell | Halal &amp; Levantine",
+      "lang": "en",
+      "dir": "ltr",
+      "canonical": "https://www.levante-radolfzell.de/en/",
+      "h1Count": 1,
+      "jsonLdBlocks": 1,
+      "noindex": false,
+      "refs": [
+        "/assets/img/favicon.png",
+        "/site.webmanifest",
+        "/assets/css/site.css",
+        "/assets/js/site.js",
+        "/en/",
+        "/en/menu/",
+        "/galerie/",
+        "/bewertungen/",
+        "/",
+        "/ar/",
+        "/assets/img/hero-table.webp",
+        "/assets/img/levante-logo.webp",
+        "/assets/img/garden-wide.webp",
+        "/assets/img/falafel-plate.webp",
+        "/impressum/",
+        "/datenschutz/"
+      ]
+    },
+    {
+      "route": "/en/menu/",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/en/menu/",
+      "bytes": 28340,
+      "title": "Menu | Levante Restaurant Radolfzell am Bodensee",
+      "lang": "en",
+      "dir": "ltr",
+      "canonical": "https://www.levante-radolfzell.de/en/menu/",
+      "h1Count": 1,
+      "jsonLdBlocks": 1,
+      "noindex": false,
+      "refs": [
+        "/assets/img/favicon.png",
+        "/site.webmanifest",
+        "/assets/css/site.css",
+        "/assets/js/site.js",
+        "/en/",
+        "/en/menu/",
+        "/galerie/",
+        "/bewertungen/",
+        "/speisekarte/",
+        "/ar/menu/",
+        "/impressum/",
+        "/datenschutz/"
+      ]
+    },
+    {
+      "route": "/ar/",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/ar/",
+      "bytes": 14848,
+      "title": "مطعم ليفانتي رادولفتسل | مأكولات شامية حلال",
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "https://www.levante-radolfzell.de/ar/",
+      "h1Count": 1,
+      "jsonLdBlocks": 1,
+      "noindex": false,
+      "refs": [
+        "/assets/img/favicon.png",
+        "/site.webmanifest",
+        "/assets/css/site.css",
+        "/assets/js/site.js",
+        "/ar/",
+        "/ar/menu/",
+        "/galerie/",
+        "/bewertungen/",
+        "/",
+        "/en/",
+        "/assets/img/hero-table.webp",
+        "/assets/img/levante-logo.webp",
+        "/assets/img/garden-wide.webp",
+        "/assets/img/falafel-plate.webp",
+        "/impressum/",
+        "/datenschutz/"
+      ]
+    },
+    {
+      "route": "/ar/menu/",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/ar/menu/",
+      "bytes": 31859,
+      "title": "قائمة الطعام | مطعم ليفانتي رادولفتسل",
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "https://www.levante-radolfzell.de/ar/menu/",
+      "h1Count": 1,
+      "jsonLdBlocks": 1,
+      "noindex": false,
+      "refs": [
+        "/assets/img/favicon.png",
+        "/site.webmanifest",
+        "/assets/css/site.css",
+        "/assets/js/site.js",
+        "/ar/",
+        "/ar/menu/",
+        "/galerie/",
+        "/bewertungen/",
+        "/speisekarte/",
+        "/en/menu/",
+        "/impressum/",
+        "/datenschutz/"
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "route": "/home/",
+      "status": 200,
+      "noindex": true,
+      "canonical": "https://www.levante-radolfzell.de/"
+    },
+    {
+      "route": "/menu-in-english/",
+      "status": 200,
+      "noindex": true,
+      "canonical": "https://www.levante-radolfzell.de/en/menu/"
+    },
+    {
+      "route": "/مينو-عربي/",
+      "status": 200,
+      "noindex": true,
+      "canonical": "https://www.levante-radolfzell.de/ar/menu/"
+    }
+  ],
+  "assets": [
+    {
+      "ref": "/assets/img/favicon.png",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/assets/img/favicon.png",
+      "type": "image/png"
+    },
+    {
+      "ref": "/site.webmanifest",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/site.webmanifest",
+      "type": "application/manifest+json; charset=utf-8"
+    },
+    {
+      "ref": "/assets/css/site.css",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/assets/css/site.css",
+      "type": "text/css; charset=utf-8"
+    },
+    {
+      "ref": "/assets/js/site.js",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/assets/js/site.js",
+      "type": "application/javascript; charset=utf-8"
+    },
+    {
+      "ref": "/",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/",
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "ref": "/speisekarte/",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/speisekarte/",
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "ref": "/galerie/",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/galerie/",
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "ref": "/bewertungen/",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/bewertungen/",
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "ref": "/en/",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/en/",
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "ref": "/ar/",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/ar/",
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "ref": "/assets/img/hero-table.webp",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/assets/img/hero-table.webp",
+      "type": "image/webp"
+    },
+    {
+      "ref": "/assets/img/levante-logo.webp",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/assets/img/levante-logo.webp",
+      "type": "image/webp"
+    },
+    {
+      "ref": "/assets/img/garden-wide.webp",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/assets/img/garden-wide.webp",
+      "type": "image/webp"
+    },
+    {
+      "ref": "/assets/img/falafel-plate.webp",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/assets/img/falafel-plate.webp",
+      "type": "image/webp"
+    },
+    {
+      "ref": "/impressum/",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/impressum/",
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "ref": "/datenschutz/",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/datenschutz/",
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "ref": "/en/menu/",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/en/menu/",
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "ref": "/ar/menu/",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/ar/menu/",
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "ref": "/assets/img/facade.webp",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/assets/img/facade.webp",
+      "type": "image/webp"
+    },
+    {
+      "ref": "/assets/img/camel-entrance.webp",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/assets/img/camel-entrance.webp",
+      "type": "image/webp"
+    },
+    {
+      "ref": "/assets/img/restaurant-interior.webp",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/assets/img/restaurant-interior.webp",
+      "type": "image/webp"
+    },
+    {
+      "ref": "/assets/img/interior-counter.webp",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/assets/img/interior-counter.webp",
+      "type": "image/webp"
+    },
+    {
+      "ref": "/assets/img/mezze-spread.webp",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/assets/img/mezze-spread.webp",
+      "type": "image/webp"
+    },
+    {
+      "ref": "/assets/img/food-and-drinks.webp",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/assets/img/food-and-drinks.webp",
+      "type": "image/webp"
+    },
+    {
+      "ref": "/assets/img/arabic-coffee.webp",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/assets/img/arabic-coffee.webp",
+      "type": "image/webp"
+    },
+    {
+      "ref": "/assets/img/mint-tea.webp",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/assets/img/mint-tea.webp",
+      "type": "image/webp"
+    },
+    {
+      "ref": "/assets/img/garden-table.webp",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/assets/img/garden-table.webp",
+      "type": "image/webp"
+    },
+    {
+      "ref": "/assets/img/garden-tea.webp",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/assets/img/garden-tea.webp",
+      "type": "image/webp"
+    },
+    {
+      "ref": "/assets/img/oriental-decor.webp",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/assets/img/oriental-decor.webp",
+      "type": "image/webp"
+    },
+    {
+      "ref": "/assets/img/fresh-ingredients.webp",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/assets/img/fresh-ingredients.webp",
+      "type": "image/webp"
+    },
+    {
+      "ref": "/assets/img/mezze-table.webp",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/assets/img/mezze-table.webp",
+      "type": "image/webp"
+    },
+    {
+      "ref": "/assets/img/oriental-lamps.webp",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/assets/img/oriental-lamps.webp",
+      "type": "image/webp"
+    },
+    {
+      "ref": "/robots.txt",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/robots.txt",
+      "type": "text/plain; charset=utf-8"
+    },
+    {
+      "ref": "/sitemap.xml",
+      "status": 200,
+      "finalUrl": "https://restaurant.levante-radolfzell.de/sitemap.xml",
+      "type": "application/xml"
+    }
+  ],
+  "errors": [],
+  "httpRedirect": {
+    "status": 301,
+    "location": "https://restaurant.levante-radolfzell.de/"
+  },
+  "certificate": {
+    "authorized": true,
+    "subject": {
+      "CN": "restaurant.levante-radolfzell.de"
+    },
+    "issuer": {
+      "C": "US",
+      "O": "Let's Encrypt",
+      "CN": "YR1"
+    },
+    "validFrom": "Nov  2 21:22:29 2026 GMT",
+    "validTo": "Jan 31 21:22:28 2027 GMT",
+    "subjectaltname": "DNS:restaurant.levante-radolfzell.de"
+  },
+  "summary": {
+    "pageCount": 10,
+    "referenceCount": 34,
+    "errorCount": 0,
+    "passed": true
+  }
+}

@@ -81,7 +81,7 @@ write('site.webmanifest', JSON.stringify({
   ],
 }, null, 2));
 write('.nojekyll', '');
-write('CNAME', 'restaurant.levante-radolfzell.de\n');
+write('CNAME', 'www.levante-radolfzell.de\n');
 copyDirectory(path.join(root, 'assets'), path.join(dist, 'assets'));
 
 console.log(`Built ${pages.length} indexable pages and 3 compatibility redirects in ${dist}`);
