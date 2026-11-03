@@ -1,197 +1,180 @@
-﻿{
-    "task":  "LEVANTE_ROOT_SEO_GEO_PRODUCTION_REBUILD_20261103",
-    "generated_at":  "2026-11-03T02:09:13.3260703+01:00",
-    "status":  "PRODUCTION_DEPLOYED_AND_VERIFIED_EXTERNAL_RECRAWL_PENDING",
-    "repository":  "qasimoqaily-max/levante-restaurant-schema",
-    "production_sha":  "013cba094c4c32f5ea9713dcf08d1e879c201b9e",
-    "github_actions":  {
-                           "cutover_run_id":  41552320420,
-                           "build":  "success",
-                           "deploy":  "success",
-                           "pages_source":  "GitHub Actions",
-                           "enforce_https":  true,
-                           "verified_domain":  "levante-radolfzell.de"
-                       },
-    "dns":  {
-                "all_critical_checks_pass":  false,
-                "checks":  {
-                               "apex_A_complete":  true,
-                               "apex_AAAA_complete":  true,
-                               "www_points_to_github":  true,
-                               "mx_preserved":  true,
-                               "spf_preserved":  true,
-                               "dmarc_preserved":  false,
-                               "dkim_s1_present":  false,
-                               "dkim_s2_present":  false,
-                               "github_verification_present":  true
-                           },
-                "old_preview_redirect":  "https://restaurant.levante-radolfzell.de/ -\u003e https://www.levante-radolfzell.de/",
-                "mail_records_preserved":  true
+{
+  "task": "LEVANTE_ROOT_SEO_GEO_PRODUCTION_REBUILD_20261103",
+  "generated_at": "2026-11-03T21:55:00+01:00",
+  "status": "PRODUCTION_TLS_AND_INDEXING_REPAIR_IN_PROGRESS",
+  "repository": "qasimoqaily-max/levante-restaurant-schema",
+  "production_sha": "013cba094c4c32f5ea9713dcf08d1e879c201b9e",
+  "github_actions": {
+    "last_successful_deploy_run_id": 41552320420,
+    "build": "success",
+    "deploy": "success",
+    "pages_source": "GitHub Actions",
+    "custom_domain": "www.levante-radolfzell.de",
+    "enforce_https": false,
+    "certificate_state": "PENDING_ISSUANCE",
+    "verified_domain": "levante-radolfzell.de"
+  },
+  "dns": {
+    "all_critical_checks_pass": true,
+    "checks": {
+      "apex_A_complete": true,
+      "apex_AAAA_complete": true,
+      "www_points_to_github": true,
+      "mx_preserved": true,
+      "spf_preserved": true,
+      "dmarc_preserved": true,
+      "dkim_s1_present": true,
+      "dkim_s2_present": true,
+      "github_verification_present": true
+    },
+    "old_preview_redirect": "NOT_CONFIGURED_CURRENTLY_RETURNS_404",
+    "mail_records_preserved": true
+  },
+  "website": {
+    "base": "https://www.levante-radolfzell.de",
+    "live_crawl": {
+      "pageCount": 10,
+      "referenceCount": 32,
+      "errorCount": 0,
+      "passed": true
+    },
+    "certificate": {
+      "authorized": false,
+      "served_subject": "CN=*.github.io",
+      "expected_names": [
+        "www.levante-radolfzell.de",
+        "levante-radolfzell.de"
+      ],
+      "state": "CERTIFICATE_NOT_VALID_FOR_DOMAIN_NAME",
+      "google_fetch": "FAILED_INVALID_SERVER_SSL_CERTIFICATE"
+    },
+    "visual": [
+      {
+        "name": "home-mobile",
+        "url": "https://www.levante-radolfzell.de/",
+        "lang": "de",
+        "dir": "ltr",
+        "width": 390,
+        "scroll_width": 390,
+        "offenders": 0,
+        "broken_images": 0,
+        "images": 4,
+        "h1": 1
+      },
+      {
+        "name": "arabic-mobile",
+        "url": "https://www.levante-radolfzell.de/ar/",
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 390,
+        "scroll_width": 390,
+        "offenders": 0,
+        "broken_images": 0,
+        "images": 4,
+        "h1": 1
+      },
+      {
+        "name": "menu-desktop",
+        "url": "https://www.levante-radolfzell.de/speisekarte/",
+        "lang": "de",
+        "dir": "ltr",
+        "width": 1440,
+        "scroll_width": 1440,
+        "offenders": 0,
+        "broken_images": 0,
+        "images": 0,
+        "h1": 1
+      },
+      {
+        "name": "gallery-desktop",
+        "url": "https://www.levante-radolfzell.de/galerie/",
+        "lang": "de",
+        "dir": "ltr",
+        "width": 1440,
+        "scroll_width": 1440,
+        "offenders": 0,
+        "broken_images": 0,
+        "images": 15,
+        "h1": 1
+      }
+    ],
+    "schema_validator": {
+      "validator": "https://validator.schema.org/",
+      "checked_at": "2026-11-03T01:02:28.541740+00:00",
+      "results": [
+        {
+          "label": "homepage",
+          "url": "https://www.levante-radolfzell.de/",
+          "rendered": true,
+          "objects": 3,
+          "errors": 0,
+          "warnings": 0,
+          "types": [
+            {
+              "type": "ImageObject",
+              "objects": 1,
+              "errors": 0,
+              "warnings": 0
             },
-    "website":  {
-                    "base":  "https://www.levante-radolfzell.de",
-                    "live_crawl":  {
-                                       "pageCount":  10,
-                                       "referenceCount":  34,
-                                       "errorCount":  0,
-                                       "passed":  true
-                                   },
-                    "certificate":  {
-                                        "authorized":  true,
-                                        "subject":  {
-                                                        "CN":  "restaurant.levante-radolfzell.de"
-                                                    },
-                                        "issuer":  {
-                                                       "C":  "US",
-                                                       "O":  "Let\u0027s Encrypt",
-                                                       "CN":  "YR1"
-                                                   },
-                                        "validFrom":  "Nov  2 21:22:29 2026 GMT",
-                                        "validTo":  "Jan 31 21:22:28 2027 GMT",
-                                        "subjectaltname":  "DNS:restaurant.levante-radolfzell.de"
-                                    },
-                    "visual":  [
-                                   {
-                                       "name":  "home-mobile",
-                                       "url":  "https://www.levante-radolfzell.de/",
-                                       "lang":  "en",
-                                       "dir":  "ltr",
-                                       "width":  390,
-                                       "scroll_width":  390,
-                                       "offenders":  0,
-                                       "broken_images":  0,
-                                       "images":  0,
-                                       "h1":  1
-                                   },
-                                   {
-                                       "name":  "arabic-mobile",
-                                       "url":  "https://www.levante-radolfzell.de/ar/",
-                                       "lang":  "en",
-                                       "dir":  "ltr",
-                                       "width":  390,
-                                       "scroll_width":  390,
-                                       "offenders":  0,
-                                       "broken_images":  0,
-                                       "images":  0,
-                                       "h1":  1
-                                   },
-                                   {
-                                       "name":  "menu-desktop",
-                                       "url":  "https://www.levante-radolfzell.de/speisekarte/",
-                                       "lang":  "en",
-                                       "dir":  "ltr",
-                                       "width":  1440,
-                                       "scroll_width":  1440,
-                                       "offenders":  0,
-                                       "broken_images":  0,
-                                       "images":  0,
-                                       "h1":  1
-                                   },
-                                   {
-                                       "name":  "gallery-desktop",
-                                       "url":  "https://www.levante-radolfzell.de/galerie/",
-                                       "lang":  "en",
-                                       "dir":  "ltr",
-                                       "width":  1440,
-                                       "scroll_width":  1440,
-                                       "offenders":  0,
-                                       "broken_images":  0,
-                                       "images":  0,
-                                       "h1":  1
-                                   }
-                               ],
-                    "schema_validator":  {
-                                             "validator":  "https://validator.schema.org/",
-                                             "checked_at":  "2026-11-03T01:02:28.541740+00:00",
-                                             "results":  [
-                                                             {
-                                                                 "label":  "homepage",
-                                                                 "url":  "https://www.levante-radolfzell.de/",
-                                                                 "rendered":  true,
-                                                                 "objects":  3,
-                                                                 "errors":  0,
-                                                                 "warnings":  0,
-                                                                 "types":  [
-                                                                               {
-                                                                                   "type":  "ImageObject",
-                                                                                   "objects":  1,
-                                                                                   "errors":  0,
-                                                                                   "warnings":  0
-                                                                               },
-                                                                               {
-                                                                                   "type":  "WebSite",
-                                                                                   "objects":  1,
-                                                                                   "errors":  0,
-                                                                                   "warnings":  0
-                                                                               },
-                                                                               {
-                                                                                   "type":  "Menu",
-                                                                                   "objects":  1,
-                                                                                   "errors":  0,
-                                                                                   "warnings":  0
-                                                                               }
-                                                                           ],
-                                                                 "raw_sha256":  "F9CCE98C74BFC4FE5AE0D8B70CEEE26821B8CE7E1B2BB483D0F2E252A3B065C6"
-                                                             },
-                                                             {
-                                                                 "label":  "menu",
-                                                                 "url":  "https://www.levante-radolfzell.de/speisekarte/",
-                                                                 "rendered":  true,
-                                                                 "objects":  1,
-                                                                 "errors":  0,
-                                                                 "warnings":  0,
-                                                                 "types":  [
-                                                                               {
-                                                                                   "type":  "Menu",
-                                                                                   "objects":  1,
-                                                                                   "errors":  0,
-                                                                                   "warnings":  0
-                                                                               }
-                                                                           ],
-                                                                 "raw_sha256":  "A9987EDC38BF7BD7F64F765EEA6EB7DF891AFB254B004FACF7BA95EE38A28986"
-                                                             }
-                                                         ],
-                                             "passed":  true
-                                         },
-                    "lighthouse":  {
-                                       "mobile":  {
-                                                      "performance":  0,
-                                                      "accessibility":  0,
-                                                      "best_practices":  0,
-                                                      "seo":  0,
-                                                      "lcp":  null,
-                                                      "cls":  null,
-                                                      "tbt":  null
-                                                  },
-                                       "desktop":  {
-                                                       "performance":  0,
-                                                       "accessibility":  0,
-                                                       "best_practices":  0,
-                                                       "seo":  0,
-                                                       "lcp":  null,
-                                                       "cls":  null,
-                                                       "tbt":  null
-                                                   }
-                                   }
-                },
-    "search_submissions":  {
-                               "google_sitemap":  "https://www.levante-radolfzell.de/sitemap.xml submitted successfully",
-                               "google_priority_urls":  6,
-                               "google_noindex_validation":  "started for former http://levante-radolfzell.de/ exclusion",
-                               "bing_sitemap":  "https://www.levante-radolfzell.de/sitemap.xml submitted",
-                               "bing_priority_urls":  6
-                           },
-    "platform_pending":  {
-                             "google_business":  "Reservations required removal pending Google review",
-                             "bing_places":  "Verified and synced; pending publication"
-                         },
-    "safety":  {
-                   "mx_unchanged":  true,
-                   "spf_unchanged":  true,
-                   "dkim_unchanged":  true,
-                   "dmarc_unchanged":  true,
-                   "public_email_unchanged":  true,
-                   "no_paid_service":  true,
-                   "rollback_documented":  true
-               }
+            {
+              "type": "WebSite",
+              "objects": 1,
+              "errors": 0,
+              "warnings": 0
+            },
+            {
+              "type": "Menu",
+              "objects": 1,
+              "errors": 0,
+              "warnings": 0
+            }
+          ],
+          "raw_sha256": "F9CCE98C74BFC4FE5AE0D8B70CEEE26821B8CE7E1B2BB483D0F2E252A3B065C6"
+        },
+        {
+          "label": "menu",
+          "url": "https://www.levante-radolfzell.de/speisekarte/",
+          "rendered": true,
+          "objects": 1,
+          "errors": 0,
+          "warnings": 0,
+          "types": [
+            {
+              "type": "Menu",
+              "objects": 1,
+              "errors": 0,
+              "warnings": 0
+            }
+          ],
+          "raw_sha256": "A9987EDC38BF7BD7F64F765EEA6EB7DF891AFB254B004FACF7BA95EE38A28986"
+        }
+      ],
+      "passed": true
+    },
+    "lighthouse": {
+      "state": "NOT_RETESTED_WHILE_PUBLIC_TLS_INVALID",
+      "mobile": null,
+      "desktop": null
+    }
+  },
+  "search_submissions": {
+    "google_sitemap": "OBSOLETE_RESTAURANT_SUBDOMAIN_SITEMAP_REGISTERED_WWW_PENDING",
+    "google_noindex_validation": "NOT_STARTED",
+    "bing_sitemap": "NOT_SUBMITTED",
+    "bing_urls": "SEVEN_LEGACY_URLS_SUBMITTED_FINAL_CANONICAL_SET_PENDING"
+  },
+  "platform_pending": {
+    "google_business": "Reservations required removal pending Google review",
+    "bing_places": "Verified and synced; pending publication",
+    "bing_site_scan": "Queued"
+  },
+  "safety": {
+    "mx_unchanged": true,
+    "spf_unchanged": true,
+    "dkim_unchanged": true,
+    "dmarc_unchanged": true,
+    "public_email_unchanged": true,
+    "no_paid_service": true,
+    "rollback_documented": true
+  }
 }
