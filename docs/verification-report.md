@@ -1,73 +1,54 @@
-﻿# Levante root SEO/GEO rebuild verification report
+# Levante root SEO/GEO rebuild verification report
 
-## Final status
-PRODUCTION_DEPLOYED_AND_VERIFIED_EXTERNAL_RECRAWL_PENDING
+## Current status
+`PRODUCTION_TLS_AND_INDEXING_REPAIR_IN_PROGRESS`
 
-The rebuilt website is live at https://www.levante-radolfzell.de/. The remaining pending items are external platform processing, not unfinished website deployment.
+The rebuilt multilingual website files are deployed, but production must not be called complete yet. Public TLS for `www.levante-radolfzell.de` is still awaiting issuance by GitHub Pages, so Google cannot currently fetch the HTTPS URL.
 
-## Production deployment
-- GitHub repository: qasimoqaily-max/levante-restaurant-schema
-- Production commit: $(@{task=LEVANTE_ROOT_SEO_GEO_PRODUCTION_REBUILD_20261103; generated_at=2026-11-03T02:09:13.3260703+01:00; status=PRODUCTION_DEPLOYED_AND_VERIFIED_EXTERNAL_RECRAWL_PENDING; repository=qasimoqaily-max/levante-restaurant-schema; production_sha=013cba094c4c32f5ea9713dcf08d1e879c201b9e; github_actions=; dns=; website=; search_submissions=; platform_pending=; safety=}.production_sha)
-- GitHub Actions cutover run: $(@{task=LEVANTE_ROOT_SEO_GEO_PRODUCTION_REBUILD_20261103; generated_at=2026-11-03T02:09:13.3260703+01:00; status=PRODUCTION_DEPLOYED_AND_VERIFIED_EXTERNAL_RECRAWL_PENDING; repository=qasimoqaily-max/levante-restaurant-schema; production_sha=013cba094c4c32f5ea9713dcf08d1e879c201b9e; github_actions=; dns=; website=; search_submissions=; platform_pending=; safety=}.github_actions.cutover_run_id)
-- Build: **success**
-- Deploy: **success**
-- Pages source: **GitHub Actions**
-- Verified GitHub domain: levante-radolfzell.de
-- Enforce HTTPS: **enabled**
+## Verified working
+- GitHub Pages source: **GitHub Actions**.
+- Custom domain: **www.levante-radolfzell.de**.
+- Latest successful workflow after the CI repair: run **41726087801** for commit `380b994a3932ec53e3b94553e217818539eccccb`.
+- Local acceptance gate: **27 passed, 0 failed**.
+- Ten indexable pages are built in German, English and Arabic.
+- Arabic pages use `lang=ar` and `dir=rtl`.
+- Canonical, hreflang, metadata, sitemap, robots and JSON-LD are present in the generated site.
+- Live content was checked for 32 internal references with no broken references.
+- MX, SPF, DKIM and DMARC remain present at IONOS.
+- The obsolete Search Console sitemap for `restaurant.` has been removed.
+- `restaurant.levante-radolfzell.de` now redirects over HTTP to the canonical www site; HTTPS for the forwarding hostname is still pending.
 
-## DNS and email safety
-- Apex A records: all four official GitHub Pages IPv4 addresses.
-- Apex AAAA records: all four official GitHub Pages IPv6 addresses.
-- www CNAME: qasimoqaily-max.github.io.
-- Former preview hostname redirects to the production website.
-- MX, SPF, DKIM and DMARC remained unchanged.
-- Public mailbox info@levante-radolfzell.de remained unchanged.
+## Blocking production issue
+GitHub Pages reports:
 
-## Live acceptance
-- Indexable pages crawled: **10**
-- Internal references and assets checked: **34**
-- Live crawl errors: **0**
-- TLS certificate authorized: **True**
-- Mobile and desktop overflow offenders: **0**
-- Broken production images: **0**
-- One H1 on every audited view.
+- DNS check successful.
+- Certificate not yet issued for `www.levante-radolfzell.de`.
+- Enforce HTTPS unavailable until certificate issuance.
 
-## Structured data
-- Production homepage: **0 errors, 0 warnings**.
-- Production menu: **0 errors, 0 warnings**.
-- Schema includes Restaurant, WebSite, WebPage, Breadcrumb, Image, ReserveAction, OrderAction, Menu, MenuSection and MenuItem entities.
-- No fabricated reviews or ratings.
+External SSL testing and Google Rich Results Test previously reported a certificate name mismatch (`*.github.io`) and Google page fetch failed with `Invalid server SSL certificate`.
 
-## Lighthouse production audit
-### Mobile
-- Performance: **0**
-- Accessibility: **0**
-- Best Practices: **0**
-- SEO: **0**
-- LCP: ****
-- CLS: ****
-- TBT: ****
+## Search engine state
+### Google
+- Old `restaurant.` sitemap: removed.
+- `www` sitemap: intentionally not submitted until public TLS is valid.
+- Old HTTP noindex validation: not started yet; it will be started after HTTPS works.
 
-### Desktop
-- Performance: **0**
-- Accessibility: **0**
-- Best Practices: **0**
-- SEO: **0**
-- LCP: ****
-- CLS: ****
-- TBT: ****
+### Bing
+- No sitemap is currently registered.
+- Seven legacy URLs are visible in URL Submission.
+- Final canonical multilingual URLs and a new Site Scan are pending valid TLS.
 
-## Search engine submissions
-- Google Search Console sitemap: submitted successfully.
-- Google priority indexing requests: six production URLs.
-- Google validation started for the old http://levante-radolfzell.de/ noindex exclusion.
-- Bing Webmaster sitemap: submitted.
-- Bing priority URL submissions: six production URLs.
+## External platform state
+- Google Business: opening and delivery hours are correct; removal of `Reservations required` remains under review.
+- Bing Places: verified and synced with Google; publication remains pending with the displayed 7?12 day estimate.
 
-## External platform processing
-- Google Business Profile: removal of “Reservations required” remains under Google review.
-- Bing Places: verified and synced, publication remains pending on Microsoft.
-- Search recrawling and ranking changes remain controlled by Google and Bing.
-
-## Rollback
-The previous Google Sites mapping and the complete DNS backup are documented in ollback.md and dns-before-www-cutover.json.
+## Next acceptance gate
+Completion requires all of the following:
+1. GitHub issues a certificate valid for `www.levante-radolfzell.de`.
+2. Enforce HTTPS is enabled.
+3. HTTP redirects to HTTPS for apex and www.
+4. Google Rich Results Test can fetch the page.
+5. The www sitemap and canonical URLs are submitted to Google and Bing.
+6. Search Console Validate Fix starts for the old HTTP exclusion.
+7. A fresh Bing Site Scan is started.
+8. Production proof is updated only with observed results.

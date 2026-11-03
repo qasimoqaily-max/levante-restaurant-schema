@@ -1,26 +1,15 @@
-﻿{
-    "checked_at":  "2026-11-03T02:09:13.3520380+01:00",
-    "google":  {
-                   "sitemap":  "submitted successfully",
-                   "priority_urls":  [
-                                         "https://www.levante-radolfzell.de/",
-                                         "https://www.levante-radolfzell.de/speisekarte/",
-                                         "https://www.levante-radolfzell.de/en/",
-                                         "https://www.levante-radolfzell.de/en/menu/",
-                                         "https://www.levante-radolfzell.de/ar/",
-                                         "https://www.levante-radolfzell.de/ar/menu/"
-                                     ],
-                   "noindex_validation":  "started"
-               },
-    "bing":  {
-                 "sitemap":  "submitted",
-                 "priority_urls":  [
-                                       "https://www.levante-radolfzell.de/",
-                                       "https://www.levante-radolfzell.de/speisekarte/",
-                                       "https://www.levante-radolfzell.de/en/",
-                                       "https://www.levante-radolfzell.de/en/menu/",
-                                       "https://www.levante-radolfzell.de/ar/",
-                                       "https://www.levante-radolfzell.de/ar/menu/"
-                                   ]
-             }
+{
+  "checked_at": "2026-11-03T22:05:00+01:00",
+  "google": {
+    "obsolete_restaurant_sitemap": "REMOVED_FROM_SEARCH_CONSOLE",
+    "www_sitemap": "PENDING_VALID_PUBLIC_TLS",
+    "priority_urls": "PENDING_VALID_PUBLIC_TLS",
+    "noindex_validation": "NOT_STARTED; wait for valid HTTPS before validation"
+  },
+  "bing": {
+    "sitemap": "NOT_SUBMITTED",
+    "existing_submissions": "7 legacy Google Sites URLs",
+    "final_canonical_urls": "PENDING_VALID_PUBLIC_TLS",
+    "site_scan": "LEVANTE_FULL_AUDIT_20261102 remains queued"
+  }
 }
