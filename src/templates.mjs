@@ -1,5 +1,6 @@
 import { t, routeByLang } from './i18n.mjs';
 import { restaurantGraph, menuGraph, pageGraph } from './schema.mjs';
+import { itemDiet } from './diet.mjs';
 
 export function escapeHtml(value = '') {
   return String(value)
@@ -145,7 +146,7 @@ function renderHome(site, page) {
       <div class="menu-teaser"><span>Hummus</span><span>Falafel</span><span>Kebbeh</span><span>Tajine</span><span>Mix Grill</span></div>
     </div>
   </section>
-  <section class="section">
+  <section id="faq" class="section">
     <div class="shell"><div class="section-heading"><h2>${escapeHtml(c.faqTitle)}</h2></div><div class="faq-list">${c.faq.map(([q, a]) => `<details><summary>${escapeHtml(q)}</summary><p>${escapeHtml(a)}</p></details>`).join('')}</div></div>
   </section>
   <section id="contact" class="section contact-section">
@@ -161,12 +162,18 @@ function formatPrice(value, lang) {
   return new Intl.NumberFormat(lang === 'ar' ? 'ar-DE' : lang === 'en' ? 'en-DE' : 'de-DE', { style: 'currency', currency: 'EUR' }).format(Number(value));
 }
 
+function renderMenuItem(item, lang) {
+  const c = t(lang);
+  const diet = itemDiet(item);
+  return `<article class="menu-item"><div><h3>${escapeHtml(item.name[lang])}${diet ? ` <span class="diet">${escapeHtml(c.diet[diet.key])}</span>` : ''}</h3>${item.description[lang] ? `<p>${escapeHtml(item.description[lang])}</p>` : ''}</div><strong>${formatPrice(item.price, lang)}</strong></article>`;
+}
+
 function renderMenu(site, page, menu) {
   const c = t(page.lang);
   return `<main id="main" class="page-main">
   <section class="page-hero"><div class="shell"><p class="eyebrow">Levante Restaurant · Radolfzell</p><h1>${escapeHtml(c.menuTitle)}</h1><p class="lead">${escapeHtml(c.menuLead)}</p><p class="halal-note">${escapeHtml(c.menuHalalNote)}</p>${actionButtons(site, page.lang)}</div></section>
   <section class="section"><div class="shell menu-layout">
-    ${menu.sections.map(section => `<section class="menu-section" id="${section.id}"><header><h2>${escapeHtml(section.name[page.lang])}</h2>${section.note[page.lang] ? `<p>${escapeHtml(section.note[page.lang])}</p>` : ''}</header><div class="menu-items">${section.items.map(item => `<article class="menu-item"><div><h3>${escapeHtml(item.name[page.lang])}${item.diet !== 'none' ? ` <span class="diet">${escapeHtml(c.diet[item.diet])}</span>` : ''}</h3>${item.description[page.lang] ? `<p>${escapeHtml(item.description[page.lang])}</p>` : ''}</div><strong>${formatPrice(item.price, page.lang)}</strong></article>`).join('')}</div></section>`).join('')}
+    ${menu.sections.map(section => `<section class="menu-section" id="${section.id}"><header><h2>${escapeHtml(section.name[page.lang])}</h2>${section.note[page.lang] ? `<p>${escapeHtml(section.note[page.lang])}</p>` : ''}</header><div class="menu-items">${section.items.map(item => renderMenuItem(item, page.lang)).join('')}</div></section>`).join('')}
     <aside class="menu-note"><p>${escapeHtml(menu.note[page.lang])}</p></aside>
   </div></section>
 </main>`;
@@ -222,7 +229,7 @@ function renderContent(site, page, menu) {
 
 function graphFor(site, page, menu) {
   const c = t(page.lang);
-  if (page.kind === 'home') return restaurantGraph(site, page, { reserve: c.actions.reserve, home: c.nav.home });
+  if (page.kind === 'home') return restaurantGraph(site, page, { home: c.nav.home });
   if (page.kind === 'menu') return menuGraph(site, page, menu, { menu: c.nav.menu });
   return pageGraph(site, page, page.title.split('|')[0].trim());
 }

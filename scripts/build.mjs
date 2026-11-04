@@ -64,7 +64,7 @@ const urlEntries = pages.map(page => {
   const links = alternates[page.route]
     ? Object.entries(alternates[page.route]).map(([lang, route]) => `    <xhtml:link rel="alternate" hreflang="${lang}" href="${site.baseUrl}${route}"/>`).join('\n')
     : '';
-  return `  <url>\n    <loc>${site.baseUrl}${page.route}</loc>\n    <lastmod>2026-11-03</lastmod>${links ? `\n${links}` : ''}\n  </url>`;
+  return `  <url>\n    <loc>${site.baseUrl}${page.route}</loc>\n    <lastmod>2026-11-04</lastmod>${links ? `\n${links}` : ''}\n  </url>`;
 }).join('\n');
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urlEntries}\n</urlset>\n`);
 write('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${site.baseUrl}/sitemap.xml\n`);

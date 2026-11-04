@@ -1,4 +1,7 @@
-﻿const schema = 'https://schema.org';
+﻿import { itemDiet } from './diet.mjs';
+import { t, routeByLang } from './i18n.mjs';
+
+const schema = 'https://schema.org';
 
 function abs(site, route) {
   return new URL(route, `${site.baseUrl}/`).href;
@@ -59,12 +62,14 @@ function baseNodes(site, page, breadcrumbName) {
             { '@type': 'ListItem', position: 2, name: breadcrumbName, item: canonical },
           ],
     },
+    restaurantNode(site, page),
   ];
 }
 
-export function restaurantGraph(site, page, labels) {
+function restaurantNode(site, page) {
   const canonical = abs(site, page.route);
-  const restaurant = {
+  const menuUrl = abs(site, routeByLang[page.lang].menu);
+  return {
     '@type': 'Restaurant',
     '@id': `${site.baseUrl}/#restaurant`,
     name: site.business.name,
@@ -105,13 +110,13 @@ export function restaurantGraph(site, page, labels) {
     },
     hasMap: site.actions.maps,
     openingHoursSpecification: openingHours(site),
-    menu: abs(site, '/speisekarte/'),
-    hasMenu: { '@id': `${site.baseUrl}/speisekarte/#menu` },
+    menu: menuUrl,
+    hasMenu: { '@id': `${menuUrl}#menu` },
     acceptsReservations: true,
     sameAs: Object.values(site.social),
     areaServed: {
       '@type': 'City',
-      name: 'Radolfzell am Bodensee',
+      name: site.business.locality,
     },
     potentialAction: [
       {
@@ -126,7 +131,7 @@ export function restaurantGraph(site, page, labels) {
         },
         result: {
           '@type': 'FoodEstablishmentReservation',
-          name: labels.reserve,
+          name: t(page.lang).actions.reserve,
         },
       },
       {
@@ -142,9 +147,11 @@ export function restaurantGraph(site, page, labels) {
       },
     ],
   };
+}
 
+export function restaurantGraph(site, page, labels) {
+  const canonical = abs(site, page.route);
   const graph = baseNodes(site, page, labels.home);
-  graph.push(restaurant);
   graph.push({
     '@type': 'ImageObject',
     '@id': `${site.baseUrl}/#primaryimage`,
@@ -154,21 +161,20 @@ export function restaurantGraph(site, page, labels) {
     height: 630,
     caption: 'Levante Restaurant Radolfzell',
   });
+  if (page.kind === 'home') {
+    graph.push({
+      '@type': 'FAQPage',
+      '@id': `${canonical}#faq`,
+      inLanguage: page.lang,
+      isPartOf: { '@id': `${canonical}#webpage` },
+      mainEntity: t(page.lang).faq.map(([question, answer]) => ({
+        '@type': 'Question',
+        name: question,
+        acceptedAnswer: { '@type': 'Answer', text: answer },
+      })),
+    });
+  }
   return { '@context': schema, '@graph': graph };
-}
-
-// Exact meat/poultry IDs approved by the owner on 2026-11-04.
-// Do not infer halal status for unlisted items or override vegan/vegetarian diets.
-const halalItemIds = new Set([
-  'kebbeh', 'arays-lahmeh', 'lamb-soup', 'chicken-salad', 'chicken-tajine',
-  'lamb-tajine', 'kafta-mishwiyeh', 'shish-taouk', 'mix-grill', 'lahmeh-mishwiyeh',
-]);
-
-function dietUri(diet, itemId) {
-  if (diet === 'vegan') return `${schema}/VeganDiet`;
-  if (diet === 'vegetarian') return `${schema}/VegetarianDiet`;
-  if (halalItemIds.has(itemId)) return `${schema}/HalalDiet`;
-  return undefined;
 }
 
 export function menuGraph(site, page, menu, labels) {
@@ -178,20 +184,23 @@ export function menuGraph(site, page, menu, labels) {
     '@id': `${canonical}#${section.id}`,
     name: section.name[page.lang],
     ...(section.note[page.lang] ? { description: section.note[page.lang] } : {}),
-    hasMenuItem: section.items.map(item => ({
-      '@type': 'MenuItem',
-      '@id': `${canonical}#${item.id}`,
-      name: item.name[page.lang],
-      ...(item.description[page.lang] ? { description: item.description[page.lang] } : {}),
-      ...(dietUri(item.diet, item.id) ? { suitableForDiet: dietUri(item.diet, item.id) } : {}),
-      offers: {
-        '@type': 'Offer',
-        price: item.price,
-        priceCurrency: menu.currency,
-        availability: `${schema}/InStock`,
-        url: canonical,
-      },
-    })),
+    hasMenuItem: section.items.map(item => {
+      const diet = itemDiet(item);
+      return {
+        '@type': 'MenuItem',
+        '@id': `${canonical}#${item.id}`,
+        name: item.name[page.lang],
+        ...(item.description[page.lang] ? { description: item.description[page.lang] } : {}),
+        ...(diet ? { suitableForDiet: diet.uri } : {}),
+        offers: {
+          '@type': 'Offer',
+          price: item.price,
+          priceCurrency: menu.currency,
+          availability: `${schema}/InStock`,
+          url: canonical,
+        },
+      };
+    }),
   }));
 
   const graph = baseNodes(site, page, labels.menu);
@@ -203,25 +212,6 @@ export function menuGraph(site, page, menu, labels) {
     inLanguage: page.lang,
     mainEntityOfPage: { '@id': `${canonical}#webpage` },
     hasMenuSection: sections,
-  });
-  graph.push({
-    '@type': 'Restaurant',
-    '@id': `${site.baseUrl}/#restaurant`,
-    name: site.business.name,
-    url: `${site.baseUrl}/`,
-    menu: canonical,
-    hasMenu: { '@id': `${canonical}#menu` },
-    servesCuisine: site.business.cuisines,
-    acceptsReservations: true,
-    telephone: '+49 7732 9589075',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: site.business.street,
-      postalCode: site.business.postalCode,
-      addressLocality: site.business.locality,
-      addressRegion: site.business.region,
-      addressCountry: site.business.country,
-    },
   });
   return { '@context': schema, '@graph': graph };
 }
