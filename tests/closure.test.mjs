@@ -153,12 +153,28 @@ function changeGraph(html, change) {
   });
 }
 
+// The source lock records the original Windows CRLF bytes. Git checks out LF
+// on Linux; normalize only line endings to that original representation.
+const menuSourceHash = bytes => createHash('sha256')
+  .update(bytes.toString('utf8').replaceAll('\r\n', '\n').replaceAll('\n', '\r\n'), 'utf8')
+  .digest('hex');
+
+test('source lock accepts Git LF and Windows CRLF checkouts but rejects changed content', () => {
+  const bytes = fs.readFileSync(path.join(repoRoot, 'data/menu.json'));
+  const lf = Buffer.from(bytes.toString('utf8').replaceAll('\r\n', '\n'));
+  const crlf = Buffer.from(lf.toString('utf8').replaceAll('\n', '\r\n'));
+  assert.equal(menuSourceHash(lf), lock.sourceSha256, 'Linux checkout preserves source lock');
+  assert.equal(menuSourceHash(crlf), lock.sourceSha256, 'Windows checkout preserves source lock');
+  assert.notEqual(menuSourceHash(Buffer.from(lf.toString('utf8').replace('9.00', '9.01'))), lock.sourceSha256, 'price edits must still fail');
+  assert.notEqual(menuSourceHash(Buffer.from(lf.toString('utf8').replace('Hummus', 'Changed dish'))), lock.sourceSha256, 'name edits must still fail');
+});
+
 test(`all ${lock.items.length} source dishes and the entire menu file remain locked`, () => {
   const sourceItems = sourceMenu.sections.flatMap(section => section.items);
   assert.equal(lock.items.length, 35);
   assert.deepEqual(sourceItems, lock.items);
   const bytes = fs.readFileSync(path.join(repoRoot, 'data/menu.json'));
-  assert.equal(createHash('sha256').update(bytes).digest('hex'), lock.sourceSha256);
+  assert.equal(menuSourceHash(bytes), lock.sourceSha256);
 });
 
 for (const page of pages.filter(page => page.kind === 'menu')) {
