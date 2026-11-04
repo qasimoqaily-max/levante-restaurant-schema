@@ -164,7 +164,7 @@ function formatPrice(value, lang) {
 function renderMenu(site, page, menu) {
   const c = t(page.lang);
   return `<main id="main" class="page-main">
-  <section class="page-hero"><div class="shell"><p class="eyebrow">Levante Restaurant · Radolfzell</p><h1>${escapeHtml(c.menuTitle)}</h1><p class="lead">${escapeHtml(c.menuLead)}</p>${actionButtons(site, page.lang)}</div></section>
+  <section class="page-hero"><div class="shell"><p class="eyebrow">Levante Restaurant · Radolfzell</p><h1>${escapeHtml(c.menuTitle)}</h1><p class="lead">${escapeHtml(c.menuLead)}</p><p class="halal-note">${escapeHtml(c.menuHalalNote)}</p>${actionButtons(site, page.lang)}</div></section>
   <section class="section"><div class="shell menu-layout">
     ${menu.sections.map(section => `<section class="menu-section" id="${section.id}"><header><h2>${escapeHtml(section.name[page.lang])}</h2>${section.note[page.lang] ? `<p>${escapeHtml(section.note[page.lang])}</p>` : ''}</header><div class="menu-items">${section.items.map(item => `<article class="menu-item"><div><h3>${escapeHtml(item.name[page.lang])}${item.diet !== 'none' ? ` <span class="diet">${escapeHtml(c.diet[item.diet])}</span>` : ''}</h3>${item.description[page.lang] ? `<p>${escapeHtml(item.description[page.lang])}</p>` : ''}</div><strong>${formatPrice(item.price, page.lang)}</strong></article>`).join('')}</div></section>`).join('')}
     <aside class="menu-note"><p>${escapeHtml(menu.note[page.lang])}</p></aside>
@@ -276,9 +276,10 @@ ${alternates}
 </html>`;
 }
 
-export function renderRedirect(site, target, lang = 'de') {
+export function renderRedirect(site, target, lang = 'de', replaceHistory = false) {
   const canonical = absolute(site, target);
-  return `<!doctype html><html lang="${lang}" dir="${lang === 'ar' ? 'rtl' : 'ltr'}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Weiterleitung | Levante Restaurant</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="${canonical}"><meta http-equiv="refresh" content="0; url=${target}"></head><body><main><p><a href="${target}">Weiter</a></p></main></body></html>`;
+  const historyScript = replaceHistory ? `<script>window.location.replace(${JSON.stringify(canonical)});</script>` : '';
+  return `<!doctype html><html lang="${lang}" dir="${lang === 'ar' ? 'rtl' : 'ltr'}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Weiterleitung | Levante Restaurant</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="${canonical}">${historyScript}<meta http-equiv="refresh" content="0; url=${target}"></head><body><main><p><a href="${target}">Weiter</a></p></main></body></html>`;
 }
 
 export function render404(site) {

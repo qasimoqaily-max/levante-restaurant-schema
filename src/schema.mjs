@@ -157,9 +157,17 @@ export function restaurantGraph(site, page, labels) {
   return { '@context': schema, '@graph': graph };
 }
 
-function dietUri(diet) {
+// Exact meat/poultry IDs approved by the owner on 2026-11-04.
+// Do not infer halal status for unlisted items or override vegan/vegetarian diets.
+const halalItemIds = new Set([
+  'kebbeh', 'arays-lahmeh', 'lamb-soup', 'chicken-salad', 'chicken-tajine',
+  'lamb-tajine', 'kafta-mishwiyeh', 'shish-taouk', 'mix-grill', 'lahmeh-mishwiyeh',
+]);
+
+function dietUri(diet, itemId) {
   if (diet === 'vegan') return `${schema}/VeganDiet`;
   if (diet === 'vegetarian') return `${schema}/VegetarianDiet`;
+  if (halalItemIds.has(itemId)) return `${schema}/HalalDiet`;
   return undefined;
 }
 
@@ -175,7 +183,7 @@ export function menuGraph(site, page, menu, labels) {
       '@id': `${canonical}#${item.id}`,
       name: item.name[page.lang],
       ...(item.description[page.lang] ? { description: item.description[page.lang] } : {}),
-      ...(dietUri(item.diet) ? { suitableForDiet: dietUri(item.diet) } : {}),
+      ...(dietUri(item.diet, item.id) ? { suitableForDiet: dietUri(item.diet, item.id) } : {}),
       offers: {
         '@type': 'Offer',
         price: item.price,
@@ -202,12 +210,16 @@ export function menuGraph(site, page, menu, labels) {
     name: site.business.name,
     url: `${site.baseUrl}/`,
     menu: canonical,
+    hasMenu: { '@id': `${canonical}#menu` },
+    servesCuisine: site.business.cuisines,
+    acceptsReservations: true,
     telephone: '+49 7732 9589075',
     address: {
       '@type': 'PostalAddress',
       streetAddress: site.business.street,
       postalCode: site.business.postalCode,
       addressLocality: site.business.locality,
+      addressRegion: site.business.region,
       addressCountry: site.business.country,
     },
   });

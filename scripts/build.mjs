@@ -44,7 +44,7 @@ for (const redirect of [
   { route: '/menu-in-english/', target: '/en/menu/', lang: 'en' },
   { route: '/مينو-عربي/', target: '/ar/menu/', lang: 'ar' },
 ]) {
-  write(routeFile(redirect.route), renderRedirect(site, redirect.target, redirect.lang));
+  write(routeFile(redirect.route), renderRedirect(site, redirect.target, redirect.lang, redirect.route === '/home/'));
 }
 
 write('404.html', render404(site));
