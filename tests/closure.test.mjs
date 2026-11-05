@@ -29,6 +29,29 @@ const halalNotes = {
   en: 'All meat and poultry dishes are halal.',
   ar: 'جميع أطباق اللحوم والدواجن حلال.',
 };
+const ownerFaqAnswers = {
+  de: [
+    'Ja, alle unsere Fleisch- und Hähnchengerichte sind halal.',
+    'Ja, unsere Speisekarte bietet zahlreiche klar gekennzeichnete vegane und vegetarische Vorspeisen, Salate und Hauptgerichte.',
+    'Nein. Reservierungen sind möglich, spontane Gäste sind bei uns ebenfalls herzlich willkommen.',
+    'Ja, wir bieten Online-Bestellung, Lieferung und Abholung an. Die aktuellen Zeiten finden Sie auf unserer Bestellseite.',
+    'Ja, wir bieten Catering für Feiern, Firmen und Gruppen an. Kontaktieren Sie uns gerne direkt für Details.',
+  ],
+  en: [
+    'Yes, all our meat and chicken dishes are halal.',
+    'Yes, our menu offers many clearly marked vegan and vegetarian starters, salads and main dishes.',
+    'No. Reservations are available, and we warmly welcome walk-in guests too.',
+    'Yes, we offer online ordering, delivery and collection. You can find current times on our ordering page.',
+    'Yes, we offer catering for celebrations, companies and groups. Please contact us directly for details.',
+  ],
+  ar: [
+    'نعم، جميع أطباق اللحوم والدجاج لدينا حلال.',
+    'نعم، تضم قائمة طعامنا العديد من المقبلات والسلطات والأطباق الرئيسية النباتية والنباتية الصرفة، وكلها مميزة بعلامات واضحة.',
+    'لا. الحجز متاح، ويسعدنا أيضًا استقبالكم دون حجز مسبق.',
+    'نعم، نوفر الطلب عبر الإنترنت والتوصيل والاستلام. تجدون الأوقات الحالية في صفحة الطلب الخاصة بنا.',
+    'نعم، نقدم خدمات الضيافة للحفلات والشركات والمجموعات. يسعدنا تواصلكم معنا مباشرة لمعرفة التفاصيل.',
+  ],
+};
 const decode = text => text.replaceAll('&lt;', '<').replaceAll('&gt;', '>')
   .replaceAll('&quot;', '"').replaceAll('&#39;', "'").replaceAll('&amp;', '&');
 const graphFor = html => jsonLdBlocks(html).flatMap(block => block['@graph'] ?? [block]);
@@ -233,6 +256,12 @@ for (const page of pages) {
     assertRestaurant(html, page);
   });
   if (page.kind === 'home') {
+    test(`${page.lang}: owner-corrected hospitable FAQ answers appear in both visible HTML and Schema`, () => {
+      assert.deepEqual(copy[page.lang].faq.map(([, answer]) => answer), ownerFaqAnswers[page.lang]);
+      const pairs = copy[page.lang].faq.map(([question], index) => [question, ownerFaqAnswers[page.lang][index]]);
+      assertFaq(renderPage(site, page, sourceMenu), page, pairs);
+      assertFaq(read(routeToFile(page.route)), page, pairs);
+    });
     test(`${page.lang}: every FAQ question and answer exactly matches visible localized content`, () => {
       assertFaq(read(routeToFile(page.route)), page, copy[page.lang].faq);
     });
@@ -323,11 +352,15 @@ test('item parity rejects changed names, descriptions, price values and diet URI
   }
 });
 
-test('all ten sitemap URLs use the explicit closure date', () => {
+test('all ten sitemap URLs use explicit content revision dates', () => {
   const entries = [...read('sitemap.xml').matchAll(/<url>([\s\S]*?)<\/url>/g)].map(match => match[1]);
   assert.equal(entries.length, 10);
   assert.deepEqual(entries.map(entry => entry.match(/<loc>([^<]+)<\/loc>/)[1]), pages.map(page => `${base}${page.route}`));
-  for (const entry of entries) assert.equal(entry.match(/<lastmod>([^<]+)<\/lastmod>/)?.[1], '2026-11-04');
+  const updated = new Set([`${base}/`, `${base}/en/`, `${base}/ar/`]);
+  for (const entry of entries) {
+    const url = entry.match(/<loc>([^<]+)<\/loc>/)[1];
+    assert.equal(entry.match(/<lastmod>([^<]+)<\/lastmod>/)?.[1], updated.has(url) ? '2026-11-05' : '2026-11-04');
+  }
 });
 
 test('compatibility and 404 fallback pages remain noindex and outside entity/FAQ graphs', () => {

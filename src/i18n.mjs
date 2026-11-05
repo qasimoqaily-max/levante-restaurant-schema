@@ -20,11 +20,11 @@
     menuIntro: { title: 'Beliebte levantinische Spezialitäten', text: 'Von kalten und warmen Mezze über Salate und Suppen bis zu Tajine und Grillgerichten.' },
     faqTitle: 'Häufige Fragen',
     faq: [
-      ['Sind die Fleischgerichte halal?', 'Ja. Nach den veröffentlichten Angaben des Restaurants sind alle Fleischgerichte halal.'],
-      ['Gibt es vegane und vegetarische Gerichte?', 'Ja. Die Speisekarte kennzeichnet zahlreiche vegane und vegetarische Vorspeisen, Salate und Hauptgerichte.'],
-      ['Muss ich reservieren?', 'Nein. Reservierungen sind möglich, spontane Gäste sind ebenfalls willkommen.'],
-      ['Bietet Levante Lieferung und Abholung an?', 'Ja. Online-Bestellung, Lieferung und Abholung sind verfügbar; die aktuellen Zeiten sehen Sie auf der Bestellseite.'],
-      ['Bietet das Restaurant Catering an?', 'Ja. Catering ist für Feiern, Firmen und Gruppen möglich. Bitte kontaktieren Sie das Restaurant für Details.']
+      ['Sind die Fleischgerichte halal?', 'Ja, alle unsere Fleisch- und Hähnchengerichte sind halal.'],
+      ['Gibt es vegane und vegetarische Gerichte?', 'Ja, unsere Speisekarte bietet zahlreiche klar gekennzeichnete vegane und vegetarische Vorspeisen, Salate und Hauptgerichte.'],
+      ['Muss ich reservieren?', 'Nein. Reservierungen sind möglich, spontane Gäste sind bei uns ebenfalls herzlich willkommen.'],
+      ['Bietet Levante Lieferung und Abholung an?', 'Ja, wir bieten Online-Bestellung, Lieferung und Abholung an. Die aktuellen Zeiten finden Sie auf unserer Bestellseite.'],
+      ['Bietet das Restaurant Catering an?', 'Ja, wir bieten Catering für Feiern, Firmen und Gruppen an. Kontaktieren Sie uns gerne direkt für Details.']
     ],
     hoursTitle: 'Öffnungszeiten',
     contactTitle: 'Kontakt & Anfahrt',
@@ -61,11 +61,11 @@
     menuIntro: { title: 'Popular Levantine specialities', text: 'Cold and warm mezze, salads, soups, tajine and grilled dishes.' },
     faqTitle: 'Frequently asked questions',
     faq: [
-      ['Are the meat dishes halal?', 'Yes. According to the restaurant’s published information, all meat dishes are halal.'],
-      ['Are vegan and vegetarian dishes available?', 'Yes. The menu identifies many vegan and vegetarian starters, salads and main dishes.'],
-      ['Is a reservation required?', 'No. Reservations are available and walk-in guests are welcome.'],
-      ['Do you offer delivery and collection?', 'Yes. Online ordering, delivery and collection are available; current times are shown on the ordering page.'],
-      ['Do you offer catering?', 'Yes. Catering is available for celebrations, companies and groups. Contact the restaurant for details.']
+      ['Are the meat dishes halal?', 'Yes, all our meat and chicken dishes are halal.'],
+      ['Are vegan and vegetarian dishes available?', 'Yes, our menu offers many clearly marked vegan and vegetarian starters, salads and main dishes.'],
+      ['Is a reservation required?', 'No. Reservations are available, and we warmly welcome walk-in guests too.'],
+      ['Do you offer delivery and collection?', 'Yes, we offer online ordering, delivery and collection. You can find current times on our ordering page.'],
+      ['Do you offer catering?', 'Yes, we offer catering for celebrations, companies and groups. Please contact us directly for details.']
     ],
     hoursTitle: 'Opening hours',
     contactTitle: 'Contact and directions',
@@ -102,11 +102,11 @@
     menuIntro: { title: 'أطباق شامية مميزة', text: 'مقبلات باردة وساخنة، سلطات، شوربات، طواجن ومشاوي.' },
     faqTitle: 'أسئلة شائعة',
     faq: [
-      ['هل أطباق اللحوم حلال؟', 'نعم. وفق المعلومات المنشورة من المطعم، جميع أطباق اللحوم حلال.'],
-      ['هل توجد أطباق نباتية؟', 'نعم. توضح القائمة العديد من المقبلات والسلطات والأطباق الرئيسية النباتية.'],
-      ['هل الحجز إلزامي؟', 'لا. الحجز متاح، كما نرحب بالضيوف دون حجز مسبق.'],
-      ['هل تتوفر خدمة التوصيل والاستلام؟', 'نعم. يتوفر الطلب الإلكتروني والتوصيل والاستلام، وتظهر الأوقات الحالية في صفحة الطلب.'],
-      ['هل تتوفر خدمة الضيافة للمناسبات؟', 'نعم. تتوفر خدمة الضيافة للحفلات والشركات والمجموعات. يرجى التواصل مع المطعم للتفاصيل.']
+      ['هل أطباق اللحوم حلال؟', 'نعم، جميع أطباق اللحوم والدجاج لدينا حلال.'],
+      ['هل توجد أطباق نباتية؟', 'نعم، تضم قائمة طعامنا العديد من المقبلات والسلطات والأطباق الرئيسية النباتية والنباتية الصرفة، وكلها مميزة بعلامات واضحة.'],
+      ['هل الحجز إلزامي؟', 'لا. الحجز متاح، ويسعدنا أيضًا استقبالكم دون حجز مسبق.'],
+      ['هل تتوفر خدمة التوصيل والاستلام؟', 'نعم، نوفر الطلب عبر الإنترنت والتوصيل والاستلام. تجدون الأوقات الحالية في صفحة الطلب الخاصة بنا.'],
+      ['هل تتوفر خدمة الضيافة للمناسبات؟', 'نعم، نقدم خدمات الضيافة للحفلات والشركات والمجموعات. يسعدنا تواصلكم معنا مباشرة لمعرفة التفاصيل.']
     ],
     hoursTitle: 'ساعات العمل',
     contactTitle: 'التواصل والوصول',
