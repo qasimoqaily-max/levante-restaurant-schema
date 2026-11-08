@@ -290,11 +290,11 @@ ${alternates}
   <meta name="theme-color" content="#0c7773">
   <link rel="icon" href="/assets/img/favicon.png" sizes="32x32">
   <link rel="manifest" href="/site.webmanifest">
-  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/site.css?v=20261108-measurement">
   <script type="application/ld+json">${JSON.stringify(graph)}</script>
   <script src="/assets/js/site.js" defer></script>
   <script id="measurement-config" type="application/json">${measurementConfig}</script>
-  <script type="module" src="/assets/js/measurement.js"></script>
+  <script type="module" src="/assets/js/measurement.js?v=20261108-measurement"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">${escapeHtml(c.skip)}</a>

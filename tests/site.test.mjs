@@ -109,6 +109,23 @@ test('menu pages expose Menu and MenuItem JSON-LD matching visible prices', () =
   }
 });
 
+test('consent assets have stable cache versions and resolve to local files', () => {
+  for (const [file] of pages) {
+    const html = read(file);
+    const stylesheet = linkHref(html, 'stylesheet');
+    const scripts = [...html.matchAll(/<script\b[^>]*\bsrc=["']([^"']+)["']/gi)].map(match => match[1]);
+    assert.equal(stylesheet, '/assets/css/site.css?v=20261108-measurement', file);
+    assert.deepEqual(scripts, [
+      '/assets/js/site.js',
+      '/assets/js/measurement.js?v=20261108-measurement',
+    ], file);
+    for (const asset of [stylesheet, ...scripts]) {
+      const pathname = new URL(asset, base).pathname;
+      assert.ok(exists(pathname.slice(1)), `${file}: missing asset ${asset}`);
+    }
+  }
+});
+
 test('internal links and local images resolve', () => {
   for (const [file] of pages) {
     const html = read(file);

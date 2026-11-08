@@ -44,7 +44,9 @@ test('crawl files and immutable assets use correct content types and caching', a
     ['/sitemap.xml', 'application/xml'],
     ['/site.webmanifest', 'application/manifest+json'],
     ['/assets/css/site.css', 'text/css'],
+    ['/assets/css/site.css?v=20261108-measurement', 'text/css'],
     ['/assets/js/site.js', 'text/javascript'],
+    ['/assets/js/measurement.js?v=20261108-measurement', 'text/javascript'],
     ['/assets/img/hero-table.webp', 'image/webp'],
     ['/assets/img/levante-og.jpg', 'image/jpeg'],
   ];

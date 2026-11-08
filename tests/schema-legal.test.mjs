@@ -118,7 +118,7 @@ test('measurement config is inert local JSON and cannot close its script element
     pageLanguage: 'ar',
   });
   assert.doesNotMatch(html, /<script>alert\(1\)<\/script>/);
-  assert.match(html, /<script\b(?=[^>]*type="module")(?=[^>]*src="\/assets\/js\/measurement\.js")[^>]*><\/script>/);
+  assert.match(html, /<script\b(?=[^>]*type="module")(?=[^>]*src="\/assets\/js\/measurement\.js\?v=20261108-measurement")[^>]*><\/script>/);
   assert.deepEqual(JSON.parse(rendered(page, { ...site, measurement: undefined }).match(/<script\b(?=[^>]*id="measurement-config")[^>]*>([\s\S]*?)<\/script>/)[1]).measurementId, '');
   assert.deepEqual([...html.matchAll(/<script\b[^>]*src="(https?:[^\"]+)"/g)], []);
 });
