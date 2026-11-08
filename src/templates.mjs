@@ -65,11 +65,19 @@ function footer(site, page) {
   return `<footer class="site-footer">
   <div class="shell footer-grid">
     <div><strong>${escapeHtml(c.siteName)}</strong><p>${escapeHtml(site.business.street)}, ${escapeHtml(site.business.postalCode)} ${escapeHtml(site.business.locality)}</p></div>
-    <div><a href="tel:${site.business.phoneE164}">${escapeHtml(site.business.phoneDisplay)}</a><br><a href="mailto:${site.business.email}">${escapeHtml(site.business.email)}</a></div>
-    <div><a href="/impressum/">${escapeHtml(c.footer.imprint)}</a><br><a href="/datenschutz/">${escapeHtml(c.footer.privacy)}</a></div>
+    <div><a href="tel:${site.business.phoneE164}" data-measure-action="click_to_call">${escapeHtml(site.business.phoneDisplay)}</a><br><a href="mailto:${site.business.email}">${escapeHtml(site.business.email)}</a></div>
+    <div><a href="/impressum/">${escapeHtml(c.footer.imprint)}</a><br><a href="/datenschutz/">${escapeHtml(c.footer.privacy)}</a><br><button class="consent-settings" type="button" data-consent-settings aria-controls="measurement-consent">${escapeHtml(c.consent.settings)}</button></div>
   </div>
   <div class="shell footer-bottom"><span>© 2026 Levante Restaurant</span><span>Radolfzell am Bodensee</span></div>
 </footer>`;
+}
+
+function measurementConsent(page) {
+  const c = t(page.lang).consent;
+  return `<section id="measurement-consent" class="consent-panel" role="region" aria-labelledby="measurement-consent-title" tabindex="-1" hidden>
+  <div class="consent-content"><h2 id="measurement-consent-title">${escapeHtml(c.title)}</h2><p>${escapeHtml(c.text)}</p><p>${escapeHtml(c.choice)} <a href="/datenschutz/">${escapeHtml(c.privacy)}</a></p></div>
+  <div class="consent-actions"><button class="consent-choice" type="button" data-consent-choice="granted">${escapeHtml(c.allow)}</button><button class="consent-choice" type="button" data-consent-choice="denied">${escapeHtml(c.reject)}</button></div>
+</section>`;
 }
 
 function hours(site, lang) {
@@ -84,9 +92,9 @@ function hours(site, lang) {
 function actionButtons(site, lang) {
   const c = t(lang);
   return `<div class="actions">
-    <a class="button button-primary" href="${site.actions.reserve}" rel="noopener">${escapeHtml(c.actions.reserve)}</a>
-    <a class="button button-light" href="${site.actions.order}" rel="noopener">${escapeHtml(c.actions.order)}</a>
-    <a class="button button-ghost" href="tel:${site.business.phoneE164}">${escapeHtml(c.actions.call)}</a>
+    <a class="button button-primary" href="${site.actions.reserve}" rel="noopener" data-measure-action="booking_intent">${escapeHtml(c.actions.reserve)}</a>
+    <a class="button button-light" href="${site.actions.order}" rel="noopener" data-measure-action="order_intent">${escapeHtml(c.actions.order)}</a>
+    <a class="button button-ghost" href="tel:${site.business.phoneE164}" data-measure-action="click_to_call">${escapeHtml(c.actions.call)}</a>
   </div>`;
 }
 
@@ -152,7 +160,7 @@ function renderHome(site, page) {
   <section id="contact" class="section contact-section">
     <div class="shell contact-grid">
       <article><p class="eyebrow">${escapeHtml(c.hoursTitle)}</p><h2>${escapeHtml(c.hoursTitle)}</h2>${hours(site, page.lang)}</article>
-      <article><p class="eyebrow">${escapeHtml(c.contactTitle)}</p><h2>${escapeHtml(c.contactTitle)}</h2><address>${escapeHtml(site.business.street)}<br>${escapeHtml(site.business.postalCode)} ${escapeHtml(site.business.locality)}</address><p><a href="tel:${site.business.phoneE164}">${escapeHtml(site.business.phoneDisplay)}</a><br><a href="mailto:${site.business.email}">${escapeHtml(site.business.email)}</a></p><a class="text-link" href="${site.actions.maps}" rel="noopener">${escapeHtml(c.actions.directions)} →</a></article>
+      <article><p class="eyebrow">${escapeHtml(c.contactTitle)}</p><h2>${escapeHtml(c.contactTitle)}</h2><address>${escapeHtml(site.business.street)}<br>${escapeHtml(site.business.postalCode)} ${escapeHtml(site.business.locality)}</address><p><a href="tel:${site.business.phoneE164}" data-measure-action="click_to_call">${escapeHtml(site.business.phoneDisplay)}</a><br><a href="mailto:${site.business.email}">${escapeHtml(site.business.email)}</a></p><a class="text-link" href="${site.actions.maps}" rel="noopener">${escapeHtml(c.actions.directions)} →</a></article>
     </div>
   </section>
 </main>`;
@@ -210,11 +218,18 @@ function renderReviews(site, page) {
 }
 
 function renderImprint(site) {
-  return `<main id="main" class="page-main"><section class="page-hero"><div class="shell prose"><h1>Impressum</h1><h2>Angaben gemäß § 5 DDG</h2><p><strong>${escapeHtml(site.business.name)}</strong><br>Inhaber: ${escapeHtml(site.business.owner)}<br>${escapeHtml(site.business.street)}<br>${escapeHtml(site.business.postalCode)} ${escapeHtml(site.business.locality)}<br>Deutschland</p><h2>Kontakt</h2><p>Telefon: <a href="tel:${site.business.phoneE164}">${escapeHtml(site.business.phoneDisplay)}</a><br>E-Mail: <a href="mailto:${site.business.email}">${escapeHtml(site.business.email)}</a></p><h2>Verbraucherstreitbeilegung</h2><p>Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p></div></section></main>`;
+  return `<main id="main" class="page-main"><section class="page-hero"><div class="shell prose"><h1>Impressum</h1><h2>Angaben gemäß § 5 DDG</h2><p><strong>${escapeHtml(site.business.name)}</strong><br>Inhaber: ${escapeHtml(site.business.owner)}<br>${escapeHtml(site.business.street)}<br>${escapeHtml(site.business.postalCode)} ${escapeHtml(site.business.locality)}<br>Deutschland</p><h2>Kontakt</h2><p>Telefon: <a href="tel:${site.business.phoneE164}" data-measure-action="click_to_call">${escapeHtml(site.business.phoneDisplay)}</a><br>E-Mail: <a href="mailto:${site.business.email}">${escapeHtml(site.business.email)}</a></p><h2>Verbraucherstreitbeilegung</h2><p>Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p></div></section></main>`;
 }
 
 function renderPrivacy(site) {
-  return `<main id="main" class="page-main"><section class="page-hero"><div class="shell prose"><h1>Datenschutzerklärung</h1><p>Stand: 3. November 2026</p><h2>1. Verantwortlicher</h2><p>${escapeHtml(site.business.name)}, Inhaber ${escapeHtml(site.business.owner)}, ${escapeHtml(site.business.street)}, ${escapeHtml(site.business.postalCode)} ${escapeHtml(site.business.locality)}. E-Mail: <a href="mailto:${site.business.email}">${escapeHtml(site.business.email)}</a>.</p><h2>2. Bereitstellung der Website</h2><p>Diese Website wird technisch über GitHub Pages bereitgestellt. Beim Aufruf können technisch erforderliche Serverprotokolle verarbeitet werden, insbesondere IP-Adresse, Zeitpunkt, angeforderte Datei, übertragene Datenmenge sowie Browser- und Betriebssystemangaben. Die Verarbeitung dient der sicheren und stabilen Bereitstellung der Website.</p><h2>3. Cookies und Analyse</h2><p>Diese Website setzt keine eigenen Analyse-, Marketing- oder Profiling-Cookies ein und verwendet keine externen Schriftarten oder Tracking-Skripte.</p><h2>4. Kontaktaufnahme</h2><p>Wenn Sie uns per Telefon oder E-Mail kontaktieren, verarbeiten wir Ihre Angaben zur Bearbeitung Ihrer Anfrage. Die Daten werden gelöscht, sobald sie für den Zweck nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p><h2>5. Externe Links</h2><p>Links zu Reservierung, Bestellung, Karten, sozialen Netzwerken und Bewertungsplattformen öffnen externe Anbieter. Erst beim Anklicken gelten deren Datenschutzbestimmungen.</p><h2>6. Ihre Rechte</h2><p>Sie haben im Rahmen der gesetzlichen Voraussetzungen Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch sowie ein Beschwerderecht bei einer Datenschutzaufsichtsbehörde.</p></div></section></main>`;
+  return `<main id="main" class="page-main"><section class="page-hero"><div class="shell prose"><h1>Datenschutzerklärung</h1><p>Stand: 8. November 2026</p>
+<h2>1. Verantwortlicher</h2><p>${escapeHtml(site.business.name)}, Inhaber ${escapeHtml(site.business.owner)}, ${escapeHtml(site.business.street)}, ${escapeHtml(site.business.postalCode)} ${escapeHtml(site.business.locality)}. E-Mail: <a href="mailto:${site.business.email}">${escapeHtml(site.business.email)}</a>.</p>
+<h2>2. Bereitstellung der Website</h2><p>Diese Website wird technisch über GitHub Pages bereitgestellt. Beim Aufruf können technisch erforderliche Serverprotokolle verarbeitet werden, insbesondere IP-Adresse, Zeitpunkt, angeforderte Datei, übertragene Datenmenge sowie Browser- und Betriebssystemangaben. Die Verarbeitung dient der sicheren und stabilen Bereitstellung der Website.</p>
+<h2>3. Optionale Nutzungsstatistik und Ihre Auswahl</h2><p>Google Analytics 4 wird ausschließlich nach Ihrer ausdrücklichen Zustimmung geladen. Ohne Zustimmung werden weder das Google-Analyse-Skript geladen noch Analyse-Anfragen an Google gesendet. Ablehnen und Erlauben stehen gleichwertig zur Auswahl. Die Website sowie Telefon-, Reservierungs- und Bestelllinks funktionieren unabhängig von Ihrer Entscheidung.</p><p>Ihre Auswahl wird mit Zeitangabe und Versionsnummer lokal in Ihrem Browser gespeichert und gilt höchstens 180 Tage. Abgelaufene Einträge werden beim nächsten Aufruf entfernt, soweit der Browser den Speicherzugriff erlaubt. Eine Ablehnung kann zusätzlich für die laufende Browsersitzung gespeichert werden, damit sie auch bei einem fehlgeschlagenen dauerhaften Speichervorgang erhalten bleibt. Es werden dabei keine Werbekennungen oder Seitenadressen gespeichert. Über „Datenschutzeinstellungen“ im Seitenfuß können Sie die Auswahl jederzeit ändern oder Ihre Zustimmung widerrufen. Beim Widerruf wird die Messung gestoppt, unsere zugänglichen Google-Analyse-Cookies werden entfernt und die Seite bei Bedarf neu geladen. Die bis zum Widerruf erfolgte Verarbeitung bleibt davon unberührt.</p><p>Wenn Ihr Browser Änderungen am lokalen Speicher verhindert, kann Ihre Auswahl nicht zuverlässig gespeichert werden. Löschen Sie in diesem Fall die gespeicherten Websitedaten in Ihren Browsereinstellungen, sobald dies möglich ist.</p>
+<h2>4. Umfang der Analyse</h2><p>Die freiwillige Statistik hilft uns, die Website und die Wirkung unserer Anzeigen zu beurteilen. Erfasst werden nach Zustimmung Klicks zum Anrufen, Reservieren und Bestellen sowie die Sprache und der Pfad der Seite. Diese Ereignisse beschreiben nur eine Kontakt-, Buchungs- oder Bestellabsicht; sie bestätigen keinen Anruf, keine abgeschlossene Reservierung und keinen Kauf. Wir melden dafür keine Preise oder erfundenen Umsätze.</p><p>Wir übergeben keine Namen, E-Mail-Adressen, Telefonnummern oder freien Formulareingaben in den Ereignisdaten. Seitenadressen werden ohne Abfrageparameter oder Fragment übermittelt. Es gibt kein domainübergreifendes Tracking zu externen Reservierungs- oder Bestellanbietern. Remarketing, Google Signals, personalisierte Anzeigen und erweiterte Conversions werden nicht aktiviert; die Werbespeicherung und die Freigaben für Werbenutzerdaten und Anzeigenpersonalisierung bleiben verweigert.</p><p>Nach Zustimmung kann Google Analytics pseudonyme Kennungen in eigenen Cookies dieser Website speichern. Deren Laufzeit ist auf 30 Tage begrenzt und wird nicht durch weitere Seitenaufrufe verlängert. Beim Laden und Senden entsteht eine Verbindung zu Google; dabei werden auch technisch notwendige Verbindungsdaten wie die IP-Adresse übertragen. Die Statistik ist deshalb nicht als vollständig anonym zu verstehen. Weitere Informationen enthält die <a href="https://www.google.com/policies/privacy/" rel="noopener">Datenschutzerklärung von Google</a>.</p>
+<h2>5. Kontaktaufnahme</h2><p>Wenn Sie uns per Telefon oder E-Mail kontaktieren, verarbeiten wir Ihre Angaben zur Bearbeitung Ihrer Anfrage. Die Daten werden gelöscht, sobald sie für den Zweck nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
+<h2>6. Externe Links</h2><p>Links zu Reservierung, Bestellung, Karten, sozialen Netzwerken und Bewertungsplattformen öffnen externe Anbieter. Erst beim Anklicken gelten deren Datenschutzbestimmungen. Unsere Klickmessung weist keine dort abgeschlossene Bestellung oder Reservierung nach.</p>
+<h2>7. Ihre Rechte</h2><p>Sie haben im Rahmen der gesetzlichen Voraussetzungen Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch sowie ein Beschwerderecht bei einer Datenschutzaufsichtsbehörde.</p></div></section></main>`;
 }
 
 function renderContent(site, page, menu) {
@@ -242,6 +257,11 @@ export function renderPage(site, page, menu) {
   const ogLocale = page.lang === 'de' ? 'de_DE' : page.lang === 'en' ? 'en_GB' : 'ar_AR';
   const ogAlternates = ['de_DE', 'en_GB', 'ar_AR'].filter(locale => locale !== ogLocale);
   const graph = graphFor(site, page, menu);
+  const measurementConfig = JSON.stringify({
+    measurementId: site.measurement?.measurementId ?? '',
+    pagePath: page.route,
+    pageLanguage: page.lang,
+  }).replaceAll('<', '\\u003c');
   return `<!doctype html>
 <html lang="${page.lang}" dir="${page.lang === 'ar' ? 'rtl' : 'ltr'}">
 <head>
@@ -273,12 +293,15 @@ ${alternates}
   <link rel="stylesheet" href="/assets/css/site.css">
   <script type="application/ld+json">${JSON.stringify(graph)}</script>
   <script src="/assets/js/site.js" defer></script>
+  <script id="measurement-config" type="application/json">${measurementConfig}</script>
+  <script type="module" src="/assets/js/measurement.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">${escapeHtml(c.skip)}</a>
   ${nav(site, page)}
   ${renderContent(site, page, menu)}
   ${footer(site, page)}
+  ${measurementConsent(page)}
 </body>
 </html>`;
 }
