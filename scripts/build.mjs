@@ -61,7 +61,8 @@ const menuAlt = {
 };
 const alternates = { ...homeAlt, ...menuAlt };
 const urlEntries = pages.map(page => {
-  const lastmod = page.kind === 'home' ? '2026-11-05' : '2026-11-04';
+  // Content revision dates: home and menu pages changed with the 2026-11-12 redesign.
+  const lastmod = page.kind === 'home' || page.kind === 'menu' ? '2026-11-12' : '2026-11-04';
   const links = alternates[page.route]
     ? Object.entries(alternates[page.route]).map(([lang, route]) => `    <xhtml:link rel="alternate" hreflang="${lang}" href="${site.baseUrl}${route}"/>`).join('\n')
     : '';
@@ -74,8 +75,8 @@ write('site.webmanifest', JSON.stringify({
   short_name: 'Levante',
   start_url: '/',
   display: 'standalone',
-  background_color: '#f6efe3',
-  theme_color: '#0c7773',
+  background_color: '#ffffff',
+  theme_color: '#0a3a40',
   icons: [
     { src: '/assets/img/favicon.png', sizes: '32x32', type: 'image/png' },
     { src: '/assets/img/levante-logo.webp', sizes: '800x800', type: 'image/webp' },
@@ -83,6 +84,9 @@ write('site.webmanifest', JSON.stringify({
 }, null, 2));
 write('.nojekyll', '');
 write('CNAME', 'www.levante-radolfzell.de\n');
+// IndexNow ownership key (Bing, Yandex, Seznam, Naver): lets the site notify search engines of changed URLs.
+const indexNowKey = 'cc66eba34041e0a3479e52589f5c7bcb';
+write(`${indexNowKey}.txt`, `${indexNowKey}\n`);
 copyDirectory(path.join(root, 'assets'), path.join(dist, 'assets'));
 
 console.log(`Built ${pages.length} indexable pages and 3 compatibility redirects in ${dist}`);

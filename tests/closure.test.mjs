@@ -341,10 +341,10 @@ test('all ten sitemap URLs use explicit content revision dates', () => {
   const entries = [...read('sitemap.xml').matchAll(/<url>([\s\S]*?)<\/url>/g)].map(match => match[1]);
   assert.equal(entries.length, 10);
   assert.deepEqual(entries.map(entry => entry.match(/<loc>([^<]+)<\/loc>/)[1]), pages.map(page => `${base}${page.route}`));
-  const updated = new Set([`${base}/`, `${base}/en/`, `${base}/ar/`]);
+  const updated = new Set([`${base}/`, `${base}/en/`, `${base}/ar/`, `${base}/speisekarte/`, `${base}/en/menu/`, `${base}/ar/menu/`]);
   for (const entry of entries) {
     const url = entry.match(/<loc>([^<]+)<\/loc>/)[1];
-    assert.equal(entry.match(/<lastmod>([^<]+)<\/lastmod>/)?.[1], updated.has(url) ? '2026-11-05' : '2026-11-04');
+    assert.equal(entry.match(/<lastmod>([^<]+)<\/lastmod>/)?.[1], updated.has(url) ? '2026-11-12' : '2026-11-04');
   }
 });
 
