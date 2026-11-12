@@ -6,14 +6,12 @@ import vm from 'node:vm';
 import { repoRoot, read, jsonLdBlocks, meta, linkHref } from './helpers.mjs';
 
 const base = 'https://www.levante-radolfzell.de';
-const halalIds = [
-  'kebbeh', 'arays-lahmeh', 'lamb-soup', 'chicken-salad', 'chicken-tajine',
-  'lamb-tajine', 'kafta-mishwiyeh', 'shish-taouk', 'mix-grill', 'lahmeh-mishwiyeh',
-];
+// Owner decision 2026-11-12: no halal wording, badges or HalalDiet markup.
+const halalIds = [];
 const menuPages = [
-  { file: 'speisekarte/index.html', route: '/speisekarte/', lang: 'de', note: 'Alle Fleisch- und Geflügelgerichte sind halal.' },
-  { file: 'en/menu/index.html', route: '/en/menu/', lang: 'en', note: 'All meat and poultry dishes are halal.' },
-  { file: 'ar/menu/index.html', route: '/ar/menu/', lang: 'ar', note: 'جميع أطباق اللحوم والدواجن حلال.' },
+  { file: 'speisekarte/index.html', route: '/speisekarte/', lang: 'de' },
+  { file: 'en/menu/index.html', route: '/en/menu/', lang: 'en' },
+  { file: 'ar/menu/index.html', route: '/ar/menu/', lang: 'ar' },
 ];
 const sourceLock = JSON.parse(fs.readFileSync(path.join(repoRoot, 'tests/fixtures/menu-source-lock-20261104.json'), 'utf8'));
 const sourceMenu = JSON.parse(fs.readFileSync(path.join(repoRoot, 'data/menu.json'), 'utf8'));
@@ -38,7 +36,7 @@ for (const page of menuPages) {
     assert.equal(restaurant.acceptsReservations, true);
   });
 
-  test(`${page.lang}: exactly the ten owner-approved meat and poultry items have HalalDiet`, () => {
+  test(`${page.lang}: no menu item carries HalalDiet and plant-based diets stay exact`, () => {
     const items = menuItems(graphFor(read(page.file)));
     const halal = items.filter(item => item.suitableForDiet === 'https://schema.org/HalalDiet');
     assert.deepEqual(halal.map(item => item['@id'].split('#')[1]).sort(), [...halalIds].sort());
@@ -51,13 +49,10 @@ for (const page of menuPages) {
     }
   });
 
-  test(`${page.lang}: the halal assurance is visible in the menu header before item listings`, () => {
+  test(`${page.lang}: the menu page carries no halal assurance or wording`, () => {
     const html = read(page.file);
-    const body = html.split('<body>')[1].split('</body>')[0];
-    const note = body.match(/<p class="halal-note">([^<]+)<\/p>/);
-    assert.ok(note, 'Missing visible halal-note paragraph');
-    assert.equal(decodeHtml(note[1]), page.note);
-    assert.ok(body.indexOf(note[0]) < body.indexOf('<article class="menu-item">'));
+    assert.doesNotMatch(html, /class="halal-note"/);
+    assert.doesNotMatch(html, /halal|حلال/i);
   });
 
   test(`${page.lang}: every visible item name and price exactly matches the source lock and JSON-LD`, () => {

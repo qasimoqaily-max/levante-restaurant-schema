@@ -114,7 +114,7 @@ test('consent assets have stable cache versions and resolve to local files', () 
     const html = read(file);
     const stylesheet = linkHref(html, 'stylesheet');
     const scripts = [...html.matchAll(/<script\b[^>]*\bsrc=["']([^"']+)["']/gi)].map(match => match[1]);
-    assert.equal(stylesheet, '/assets/css/site.css?v=20261108-measurement', file);
+    assert.equal(stylesheet, '/assets/css/site.css?v=20261112-redesign', file);
     assert.deepEqual(scripts, [
       '/assets/js/site.js',
       '/assets/js/measurement.js?v=20261108-measurement',

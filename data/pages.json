@@ -4,8 +4,8 @@
       "route": "/",
       "lang": "de",
       "kind": "home",
-      "title": "Levante Restaurant Radolfzell | Arabisch & Halal",
-      "description": "Levante Restaurant in Radolfzell am Bodensee: authentische arabische und levantinische Küche, Halal-Fleischgerichte, vegane Optionen, Lieferung und Catering."
+      "title": "Levante Restaurant Radolfzell | Arabisch & Levantinisch",
+      "description": "Levante Restaurant in Radolfzell am Bodensee: authentische arabische und levantinische Küche, Mezze, Grillgerichte, vegane Optionen, Lieferung und Catering."
     },
     {
       "route": "/speisekarte/",
@@ -46,8 +46,8 @@
       "route": "/en/",
       "lang": "en",
       "kind": "home",
-      "title": "Levante Restaurant Radolfzell | Halal & Levantine",
-      "description": "Levante Restaurant in Radolfzell am Bodensee serves authentic Levantine and Middle Eastern food, halal meat dishes, vegan choices, delivery and catering."
+      "title": "Levante Restaurant Radolfzell | Levantine & Arabic Food",
+      "description": "Levante Restaurant in Radolfzell am Bodensee serves authentic Levantine and Middle Eastern food, mezze, grilled dishes, vegan choices, delivery and catering."
     },
     {
       "route": "/en/menu/",
@@ -60,8 +60,8 @@
       "route": "/ar/",
       "lang": "ar",
       "kind": "home",
-      "title": "مطعم ليفانتي رادولفتسل | مأكولات شامية حلال",
-      "description": "مطعم ليفانتي في رادولفتسل على بحيرة بودينزي يقدم مأكولات شامية وشرقية أصيلة، أطباق لحوم حلال، خيارات نباتية، توصيل وخدمة ضيافة للمناسبات."
+      "title": "مطعم ليفانتي رادولفتسل | مأكولات شامية وعربية",
+      "description": "مطعم ليفانتي في رادولفتسل على بحيرة بودينزي يقدم مأكولات شامية وشرقية أصيلة، مقبلات ومشاوي، خيارات نباتية، توصيل وخدمة ضيافة للمناسبات."
     },
     {
       "route": "/ar/menu/",

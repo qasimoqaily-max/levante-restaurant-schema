@@ -13,3 +13,19 @@ if (toggle && nav) {
     }
   });
 }
+
+const tilt = document.querySelector('[data-tilt]');
+if (tilt && window.matchMedia('(hover: hover) and (prefers-reduced-motion: no-preference)').matches) {
+  const inner = tilt.firstElementChild;
+  tilt.addEventListener('pointermove', event => {
+    const box = tilt.getBoundingClientRect();
+    const x = (event.clientX - box.left) / box.width - 0.5;
+    const y = (event.clientY - box.top) / box.height - 0.5;
+    inner.style.setProperty('--rx', `${(-y * 12).toFixed(2)}deg`);
+    inner.style.setProperty('--ry', `${(x * 14).toFixed(2)}deg`);
+  });
+  tilt.addEventListener('pointerleave', () => {
+    inner.style.setProperty('--rx', '0deg');
+    inner.style.setProperty('--ry', '0deg');
+  });
+}
