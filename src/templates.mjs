@@ -347,7 +347,7 @@ ${alternates}
   <link rel="icon" href="/assets/img/favicon.png" sizes="32x32">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="preload" href="/assets/fonts/alexandria-${page.lang === 'ar' ? 'arabic' : 'latin'}.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/css/site.css?v=20261112-redesign">
+  <link rel="stylesheet" href="/assets/css/site.css?v=20261113-404">
   <script type="application/ld+json">${JSON.stringify(graph)}</script>
   <script src="/assets/js/site.js" defer></script>
   <script id="measurement-config" type="application/json">${measurementConfig}</script>
@@ -370,5 +370,5 @@ export function renderRedirect(site, target, lang = 'de', replaceHistory = false
 }
 
 export function render404(site) {
-  return `<!doctype html><html lang="de" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Seite nicht gefunden | Levante Restaurant</title><meta name="description" content="Die angeforderte Seite wurde nicht gefunden. Zurück zum Levante Restaurant in Radolfzell oder direkt zur aktuellen Speisekarte."><meta name="robots" content="noindex,follow"><link rel="stylesheet" href="/assets/css/site.css"></head><body><main id="main" class="error-page"><div><p class="eyebrow">404</p><h1>Seite nicht gefunden</h1><p>Die gesuchte Seite ist nicht verfügbar.</p><div class="actions"><a class="button button-primary" href="/">Zur Startseite</a><a class="button button-light" href="/speisekarte/">Zur Speisekarte</a></div></div></main></body></html>`;
+  return `<!doctype html><html lang="de" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Seite nicht gefunden | Levante Restaurant</title><meta name="description" content="Die angeforderte Seite wurde nicht gefunden. Zurück zum Levante Restaurant in Radolfzell oder direkt zur aktuellen Speisekarte."><meta name="robots" content="noindex,follow"><meta name="theme-color" content="#0a3a40"><link rel="icon" href="/assets/img/favicon.png" sizes="32x32"><link rel="preload" href="/assets/fonts/alexandria-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/assets/css/site.css?v=20261113-404"></head><body><main id="main" class="error-page"><div><p class="eyebrow">404</p><h1>Seite nicht gefunden</h1><p>Die gesuchte Seite ist nicht verfügbar.</p><div class="actions"><a class="button button-primary" href="/">Zur Startseite</a><a class="button button-light" href="/speisekarte/">Zur Speisekarte</a></div><p class="error-alt" lang="en">Page not found. <a href="/en/">English homepage</a> · <a href="/menu-in-english/">Menu</a></p><p class="error-alt" lang="ar" dir="rtl">الصفحة غير موجودة. <a href="/ar/">الصفحة الرئيسية بالعربية</a> · <a href="/مينو-عربي/">المنيو</a></p></div></main></body></html>`;
 }
