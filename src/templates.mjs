@@ -36,7 +36,7 @@ function nav(site, page) {
   return `<header class="site-header">
   <div class="shell header-inner">
     <a class="brand" href="${home}" aria-label="${escapeHtml(c.siteName)}">
-      <span class="brand-word">LEVANTE</span><span class="brand-sub">Restaurant · Radolfzell</span>
+      <span class="brand-word">Levante</span><span class="brand-sub">Restaurant Radolfzell</span>
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span><span class="sr-only">Menu</span></button>
     <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
@@ -98,69 +98,124 @@ function actionButtons(site, lang) {
   </div>`;
 }
 
-function renderHome(site, page) {
+const featuredDishIds = ['levante-mix', 'hummus', 'falafel', 'kebbeh', 'vegetable-tajine', 'mix-grill'];
+
+function renderDish(item, lang) {
+  const c = t(lang);
+  const diet = itemDiet(item);
+  return `<li class="dish"><h3>${escapeHtml(item.name[lang])}${diet ? ` <span class="diet">${escapeHtml(c.diet[diet.key])}</span>` : ''}</h3><strong>${formatPrice(item.price, lang)}</strong>${item.description[lang] ? `<p>${escapeHtml(item.description[lang])}</p>` : ''}</li>`;
+}
+
+function infoStrip(site, lang) {
+  const rows = lang === 'ar'
+    ? [['الاثنين – الخميس', '16:00 – 22:00'], ['الجمعة – السبت', '11:00 – 00:00'], ['الأحد', '11:00 – 22:00']]
+    : lang === 'en'
+      ? [['Monday – Thursday', '16:00 – 22:00'], ['Friday – Saturday', '11:00 – 00:00'], ['Sunday', '11:00 – 22:00']]
+      : [['Montag – Donnerstag', '16:00 – 22:00'], ['Freitag – Samstag', '11:00 – 00:00'], ['Sonntag', '11:00 – 22:00']];
+  return `<div class="shell"><div class="info-strip"><div class="tile-band" aria-hidden="true"></div><dl class="info-grid">${rows.map(([day, time]) => `<div><dt>${day}</dt><dd dir="ltr">${time}</dd></div>`).join('')}<div><dt>${escapeHtml(site.business.street)}, ${escapeHtml(site.business.postalCode)} Radolfzell</dt><dd dir="ltr"><a href="tel:${site.business.phoneE164}" data-measure-action="click_to_call">${escapeHtml(site.business.phoneDisplay)}</a></dd></div></dl></div></div>`;
+}
+
+function renderHome(site, page, menu) {
   const c = t(page.lang);
   const alt = page.lang === 'ar'
     ? {
         hero: 'مائدة شامية متنوعة في مطعم ليفانتي رادولفتسل',
-        logo: 'شعار مطعم ليفانتي رادولفتسل',
         garden: 'حديقة مطعم ليفانتي الخارجية في رادولفتسل',
         falafel: 'طبق فلافل مع الخضار وصلصة الطحينة',
+        tea: 'إبريق زجاجي من الشاي بالنعناع الطازج مع كؤوس الشاي',
+        interior: 'صالة مطعم ليفانتي بديكورها الشرقي',
+        coffee: 'قهوة عربية تُسكب في فنجان مزخرف',
+        gardenTable: 'طاولة مجهزة في حديقة مطعم ليفانتي الخضراء',
+        mezze: 'حمص وسلطات ومقبلات ساخنة على طاولة المطعم',
       }
     : page.lang === 'en'
       ? {
           hero: 'A colourful Levantine table at Levante Restaurant Radolfzell',
-          logo: 'Levante Restaurant Radolfzell logo',
           garden: 'The outdoor garden at Levante Restaurant Radolfzell',
           falafel: 'Falafel plate with vegetables and tahini sauce',
+          tea: 'Glass pot of fresh mint tea with tea glasses',
+          interior: 'The oriental-style dining room at Levante Restaurant',
+          coffee: 'Arabic coffee being poured into a decorated cup',
+          gardenTable: 'A laid table in the green garden of Levante Restaurant',
+          mezze: 'Hummus, salads and warm mezze on the restaurant table',
         }
       : {
           hero: 'Levantinische Tafel im Levante Restaurant Radolfzell',
-          logo: 'Logo des Levante Restaurants in Radolfzell',
           garden: 'Garten des Levante Restaurants in Radolfzell',
           falafel: 'Falafelteller mit Gemüse und Tahinasauce',
+          tea: 'Glaskanne mit frischem Minztee und Teegläsern',
+          interior: 'Orientalisch eingerichteter Innenraum des Levante Restaurants',
+          coffee: 'Arabischer Kaffee wird in eine verzierte Tasse eingeschenkt',
+          gardenTable: 'Gedeckter Tisch im grünen Garten des Levante Restaurants',
+          mezze: 'Hummus, Salate und warme Mezze auf dem Restauranttisch',
         };
+  const allItems = menu.sections.flatMap(section => section.items);
+  const dishes = featuredDishIds.map(id => allItems.find(item => item.id === id)).filter(Boolean);
+  const photo = (file, text) => `<figure class="home-photo"><img src="/assets/img/${file}" width="1200" height="800" loading="lazy" decoding="async" alt="${escapeHtml(text)}"></figure>`;
   return `<main id="main">
   <section class="hero">
-    <div class="shell hero-grid">
+    <figure class="hero-media">
+      <picture>
+        <source type="image/avif" srcset="/assets/img/hero-table-768.avif 768w, /assets/img/hero-table-1200.avif 1200w" sizes="100vw">
+        <img src="/assets/img/hero-table-1200.webp" srcset="/assets/img/hero-table-768.webp 768w, /assets/img/hero-table-1200.webp 1200w, /assets/img/hero-table.webp 1500w" sizes="100vw" width="1500" height="810" loading="eager" fetchpriority="high" decoding="sync" alt="${escapeHtml(alt.hero)}">
+      </picture>
+      <figcaption>Levante Restaurant · Radolfzell am Bodensee</figcaption>
+    </figure>
+    <div class="shell">
       <div class="hero-copy">
         <p class="eyebrow">${escapeHtml(c.hero.eyebrow)}</p>
         <h1>${escapeHtml(c.hero.title)}</h1>
         <p class="lead">${escapeHtml(c.hero.text)}</p>
         ${actionButtons(site, page.lang)}
       </div>
-      <figure class="hero-media">
-        <picture>
-          <source type="image/avif" srcset="/assets/img/hero-table-768.avif 768w, /assets/img/hero-table-1200.avif 1200w" sizes="(max-width: 820px) calc(100vw - 1.25rem), (max-width: 1200px) 36vw, 420px">
-          <img src="/assets/img/hero-table-1200.webp" srcset="/assets/img/hero-table-768.webp 768w, /assets/img/hero-table-1200.webp 1200w, /assets/img/hero-table.webp 1500w" sizes="(max-width: 820px) calc(100vw - 1.25rem), (max-width: 1200px) 36vw, 420px" width="1500" height="810" loading="eager" fetchpriority="high" decoding="sync" alt="${escapeHtml(alt.hero)}">
-        </picture>
-        <figcaption>Levante Restaurant · Radolfzell am Bodensee</figcaption>
-      </figure>
     </div>
   </section>
+  ${infoStrip(site, page.lang)}
   <section class="section">
-    <div class="shell"><div class="section-heading"><p class="eyebrow">Radolfzell am Bodensee</p><h2>${escapeHtml(c.highlights.title)}</h2></div>
-      <div class="feature-grid">${c.highlights.items.map(([title, text]) => `<article class="card"><h3>${escapeHtml(title)}</h3><p>${escapeHtml(text)}</p></article>`).join('')}</div>
-      <div class="home-photo-grid" aria-label="Levante Restaurant">
-        <figure class="home-photo home-photo-logo"><img src="/assets/img/levante-logo.webp" width="800" height="800" loading="lazy" decoding="async" alt="${escapeHtml(alt.logo)}"></figure>
-        <figure class="home-photo home-photo-wide"><img src="/assets/img/garden-wide.webp" width="1600" height="1068" loading="lazy" decoding="async" alt="${escapeHtml(alt.garden)}"></figure>
-        <figure class="home-photo"><img src="/assets/img/falafel-plate.webp" width="1200" height="800" loading="lazy" decoding="async" alt="${escapeHtml(alt.falafel)}"></figure>
+    <div class="shell dishes">
+      <div class="dish-photos" data-tilt>
+        <div class="dish-photos-inner">
+          <img class="dish-photo-main" src="/assets/img/falafel-plate.webp" width="1200" height="800" loading="lazy" decoding="async" alt="${escapeHtml(alt.falafel)}">
+          <img class="dish-photo-small" src="/assets/img/mint-tea.webp" width="1200" height="800" loading="lazy" decoding="async" alt="${escapeHtml(alt.tea)}">
+        </div>
+      </div>
+      <div class="dishes-copy">
+        <h2>${escapeHtml(c.menuIntro.title)}</h2>
+        <p>${escapeHtml(c.menuIntro.text)}</p>
+        <ul class="dish-list">${dishes.map(item => renderDish(item, page.lang)).join('')}</ul>
+        <a class="button button-dark" href="${routeByLang[page.lang].menu}">${escapeHtml(c.actions.menu)}</a>
+      </div>
+    </div>
+  </section>
+  <section class="garden">
+    <figure class="garden-media"><img src="/assets/img/garden-wide.webp" width="1600" height="1068" loading="lazy" decoding="async" alt="${escapeHtml(alt.garden)}"></figure>
+    <div class="shell garden-inner">
+      <div class="garden-panel">
+        <h2>${escapeHtml(c.garden.title)}</h2>
+        <p>${escapeHtml(c.garden.text)}</p>
+        <div class="actions"><a class="button button-primary" href="${site.actions.reserve}" rel="noopener" data-measure-action="booking_intent">${escapeHtml(c.actions.reserve)}</a></div>
       </div>
     </div>
   </section>
   <section class="section section-tint">
-    <div class="shell split">
-      <div><p class="eyebrow">Mezze · Tajine · Grill</p><h2>${escapeHtml(c.menuIntro.title)}</h2><p>${escapeHtml(c.menuIntro.text)}</p><a class="text-link" href="${routeByLang[page.lang].menu}">${escapeHtml(c.actions.menu)} →</a></div>
-      <div class="menu-teaser"><span>Hummus</span><span>Falafel</span><span>Kebbeh</span><span>Tajine</span><span>Mix Grill</span></div>
+    <div class="shell"><div class="section-heading"><h2>${escapeHtml(c.highlights.title)}</h2></div>
+      <div class="feature-grid">${c.highlights.items.map(([title, text]) => `<article class="card"><h3>${escapeHtml(title)}</h3><p>${escapeHtml(text)}</p></article>`).join('')}</div>
     </div>
   </section>
-  <section id="faq" class="section">
-    <div class="shell"><div class="section-heading"><h2>${escapeHtml(c.faqTitle)}</h2></div><div class="faq-list">${c.faq.map(([q, a]) => `<details><summary>${escapeHtml(q)}</summary><p>${escapeHtml(a)}</p></details>`).join('')}</div></div>
+  <section class="section">
+    <div class="shell">
+      <div class="section-heading section-heading-row"><div><h2>${escapeHtml(c.galleryTitle)}</h2><p>${escapeHtml(c.galleryText)}</p></div><a class="text-link" href="/galerie/">${escapeHtml(c.nav.gallery)}</a></div>
+      <div class="home-photo-grid" aria-label="Levante Restaurant">${photo('restaurant-interior.webp', alt.interior)}${photo('arabic-coffee.webp', alt.coffee)}${photo('garden-table.webp', alt.gardenTable)}${photo('mezze-table.webp', alt.mezze)}</div>
+    </div>
   </section>
+  <section id="faq" class="section section-tint">
+    <div class="shell faq-layout"><div class="section-heading"><h2>${escapeHtml(c.faqTitle)}</h2></div><div class="faq-list">${c.faq.map(([q, a]) => `<details><summary>${escapeHtml(q)}</summary><p>${escapeHtml(a)}</p></details>`).join('')}</div></div>
+  </section>
+  <div class="tile-band" aria-hidden="true"></div>
   <section id="contact" class="section contact-section">
     <div class="shell contact-grid">
-      <article><p class="eyebrow">${escapeHtml(c.hoursTitle)}</p><h2>${escapeHtml(c.hoursTitle)}</h2>${hours(site, page.lang)}</article>
-      <article><p class="eyebrow">${escapeHtml(c.contactTitle)}</p><h2>${escapeHtml(c.contactTitle)}</h2><address>${escapeHtml(site.business.street)}<br>${escapeHtml(site.business.postalCode)} ${escapeHtml(site.business.locality)}</address><p><a href="tel:${site.business.phoneE164}" data-measure-action="click_to_call">${escapeHtml(site.business.phoneDisplay)}</a><br><a href="mailto:${site.business.email}">${escapeHtml(site.business.email)}</a></p><a class="text-link" href="${site.actions.maps}" rel="noopener">${escapeHtml(c.actions.directions)} →</a></article>
+      <article><h2>${escapeHtml(c.contactTitle)}</h2><address>${escapeHtml(site.business.street)}<br>${escapeHtml(site.business.postalCode)} ${escapeHtml(site.business.locality)}</address><p><a href="tel:${site.business.phoneE164}" data-measure-action="click_to_call">${escapeHtml(site.business.phoneDisplay)}</a><br><a href="mailto:${site.business.email}">${escapeHtml(site.business.email)}</a></p><a class="text-link" href="${site.actions.maps}" rel="noopener">${escapeHtml(c.actions.directions)}</a></article>
+      <article><h2>${escapeHtml(c.hoursTitle)}</h2>${hours(site, page.lang)}</article>
     </div>
   </section>
 </main>`;
@@ -179,8 +234,9 @@ function renderMenuItem(item, lang) {
 function renderMenu(site, page, menu) {
   const c = t(page.lang);
   return `<main id="main" class="page-main">
-  <section class="page-hero"><div class="shell"><p class="eyebrow">Levante Restaurant · Radolfzell</p><h1>${escapeHtml(c.menuTitle)}</h1><p class="lead">${escapeHtml(c.menuLead)}</p><p class="halal-note">${escapeHtml(c.menuHalalNote)}</p>${actionButtons(site, page.lang)}</div></section>
+  <section class="page-hero"><div class="shell"><p class="eyebrow">Levante Restaurant · Radolfzell</p><h1>${escapeHtml(c.menuTitle)}</h1><p class="lead">${escapeHtml(c.menuLead)}</p>${actionButtons(site, page.lang)}</div></section>
   <section class="section"><div class="shell menu-layout">
+    <nav aria-label="${escapeHtml(c.nav.menu)}"><ul class="menu-jump">${menu.sections.map(section => `<li><a href="#${section.id}">${escapeHtml(section.name[page.lang])}</a></li>`).join('')}</ul></nav>
     ${menu.sections.map(section => `<section class="menu-section" id="${section.id}"><header><h2>${escapeHtml(section.name[page.lang])}</h2>${section.note[page.lang] ? `<p>${escapeHtml(section.note[page.lang])}</p>` : ''}</header><div class="menu-items">${section.items.map(item => renderMenuItem(item, page.lang)).join('')}</div></section>`).join('')}
     <aside class="menu-note"><p>${escapeHtml(menu.note[page.lang])}</p></aside>
   </div></section>
@@ -214,7 +270,7 @@ function renderGallery(site, page) {
 
 function renderReviews(site, page) {
   const c = t(page.lang);
-  return `<main id="main" class="page-main"><section class="page-hero"><div class="shell"><p class="eyebrow">Levante Restaurant · Radolfzell</p><h1>${escapeHtml(c.reviewsTitle)}</h1><p class="lead">${escapeHtml(c.reviewsText)}</p></div></section><section class="section"><div class="shell review-grid"><a class="review-card" href="${site.actions.reviews}" rel="noopener"><strong>${escapeHtml(c.reviewLinks.google)}</strong><span>${escapeHtml(c.actions.reviews)} →</span></a><a class="review-card" href="${site.social.tripadvisor}" rel="noopener"><strong>${escapeHtml(c.reviewLinks.tripadvisor)}</strong><span>${escapeHtml(c.actions.reviews)} →</span></a><a class="review-card" href="${site.actions.reviews}" rel="noopener"><strong>${escapeHtml(c.reviewLinks.leave)}</strong><span>${escapeHtml(c.actions.reviews)} →</span></a></div></section></main>`;
+  return `<main id="main" class="page-main"><section class="page-hero"><div class="shell"><p class="eyebrow">Levante Restaurant · Radolfzell</p><h1>${escapeHtml(c.reviewsTitle)}</h1><p class="lead">${escapeHtml(c.reviewsText)}</p></div></section><section class="section"><div class="shell review-grid"><a class="review-card" href="${site.actions.reviews}" rel="noopener"><strong>${escapeHtml(c.reviewLinks.google)}</strong><span>${escapeHtml(c.actions.reviews)}</span></a><a class="review-card" href="${site.social.tripadvisor}" rel="noopener"><strong>${escapeHtml(c.reviewLinks.tripadvisor)}</strong><span>${escapeHtml(c.actions.reviews)}</span></a><a class="review-card" href="${site.actions.reviews}" rel="noopener"><strong>${escapeHtml(c.reviewLinks.leave)}</strong><span>${escapeHtml(c.actions.reviews)}</span></a></div></section></main>`;
 }
 
 function renderImprint(site) {
@@ -233,7 +289,7 @@ function renderPrivacy(site) {
 }
 
 function renderContent(site, page, menu) {
-  if (page.kind === 'home') return renderHome(site, page);
+  if (page.kind === 'home') return renderHome(site, page, menu);
   if (page.kind === 'menu') return renderMenu(site, page, menu);
   if (page.kind === 'gallery') return renderGallery(site, page);
   if (page.kind === 'reviews') return renderReviews(site, page);
@@ -287,10 +343,11 @@ ${alternates}
   <meta name="twitter:title" content="${escapeHtml(page.title)}">
   <meta name="twitter:description" content="${escapeHtml(page.description)}">
   <meta name="twitter:image" content="${ogImage}">
-  <meta name="theme-color" content="#0c7773">
+  <meta name="theme-color" content="#0a3a40">
   <link rel="icon" href="/assets/img/favicon.png" sizes="32x32">
   <link rel="manifest" href="/site.webmanifest">
-  <link rel="stylesheet" href="/assets/css/site.css?v=20261108-measurement">
+  <link rel="preload" href="/assets/fonts/alexandria-${page.lang === 'ar' ? 'arabic' : 'latin'}.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/site.css?v=20261112-redesign">
   <script type="application/ld+json">${JSON.stringify(graph)}</script>
   <script src="/assets/js/site.js" defer></script>
   <script id="measurement-config" type="application/json">${measurementConfig}</script>

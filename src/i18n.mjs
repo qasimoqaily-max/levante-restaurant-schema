@@ -7,20 +7,20 @@
     hero: {
       eyebrow: 'Levantinische Küche in Radolfzell am Bodensee',
       title: 'Willkommen im Levante Restaurant',
-      text: 'Authentische arabische und levantinische Küche, halal zubereitete Fleischgerichte sowie viele vegane und vegetarische Spezialitäten – im Restaurant, zur Abholung oder Lieferung.'
+      text: 'Authentische arabische und levantinische Küche mit vielen veganen und vegetarischen Spezialitäten – im Restaurant, zur Abholung oder Lieferung.'
     },
     highlights: {
       title: 'Levante auf einen Blick',
       items: [
-        ['Halal & hausgemacht', 'Alle Fleischgerichte sind halal. Mezze, Falafel, Kebbeh und viele weitere Speisen werden mit Sorgfalt zubereitet.'],
+        ['Hausgemacht', 'Mezze, Falafel, Kebbeh und viele weitere Speisen werden mit Sorgfalt zubereitet.'],
         ['Vegan & vegetarisch', 'Hummus, Baba Ghannouj, Muhammara, Falafel, Tajine und weitere pflanzliche Gerichte stehen auf der Karte.'],
         ['Restaurant, Lieferung & Catering', 'Reservierungen sind möglich, spontane Gäste sind willkommen. Wir bieten außerdem Abholung, Lieferung und Catering.']
       ]
     },
     menuIntro: { title: 'Beliebte levantinische Spezialitäten', text: 'Von kalten und warmen Mezze über Salate und Suppen bis zu Tajine und Grillgerichten.' },
+    garden: { title: 'Im Garten oder im Gastraum', text: 'Reservierungen sind möglich, spontane Gäste sind bei uns ebenfalls herzlich willkommen.' },
     faqTitle: 'Häufige Fragen',
     faq: [
-      ['Sind die Fleischgerichte halal?', 'Ja, alle unsere Fleisch- und Hähnchengerichte sind halal.'],
       ['Gibt es vegane und vegetarische Gerichte?', 'Ja, unsere Speisekarte bietet zahlreiche klar gekennzeichnete vegane und vegetarische Vorspeisen, Salate und Hauptgerichte.'],
       ['Muss ich reservieren?', 'Nein. Reservierungen sind möglich, spontane Gäste sind bei uns ebenfalls herzlich willkommen.'],
       ['Bietet Levante Lieferung und Abholung an?', 'Ja, wir bieten Online-Bestellung, Lieferung und Abholung an. Die aktuellen Zeiten finden Sie auf unserer Bestellseite.'],
@@ -39,9 +39,8 @@
       choice: 'Die Website und alle Kontakt-, Reservierungs- und Bestelllinks funktionieren auch ohne Analyse. Sie können Ihre Zustimmung jederzeit über die Datenschutzeinstellungen widerrufen.',
       allow: 'Analyse erlauben', reject: 'Ablehnen', settings: 'Datenschutzeinstellungen', privacy: 'Mehr zum Datenschutz',
     },
-    diet: { vegan: 'vegan', vegetarian: 'vegetarisch', halal: 'HALAL' },
+    diet: { vegan: 'vegan', vegetarian: 'vegetarisch' },
     menuTitle: 'Aktuelle Speisekarte',
-    menuHalalNote: 'Alle Fleisch- und Geflügelgerichte sind halal.',
     menuLead: 'Alle Preise verstehen sich in Euro. Die Hinweise zu Verfügbarkeit, Allergenen und kurzfristigen Änderungen finden Sie am Ende der Seite.',
     galleryLead: 'Originalaufnahmen aus dem Levante Restaurant in Radolfzell.',
     reviewLinks: { google: 'Google-Bewertungen', tripadvisor: 'TripAdvisor', leave: 'Eigene Bewertung abgeben' },
@@ -54,20 +53,20 @@
     hero: {
       eyebrow: 'Levantine food in Radolfzell am Bodensee',
       title: 'Welcome to Levante Restaurant',
-      text: 'Authentic Levantine and Middle Eastern food, halal meat dishes and many vegan and vegetarian specialities – dine in, collect or order delivery.'
+      text: 'Authentic Levantine and Middle Eastern food with many vegan and vegetarian specialities – dine in, collect or order delivery.'
     },
     highlights: {
       title: 'Levante at a glance',
       items: [
-        ['Halal and homemade', 'All meat dishes are halal. Mezze, falafel, kebbeh and many other dishes are prepared with care.'],
+        ['Homemade', 'Mezze, falafel, kebbeh and many other dishes are prepared with care.'],
         ['Vegan and vegetarian', 'The menu includes hummus, baba ghannouj, muhammara, falafel, tajine and many plant-based choices.'],
         ['Restaurant, delivery and catering', 'Reservations are available and walk-ins are welcome. Takeaway, delivery and catering are also offered.']
       ]
     },
     menuIntro: { title: 'Popular Levantine specialities', text: 'Cold and warm mezze, salads, soups, tajine and grilled dishes.' },
+    garden: { title: 'In the garden or inside', text: 'Reservations are available, and we warmly welcome walk-in guests too.' },
     faqTitle: 'Frequently asked questions',
     faq: [
-      ['Are the meat dishes halal?', 'Yes, all our meat and chicken dishes are halal.'],
       ['Are vegan and vegetarian dishes available?', 'Yes, our menu offers many clearly marked vegan and vegetarian starters, salads and main dishes.'],
       ['Is a reservation required?', 'No. Reservations are available, and we warmly welcome walk-in guests too.'],
       ['Do you offer delivery and collection?', 'Yes, we offer online ordering, delivery and collection. You can find current times on our ordering page.'],
@@ -86,9 +85,8 @@
       choice: 'The website and all contact, reservation and ordering links also work without analytics. You can withdraw consent at any time in privacy settings.',
       allow: 'Allow analytics', reject: 'Reject', settings: 'Privacy settings', privacy: 'More about privacy',
     },
-    diet: { vegan: 'vegan', vegetarian: 'vegetarian', halal: 'HALAL' },
+    diet: { vegan: 'vegan', vegetarian: 'vegetarian' },
     menuTitle: 'Current menu',
-    menuHalalNote: 'All meat and poultry dishes are halal.',
     menuLead: 'All prices are in euros. Availability, allergen and short-notice price information appears at the end of this page.',
     galleryLead: 'Original photographs from Levante Restaurant in Radolfzell.',
     reviewLinks: { google: 'Google reviews', tripadvisor: 'TripAdvisor', leave: 'Leave a review' },
@@ -101,20 +99,20 @@
     hero: {
       eyebrow: 'مأكولات شامية في رادولفتسل على بحيرة بودينزي',
       title: 'أهلاً بكم في مطعم ليفانتي',
-      text: 'مأكولات شامية وشرقية أصيلة، أطباق لحوم حلال، وخيارات نباتية كثيرة – داخل المطعم أو للاستلام أو التوصيل.'
+      text: 'مأكولات شامية وشرقية أصيلة وخيارات نباتية كثيرة – داخل المطعم أو للاستلام أو التوصيل.'
     },
     highlights: {
       title: 'ليفانتي باختصار',
       items: [
-        ['حلال ومحضر بعناية', 'جميع أطباق اللحوم حلال، وتُحضّر المقبلات والفلافل والكبة وأطباق أخرى بعناية.'],
+        ['محضّر بعناية', 'تُحضّر المقبلات والفلافل والكبة وأطباق أخرى بعناية.'],
         ['خيارات نباتية', 'تتضمن القائمة الحمص وبابا غنوج والمحمرة والفلافل والطاجن والعديد من الخيارات النباتية.'],
         ['مطعم وتوصيل وضيافة', 'يمكن الحجز مسبقاً كما نرحب بالضيوف دون حجز. تتوفر خدمة الاستلام والتوصيل والضيافة للمناسبات.']
       ]
     },
     menuIntro: { title: 'أطباق شامية مميزة', text: 'مقبلات باردة وساخنة، سلطات، شوربات، طواجن ومشاوي.' },
+    garden: { title: 'في الحديقة أو داخل المطعم', text: 'الحجز متاح، ويسعدنا أيضًا استقبالكم دون حجز مسبق.' },
     faqTitle: 'أسئلة شائعة',
     faq: [
-      ['هل أطباق اللحوم حلال؟', 'نعم، جميع أطباق اللحوم والدجاج لدينا حلال.'],
       ['هل توجد أطباق نباتية؟', 'نعم، تضم قائمة طعامنا العديد من المقبلات والسلطات والأطباق الرئيسية النباتية والنباتية الصرفة، وكلها مميزة بعلامات واضحة.'],
       ['هل الحجز إلزامي؟', 'لا. الحجز متاح، ويسعدنا أيضًا استقبالكم دون حجز مسبق.'],
       ['هل تتوفر خدمة التوصيل والاستلام؟', 'نعم، نوفر الطلب عبر الإنترنت والتوصيل والاستلام. تجدون الأوقات الحالية في صفحة الطلب الخاصة بنا.'],
@@ -133,9 +131,8 @@
       choice: 'يعمل الموقع وروابط الاتصال والحجز والطلب أيضاً دون التحليل. يمكنك سحب موافقتك في أي وقت من إعدادات الخصوصية.',
       allow: 'السماح بالتحليل', reject: 'رفض', settings: 'إعدادات الخصوصية', privacy: 'المزيد عن الخصوصية',
     },
-    diet: { vegan: 'نباتي صرف', vegetarian: 'نباتي', halal: 'حلال' },
+    diet: { vegan: 'نباتي صرف', vegetarian: 'نباتي' },
     menuTitle: 'قائمة الطعام الحالية',
-    menuHalalNote: 'جميع أطباق اللحوم والدواجن حلال.',
     menuLead: 'جميع الأسعار باليورو. تجدون ملاحظات التوفر ومسببات الحساسية والتغييرات القصيرة الأجل في نهاية الصفحة.',
     galleryLead: 'صور أصلية من مطعم ليفانتي في رادولفتسل.',
     reviewLinks: { google: 'تقييمات Google', tripadvisor: 'TripAdvisor', leave: 'إضافة تقييم' },

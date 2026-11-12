@@ -54,7 +54,7 @@ test('restaurant structured data is factual, visible and non-self-serving', () =
   assert.ok(restaurant);
   for (const visible of [
     'Löwengasse 30', '78315', '07732 9589075', 'info@levante-radolfzell.de',
-    '16:00', '22:00', '11:00', 'Halal', 'vegan', 'Catering',
+    '16:00', '22:00', '11:00', 'vegan', 'Catering',
   ]) assert.match(html, new RegExp(visible, 'i'), `visible fact missing: ${visible}`);
   assert.ok(restaurant.image.every(url => /^https:\/\/www\.levante-radolfzell\.de\/assets\/img\//.test(url)));
   const serialized = JSON.stringify(graph);

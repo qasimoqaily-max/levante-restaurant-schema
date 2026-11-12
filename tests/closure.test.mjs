@@ -14,38 +14,29 @@ const { pages } = load('data/pages.json');
 const lock = load('tests/fixtures/menu-source-lock-20261104.json');
 const base = 'https://www.levante-radolfzell.de';
 const schema = 'https://schema.org';
-const halalIds = [
-  'kebbeh', 'arays-lahmeh', 'lamb-soup', 'chicken-salad', 'chicken-tajine',
-  'lamb-tajine', 'kafta-mishwiyeh', 'shish-taouk', 'mix-grill', 'lahmeh-mishwiyeh',
-];
+// Owner decision 2026-11-12: the site carries no halal wording, badges or HalalDiet markup.
+const halalIds = [];
 const menus = { de: '/speisekarte/', en: '/en/menu/', ar: '/ar/menu/' };
 const labels = {
-  de: { vegan: 'vegan', vegetarian: 'vegetarisch', halal: 'HALAL', reserve: 'Tisch reservieren' },
-  en: { vegan: 'vegan', vegetarian: 'vegetarian', halal: 'HALAL', reserve: 'Reserve a table' },
-  ar: { vegan: 'نباتي صرف', vegetarian: 'نباتي', halal: 'حلال', reserve: 'حجز طاولة' },
+  de: { vegan: 'vegan', vegetarian: 'vegetarisch', reserve: 'Tisch reservieren' },
+  en: { vegan: 'vegan', vegetarian: 'vegetarian', reserve: 'Reserve a table' },
+  ar: { vegan: 'نباتي صرف', vegetarian: 'نباتي', reserve: 'حجز طاولة' },
 };
-const halalNotes = {
-  de: 'Alle Fleisch- und Geflügelgerichte sind halal.',
-  en: 'All meat and poultry dishes are halal.',
-  ar: 'جميع أطباق اللحوم والدواجن حلال.',
-};
+const halalPattern = /halal|حلال/i;
 const ownerFaqAnswers = {
   de: [
-    'Ja, alle unsere Fleisch- und Hähnchengerichte sind halal.',
     'Ja, unsere Speisekarte bietet zahlreiche klar gekennzeichnete vegane und vegetarische Vorspeisen, Salate und Hauptgerichte.',
     'Nein. Reservierungen sind möglich, spontane Gäste sind bei uns ebenfalls herzlich willkommen.',
     'Ja, wir bieten Online-Bestellung, Lieferung und Abholung an. Die aktuellen Zeiten finden Sie auf unserer Bestellseite.',
     'Ja, wir bieten Catering für Feiern, Firmen und Gruppen an. Kontaktieren Sie uns gerne direkt für Details.',
   ],
   en: [
-    'Yes, all our meat and chicken dishes are halal.',
     'Yes, our menu offers many clearly marked vegan and vegetarian starters, salads and main dishes.',
     'No. Reservations are available, and we warmly welcome walk-in guests too.',
     'Yes, we offer online ordering, delivery and collection. You can find current times on our ordering page.',
     'Yes, we offer catering for celebrations, companies and groups. Please contact us directly for details.',
   ],
   ar: [
-    'نعم، جميع أطباق اللحوم والدجاج لدينا حلال.',
     'نعم، تضم قائمة طعامنا العديد من المقبلات والسلطات والأطباق الرئيسية النباتية والنباتية الصرفة، وكلها مميزة بعلامات واضحة.',
     'لا. الحجز متاح، ويسعدنا أيضًا استقبالكم دون حجز مسبق.',
     'نعم، نوفر الطلب عبر الإنترنت والتوصيل والاستلام. تجدون الأوقات الحالية في صفحة الطلب الخاصة بنا.',
@@ -211,19 +202,10 @@ for (const page of pages.filter(page => page.kind === 'menu')) {
       assertItem(cards[index], items[index], locked, page);
     });
   }
-  test(`${page.lang}: exactly ten halal title badges and one existing halal assurance`, () => {
-    const found = [];
-    cards.forEach((card, index) => {
-      const heading = card.match(/<h3>([\s\S]*?)<\/h3>/)[1];
-      if (heading.includes(`<span class="diet">${labels[page.lang].halal}</span>`)) found.push(items[index]['@id'].split('#')[1]);
-    });
-    assert.deepEqual(found.sort(), [...halalIds].sort());
-    const body = bodyFor(html);
-    const notes = [...body.matchAll(/<p class="halal-note">([^<]*)<\/p>/g)];
-    assert.equal(notes.length, 1);
-    assert.equal(decode(notes[0][1]), halalNotes[page.lang]);
-    assert.equal(body.split(halalNotes[page.lang]).length - 1, 1);
-    assert.ok(body.indexOf(notes[0][0]) < body.indexOf('<article class="menu-item">'));
+  test(`${page.lang}: no halal badge, assurance note, wording or HalalDiet markup`, () => {
+    assert.doesNotMatch(html, halalPattern);
+    assert.doesNotMatch(bodyFor(html), /class="halal-note"/);
+    assert.equal(items.filter(item => item.suitableForDiet === `${schema}/HalalDiet`).length, 0);
   });
 
   test(`${page.lang}: both diet consumers preserve vegan precedence and reject unapproved or invalid claims`, () => {
@@ -303,16 +285,19 @@ test('FAQ parity rejects a changed question, answer, missing pair or extra hidde
 test('item parity rejects missing, hidden, fake and incorrectly labeled badges', () => {
   const page = pages.find(page => page.route === '/speisekarte/');
   const html = read('speisekarte/index.html');
-  const index = lock.items.findIndex(item => item.id === 'kebbeh');
+  const index = lock.items.findIndex(item => item.id === 'hummus');
   const card = cardsFor(html)[index];
   const item = itemsFor(html)[index];
-  const badge = '<span class="diet">HALAL</span>';
+  const badge = '<span class="diet">vegan</span>';
   assertItem(card, item, lock.items[index], page);
-  for (const replacement of ['', '<span class="diet" hidden>HALAL</span>', '<span class="diet" aria-hidden="true">HALAL</span>', '<span class="sr-only">HALAL</span>', '<span class="diet">vegan</span>']) {
+  for (const replacement of ['', '<span class="diet" hidden>vegan</span>', '<span class="diet" aria-hidden="true">vegan</span>', '<span class="sr-only">vegan</span>', '<span class="diet">vegetarisch</span>', '<span class="diet">HALAL</span>']) {
     assert.throws(() => assertItem(card.replace(badge, replacement), item, lock.items[index], page), { code: 'ERR_ASSERTION' });
   }
-  const fake = cardsFor(html)[0].replace('</h3>', ` ${badge}</h3>`);
-  assert.throws(() => assertItem(fake, itemsFor(html)[0], lock.items[0], page), { code: 'ERR_ASSERTION' });
+  const meatIndex = lock.items.findIndex(item => item.id === 'kebbeh');
+  for (const fakeBadge of [badge, '<span class="diet">HALAL</span>']) {
+    const fake = cardsFor(html)[meatIndex].replace('</h3>', ` ${fakeBadge}</h3>`);
+    assert.throws(() => assertItem(fake, itemsFor(html)[meatIndex], lock.items[meatIndex], page), { code: 'ERR_ASSERTION' });
+  }
 });
 
 test('Restaurant checks reject noncanonical, duplicate, partial and altered identities', () => {
