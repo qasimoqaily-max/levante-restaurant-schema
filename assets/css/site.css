@@ -233,6 +233,15 @@ html[dir="rtl"] .hero::after { background: linear-gradient(270deg, rgba(6,40,45,
 .consent-choice { appearance: none; display: inline-flex; align-items: center; justify-content: center; flex: 1 1 9rem; min-height: 3rem; border: 1.5px solid var(--ink); border-radius: var(--radius); background: #fff; color: var(--ink); font: inherit; font-weight: 600; padding: .7rem 1rem; cursor: pointer; }
 .consent-choice:hover { background: var(--mist); }
 .consent-choice:focus-visible, .consent-settings:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.consent-short { display: none; }
+@media (max-width: 640px) {
+  .consent-panel { inset-inline: .5rem; bottom: .5rem; padding: .85rem 1rem; gap: .6rem; max-height: 60vh; }
+  .consent-content h2 { font-size: 1rem; margin-bottom: .2rem; }
+  .consent-long { display: none; }
+  .consent-short { display: block; margin-top: 0; }
+  .consent-actions { flex-wrap: nowrap; }
+  .consent-choice { min-height: 2.75rem; padding: .55rem .75rem; flex: 1 1 0; }
+}
 
 /* Motion */
 @keyframes heroZoom { from { transform: scale(1.12); } to { transform: scale(1); } }
