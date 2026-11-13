@@ -2,7 +2,7 @@
   de: {
     siteName: 'Levante Restaurant',
     skip: 'Zum Inhalt springen',
-    nav: { home: 'Start', menu: 'Speisekarte', gallery: 'Galerie', reviews: 'Bewertungen', contact: 'Kontakt' },
+    nav: { home: 'Startseite', menu: 'Speisekarte', gallery: 'Galerie', reviews: 'Bewertungen', contact: 'Kontakt' },
     actions: { reserve: 'Tisch reservieren', order: 'Online bestellen', call: 'Anrufen', directions: 'Route planen', menu: 'Speisekarte ansehen', reviews: 'Bewertungen öffnen' },
     hero: {
       eyebrow: 'Levantinische Küche in Radolfzell am Bodensee',
