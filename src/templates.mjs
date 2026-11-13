@@ -35,7 +35,7 @@ function nav(site, page) {
   const arRoute = page.kind === 'menu' ? '/ar/menu/' : '/ar/';
   return `<header class="site-header">
   <div class="shell header-inner">
-    <a class="brand" href="${home}" aria-label="${escapeHtml(c.siteName)}">
+    <a class="brand" href="${home}">
       <span class="brand-word">Levante</span><span class="brand-sub">Restaurant Radolfzell</span>
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span><span class="sr-only">Menu</span></button>
@@ -151,7 +151,7 @@ function renderHome(site, page, menu) {
         };
   const allItems = menu.sections.flatMap(section => section.items);
   const dishes = featuredDishIds.map(id => allItems.find(item => item.id === id)).filter(Boolean);
-  const photo = (file, text) => `<figure class="home-photo"><img src="/assets/img/${file}" width="1200" height="800" loading="lazy" decoding="async" alt="${escapeHtml(text)}"></figure>`;
+  const photo = (file, text) => `<figure class="home-photo"><img src="/assets/img/${file}" srcset="/assets/img/${file.replace('.webp', '-640.webp')} 640w, /assets/img/${file.replace('.webp', '-960.webp')} 960w, /assets/img/${file} 1200w" sizes="(max-width: 700px) 70vw, 22vw" width="1200" height="800" loading="lazy" decoding="async" alt="${escapeHtml(text)}"></figure>`;
   return `<main id="main">
   <section class="hero">
     <figure class="hero-media">
@@ -175,8 +175,8 @@ function renderHome(site, page, menu) {
     <div class="shell dishes">
       <div class="dish-photos" data-tilt>
         <div class="dish-photos-inner">
-          <img class="dish-photo-main" src="/assets/img/falafel-plate.webp" width="1200" height="800" loading="lazy" decoding="async" alt="${escapeHtml(alt.falafel)}">
-          <img class="dish-photo-small" src="/assets/img/mint-tea.webp" width="1200" height="800" loading="lazy" decoding="async" alt="${escapeHtml(alt.tea)}">
+          <img class="dish-photo-main" src="/assets/img/falafel-plate.webp" srcset="/assets/img/falafel-plate-640.webp 640w, /assets/img/falafel-plate-960.webp 960w, /assets/img/falafel-plate.webp 1200w" sizes="(max-width: 700px) 85vw, 40vw" width="1200" height="800" loading="lazy" decoding="async" alt="${escapeHtml(alt.falafel)}">
+          <img class="dish-photo-small" src="/assets/img/mint-tea.webp" srcset="/assets/img/mint-tea-640.webp 640w, /assets/img/mint-tea-960.webp 960w, /assets/img/mint-tea.webp 1200w" sizes="(max-width: 700px) 55vw, 22vw" width="1200" height="800" loading="lazy" decoding="async" alt="${escapeHtml(alt.tea)}">
         </div>
       </div>
       <div class="dishes-copy">
@@ -188,7 +188,7 @@ function renderHome(site, page, menu) {
     </div>
   </section>
   <section class="garden">
-    <figure class="garden-media"><img src="/assets/img/garden-wide.webp" width="1600" height="1068" loading="lazy" decoding="async" alt="${escapeHtml(alt.garden)}"></figure>
+    <figure class="garden-media"><img src="/assets/img/garden-wide.webp" srcset="/assets/img/garden-wide-640.webp 640w, /assets/img/garden-wide-960.webp 960w, /assets/img/garden-wide.webp 1600w" sizes="(max-width: 900px) 100vw, 100vw" width="1600" height="1068" loading="lazy" decoding="async" alt="${escapeHtml(alt.garden)}"></figure>
     <div class="shell garden-inner">
       <div class="garden-panel">
         <h2>${escapeHtml(c.garden.title)}</h2>
@@ -238,7 +238,7 @@ function renderMenu(site, page, menu) {
   <section class="section"><div class="shell menu-layout">
     <nav aria-label="${escapeHtml(c.nav.menu)}"><ul class="menu-jump">${menu.sections.map(section => `<li><a href="#${section.id}">${escapeHtml(section.name[page.lang])}</a></li>`).join('')}</ul></nav>
     ${menu.sections.map(section => `<section class="menu-section" id="${section.id}"><header><h2>${escapeHtml(section.name[page.lang])}</h2>${section.note[page.lang] ? `<p>${escapeHtml(section.note[page.lang])}</p>` : ''}</header><div class="menu-items">${section.items.map(item => renderMenuItem(item, page.lang)).join('')}</div></section>`).join('')}
-    <aside class="menu-note"><p>${escapeHtml(menu.note[page.lang])}</p></aside>
+    <div class="menu-note" role="note"><p>${escapeHtml(menu.note[page.lang])}</p></div>
   </div></section>
 </main>`;
 }
@@ -347,7 +347,7 @@ ${alternates}
   <link rel="icon" href="/assets/img/favicon.png" sizes="32x32">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="preload" href="/assets/fonts/alexandria-${page.lang === 'ar' ? 'arabic' : 'latin'}.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/css/site.css?v=20261113-consent">
+  <link rel="stylesheet" href="/assets/css/site.css?v=20261113-audit">
   <script type="application/ld+json">${JSON.stringify(graph)}</script>
   <script src="/assets/js/site.js" defer></script>
   <script id="measurement-config" type="application/json">${measurementConfig}</script>
@@ -370,5 +370,5 @@ export function renderRedirect(site, target, lang = 'de', replaceHistory = false
 }
 
 export function render404(site) {
-  return `<!doctype html><html lang="de" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Seite nicht gefunden | Levante Restaurant</title><meta name="description" content="Die angeforderte Seite wurde nicht gefunden. Zurück zum Levante Restaurant in Radolfzell oder direkt zur aktuellen Speisekarte."><meta name="robots" content="noindex,follow"><meta name="theme-color" content="#0a3a40"><link rel="icon" href="/assets/img/favicon.png" sizes="32x32"><link rel="preload" href="/assets/fonts/alexandria-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/assets/css/site.css?v=20261113-consent"></head><body><main id="main" class="error-page"><div><p class="eyebrow">404</p><h1>Seite nicht gefunden</h1><p>Die gesuchte Seite ist nicht verfügbar.</p><div class="actions"><a class="button button-primary" href="/">Zur Startseite</a><a class="button button-light" href="/speisekarte/">Zur Speisekarte</a></div><p class="error-alt" lang="en">Page not found. <a href="/en/">English homepage</a> · <a href="/menu-in-english/">Menu</a></p><p class="error-alt" lang="ar" dir="rtl">الصفحة غير موجودة. <a href="/ar/">الصفحة الرئيسية بالعربية</a> · <a href="/مينو-عربي/">المنيو</a></p></div></main></body></html>`;
+  return `<!doctype html><html lang="de" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Seite nicht gefunden | Levante Restaurant</title><meta name="description" content="Die angeforderte Seite wurde nicht gefunden. Zurück zum Levante Restaurant in Radolfzell oder direkt zur aktuellen Speisekarte."><meta name="robots" content="noindex,follow"><meta name="theme-color" content="#0a3a40"><link rel="icon" href="/assets/img/favicon.png" sizes="32x32"><link rel="preload" href="/assets/fonts/alexandria-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/assets/css/site.css?v=20261113-audit"></head><body><main id="main" class="error-page"><div><p class="eyebrow">404</p><h1>Seite nicht gefunden</h1><p>Die gesuchte Seite ist nicht verfügbar.</p><div class="actions"><a class="button button-primary" href="/">Zur Startseite</a><a class="button button-light" href="/speisekarte/">Zur Speisekarte</a></div><p class="error-alt" lang="en">Page not found. <a href="/en/">English homepage</a> · <a href="/menu-in-english/">Menu</a></p><p class="error-alt" lang="ar" dir="rtl">الصفحة غير موجودة. <a href="/ar/">الصفحة الرئيسية بالعربية</a> · <a href="/مينو-عربي/">المنيو</a></p></div></main></body></html>`;
 }
