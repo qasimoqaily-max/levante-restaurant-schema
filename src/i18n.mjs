@@ -24,7 +24,12 @@
       ['Gibt es vegane und vegetarische Gerichte?', 'Ja, unsere Speisekarte bietet zahlreiche klar gekennzeichnete vegane und vegetarische Vorspeisen, Salate und Hauptgerichte.'],
       ['Muss ich reservieren?', 'Nein. Reservierungen sind möglich, spontane Gäste sind bei uns ebenfalls herzlich willkommen.'],
       ['Bietet Levante Lieferung und Abholung an?', 'Ja, wir bieten Online-Bestellung, Lieferung und Abholung an. Die aktuellen Zeiten finden Sie auf unserer Bestellseite.'],
-      ['Bietet das Restaurant Catering an?', 'Ja, wir bieten Catering für Feiern, Firmen und Gruppen an. Kontaktieren Sie uns gerne direkt für Details.']
+      ['Bietet das Restaurant Catering an?', 'Ja, wir bieten Catering für Feiern, Firmen und Gruppen an. Kontaktieren Sie uns gerne direkt für Details.'],
+      ['Haben Sie an Feiertagen geöffnet?', 'Ja, wir haben auch an Feiertagen zu unseren regulären Öffnungszeiten geöffnet.'],
+      ['Kann man bei Ihnen zu Mittag essen?', 'Ja, freitags, samstags und sonntags öffnen wir bereits um 11:00 Uhr. Montags bis donnerstags öffnen wir um 16:00 Uhr.'],
+      ['Kann man im Garten sitzen?', 'Ja, bei passendem Wetter sitzen Sie in unserem Garten, ansonsten im gemütlichen Gastraum.'],
+      ['Ist das Levante kinderfreundlich und sind Hunde erlaubt?', 'Ja, Familien sind herzlich willkommen, Hochstühle und eine Kinderkarte sind vorhanden. Hunde sind im Gastraum und im Garten erlaubt.'],
+      ['Wie erreiche ich das Levante und ist es barrierefrei?', 'Sie finden uns in der Löwengasse 30 in der Radolfzeller Altstadt, wenige Gehminuten vom Bahnhof. Gebührenpflichtige Parkplätze gibt es an der Straße. Eingang und Sitzplätze sind rollstuhlgerecht, die Toilette leider nicht.']
     ],
     hoursTitle: 'Öffnungszeiten',
     contactTitle: 'Kontakt & Anfahrt',
@@ -71,7 +76,12 @@
       ['Are vegan and vegetarian dishes available?', 'Yes, our menu offers many clearly marked vegan and vegetarian starters, salads and main dishes.'],
       ['Is a reservation required?', 'No. Reservations are available, and we warmly welcome walk-in guests too.'],
       ['Do you offer delivery and collection?', 'Yes, we offer online ordering, delivery and collection. You can find current times on our ordering page.'],
-      ['Do you offer catering?', 'Yes, we offer catering for celebrations, companies and groups. Please contact us directly for details.']
+      ['Do you offer catering?', 'Yes, we offer catering for celebrations, companies and groups. Please contact us directly for details.'],
+      ['Are you open on public holidays?', 'Yes, we are open on public holidays during our regular opening hours.'],
+      ['Can I have lunch at Levante?', 'Yes, on Fridays, Saturdays and Sundays we open at 11:00. From Monday to Thursday we open at 16:00.'],
+      ['Can I sit in the garden?', 'Yes, in suitable weather you can sit in our garden, otherwise in our cosy dining room.'],
+      ['Is Levante family-friendly and are dogs allowed?', 'Yes, families are very welcome, and high chairs and a children’s menu are available. Dogs are allowed inside and in the garden.'],
+      ['How do I get to Levante and is it accessible?', 'You will find us at Löwengasse 30 in Radolfzell’s old town, a few minutes’ walk from the train station. Paid street parking is available. The entrance and seating are wheelchair accessible; the toilet unfortunately is not.']
     ],
     hoursTitle: 'Opening hours',
     contactTitle: 'Contact and directions',
@@ -118,7 +128,12 @@
       ['هل توجد أطباق نباتية؟', 'نعم، تضم قائمة طعامنا العديد من المقبلات والسلطات والأطباق الرئيسية النباتية والنباتية الصرفة، وكلها مميزة بعلامات واضحة.'],
       ['هل الحجز إلزامي؟', 'لا. الحجز متاح، ويسعدنا أيضًا استقبالكم دون حجز مسبق.'],
       ['هل تتوفر خدمة التوصيل والاستلام؟', 'نعم، نوفر الطلب عبر الإنترنت والتوصيل والاستلام. تجدون الأوقات الحالية في صفحة الطلب الخاصة بنا.'],
-      ['هل تتوفر خدمة الضيافة للمناسبات؟', 'نعم، نقدم خدمات الضيافة للحفلات والشركات والمجموعات. يسعدنا تواصلكم معنا مباشرة لمعرفة التفاصيل.']
+      ['هل تتوفر خدمة الضيافة للمناسبات؟', 'نعم، نقدم خدمات الضيافة للحفلات والشركات والمجموعات. يسعدنا تواصلكم معنا مباشرة لمعرفة التفاصيل.'],
+      ['هل تفتحون في أيام العطل الرسمية؟', 'نعم، نفتح في أيام العطل الرسمية حسب ساعات عملنا المعتادة.'],
+      ['هل يمكن تناول الغداء عندكم؟', 'نعم، نفتح أيام الجمعة والسبت والأحد من الساعة 11:00، ومن الاثنين إلى الخميس من الساعة 16:00.'],
+      ['هل يمكن الجلوس في الحديقة؟', 'نعم، عندما يسمح الطقس يمكنكم الجلوس في حديقتنا، وإلا ففي صالة المطعم.'],
+      ['هل المطعم مناسب للعائلات وهل يُسمح بالكلاب؟', 'نعم، نرحب بالعائلات، وتتوفر كراسٍ عالية للأطفال وقائمة طعام للأطفال. ويُسمح بالكلاب داخل المطعم وفي الحديقة.'],
+      ['كيف أصل إلى ليفانتي وهل المكان مهيأ لذوي الإعاقة؟', 'تجدوننا في Löwengasse 30 في البلدة القديمة في رادولفتسل، على بعد دقائق سيراً من محطة القطار. تتوفر مواقف مدفوعة على جانب الشارع. المدخل والمقاعد مهيأة للكراسي المتحركة، أما دورة المياه فليست مهيأة للأسف.']
     ],
     hoursTitle: 'ساعات العمل',
     contactTitle: 'التواصل والوصول',
