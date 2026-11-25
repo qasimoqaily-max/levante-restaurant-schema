@@ -2,6 +2,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { renderPage, renderRedirect, render404 } from '../src/templates.mjs';
+import { copy } from '../src/i18n.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
@@ -69,6 +70,42 @@ const urlEntries = pages.map(page => {
   return `  <url>\n    <loc>${site.baseUrl}${page.route}</loc>\n    <lastmod>${lastmod}</lastmod>${links ? `\n${links}` : ''}\n  </url>`;
 }).join('\n');
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urlEntries}\n</urlset>\n`);
+// llms.txt: a plain-text summary for AI assistants and AI search (llmstxt.org).
+// Built from the same site data and German FAQ as the pages, so it cannot drift from them.
+const b = site.business;
+const hours = site.hours.main;
+const span = ([open, close]) => `${open}–${close === '00:00' ? '24:00' : close}`;
+write('llms.txt', [
+  `# ${b.name} Radolfzell`,
+  '',
+  `> Restaurant mit levantinischer und arabischer Küche in ${b.locality}: Mezze, Falafel, Kebbeh, Tajine und Grillgerichte, viele vegane und vegetarische Gerichte. Verzehr im Restaurant und im Garten, Abholung, Lieferung und Catering.`,
+  '',
+  `- Adresse: ${b.street}, ${b.postalCode} ${b.locality}, Deutschland`,
+  `- Telefon: ${b.phoneDisplay}`,
+  `- E-Mail: ${b.email}`,
+  `- Öffnungszeiten: Mo–Do ${span(hours.monThu)}, Fr–Sa ${span(hours.friSat)}, So ${span(hours.sun)} Uhr`,
+  `- Küche: ${b.cuisines.join(', ')}`,
+  `- Preisniveau: ${b.priceRange}`,
+  '',
+  '## Seiten',
+  '',
+  `- [Startseite](${site.baseUrl}/): Überblick, Öffnungszeiten, Anfahrt und häufige Fragen`,
+  `- [Speisekarte](${site.baseUrl}/speisekarte/): aktuelle Speisekarte mit Preisen und veganen/vegetarischen Kennzeichnungen`,
+  `- [Menu in English](${site.baseUrl}/en/menu/): current menu in English`,
+  `- [المنيو بالعربية](${site.baseUrl}/ar/menu/): قائمة الطعام بالعربية`,
+  `- [Galerie](${site.baseUrl}/galerie/): Fotos aus Restaurant, Garten und Küche`,
+  `- [Bewertungen](${site.baseUrl}/bewertungen/): Links zu Google- und TripAdvisor-Bewertungen`,
+  '',
+  '## Reservieren und bestellen',
+  '',
+  `- [Tisch reservieren](${site.actions.reserve})`,
+  `- [Online bestellen](${site.actions.order})`,
+  '',
+  '## Häufige Fragen',
+  '',
+  ...copy.de.faq.map(([question, answer]) => `- ${question} ${answer}`),
+  '',
+].join('\n'));
 write('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${site.baseUrl}/sitemap.xml\n`);
 write('site.webmanifest', JSON.stringify({
   name: 'Levante Restaurant Radolfzell',
